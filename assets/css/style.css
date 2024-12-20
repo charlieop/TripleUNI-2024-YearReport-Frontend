@@ -1,0 +1,48 @@
+/* Gloal Colors */
+:root {
+  --clr-offwhite: hsla(33, 43%, 96%, 1);
+  --clr-purplr: hsla(269, 76%, 87%, 1);
+  --clr-brown: hsla(52, 15%, 19%, 1);
+  --clr-green: hsla(108, 27%, 40%, 1);
+  --clr-oragne: hsla(31, 91%, 79%, 1);
+  --clr-black: hsla(0, 0%, 0%, 1);
+
+  --clr-background: hsl(214, 76%, 51%);
+  --clr-text: var(--clr-offwhite);
+}
+
+/* Global Settings */
+:root {
+  --height: clamp(650px, 100svh, 1000px);
+  --width: clamp(375px, 100vw, 450px);
+
+  --transition: all 0.3s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  user-select: none;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+body {
+  color: var(--clr-text);
+}
+
+.page {
+  height: var(--height);
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  touch-action: manipulation;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+.figure {
+  font-size: var(--fs-figure);
+}
