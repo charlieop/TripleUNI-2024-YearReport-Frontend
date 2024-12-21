@@ -1,18 +1,15 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <h1>Page {{ PAGE_NUMBER }}</h1>
-    <br />
-    <button @click="appendNextPage(PAGE_NUMBER, true)">Show Next Page</button>
-    <br />
+    <br>
     <p>
-      It is normal if u see yellow background, it is an intention design to help
-      spot abnormaliies. This should be channged in the public version.
+      END
     </p>
   </div>
 </template>
 
 <script setup>
-const PAGE_NUMBER = 5;
+const PAGE_NUMBER = 17;
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
@@ -30,7 +27,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.page5 {
-  background-color: darksalmon;
+.page17 {
+  background-color: darkslateblue;
 }
 </style>

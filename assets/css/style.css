@@ -36,6 +36,7 @@ body {
   scroll-snap-align: start;
   position: relative;
   touch-action: manipulation;
+  overflow: clip;
 }
 
 .hide {
@@ -45,4 +46,11 @@ body {
 
 .figure {
   font-size: var(--fs-figure);
+}
+
+.content-block {
+  padding-inline: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }

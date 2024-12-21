@@ -39,7 +39,7 @@ onMounted(() => {
 }
 .page4 .bottom {
   position: absolute;
-  bottom: 3rem;
+  bottom: 10rem;
   left: 0;
   right: 0;
   padding: 1rem;

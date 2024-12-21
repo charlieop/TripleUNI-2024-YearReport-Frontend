@@ -1,7 +1,7 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="content">
-      <div class="text">
+      <div class="content-block">
         <p class="greeting" :class="{ hide: hide }">
           <span>XXX</span>
           <span>, <span class="figure">新年好</span>!</span>
@@ -134,12 +134,6 @@ onMounted(() => {
   color: var(--clr-oragne);
 }
 
-.text {
-  padding-inline: 2.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
 .text-list {
   position: relative;
 }
