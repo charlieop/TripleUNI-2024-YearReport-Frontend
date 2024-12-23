@@ -25,6 +25,6 @@ onMounted(() => {
 
 <style scoped>
 .page7 {
-  background-color: lightslategray;
+  background-color: #7cb6b2;
 }
 </style>

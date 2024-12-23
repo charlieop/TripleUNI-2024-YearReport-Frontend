@@ -48,6 +48,10 @@ body {
   font-size: var(--fs-figure);
 }
 
+.accent {
+  font-size: var(--fs-accent);
+}
+
 .content-block {
   padding-inline: 2.25rem;
   display: flex;

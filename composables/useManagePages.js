@@ -44,7 +44,7 @@ export function appendNextPage(by, scrollTo = false) {
     return;
   }
 
-  if (by >= showUpTo.value) {
+  if (by == showUpTo.value) {
     showUpTo.value++;
   }
 
@@ -52,7 +52,7 @@ export function appendNextPage(by, scrollTo = false) {
     setTimeout(() => {
       const nextPage = document.getElementById(`page${by + 1}`);
       nextPage.scrollIntoView({ behavior: "smooth" });
-    }, 200);
+    }, 100);
   }
 }
 
