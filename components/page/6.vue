@@ -161,8 +161,6 @@ onMounted(() => {
   scroll-snap-type: x mandatory;
   width: 100%;
   height: 100%;
-
-  overflow-x: scroll;
 }
 
 .button-container {
