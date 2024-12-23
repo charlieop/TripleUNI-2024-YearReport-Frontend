@@ -1,3 +1,4 @@
+
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <h1>Page {{ PAGE_NUMBER }}</h1>
