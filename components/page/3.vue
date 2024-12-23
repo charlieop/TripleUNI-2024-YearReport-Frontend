@@ -10,7 +10,7 @@
           </div>
           <div class="textAni" style="animation-delay: 0.2s;">
             <span class="font">
-              噗噗已经诞生
+              xx已经诞生
             </span>
             <span class="font_2">X</span>
             <span class="font">年</span>
@@ -35,14 +35,13 @@
             </span>
           </div>
           <div class="textAni" style="animation-delay: 1.0s;">
-            <span class="font">
-              是你和噗噗第一次见面的日子
+            <span class="font">是你和xx第一次见面的日子</span>
               <br />
               <br />
-            </span>
+           
           </div>
           <div class="textAni" style="animation-delay: 1.2s;">
-            <span class="font">噗噗与你相伴已经</span>
+            <span class="font">xx与你相伴已经</span>
             <span class="font_2">X</span>
             <span class="font">
               天了
@@ -59,7 +58,8 @@
           <div class="textAni" style="animation-delay: 1.6s;">
             <span class="font">你是第</span>
             <span class="font_2">X</span>
-            <span class="font">个注册噗噗的用户</span>
+            <span class="font">个注册xx的用户</span>
+           
           </div>
         </div>
         <div class="flex-col justify-start items-start self-stretch relative group_2">
@@ -73,8 +73,9 @@
               ——
               <br />
             </span>
+           
             <span class="font_3 text_2">
-              噗噗我真是万人迷呀
+              xx我真是万人迷呀
               <br />
             </span>
             <span class="font text_3">（得意）</span>
@@ -87,29 +88,45 @@
   </template>
   
   <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue'
   
   
-  
-  const PAGE_NUMBER = 3;
-  const hide = ref(true);
-  const showHint = ref(false);
+  const PAGE_NUMBER = 3
+  const hide = ref(true)
+  const showHint = ref(false)
   
   function init() {
-    console.log(`Page ${PAGE_NUMBER} initialized`);
+    console.log(`Page ${PAGE_NUMBER} initialized`)
+    // 先隐藏所有文本
+    const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
+    texts.forEach(el => el.classList.add('hide'))
   }
   
   function onShow() {
-    console.log(`Page ${PAGE_NUMBER} shown`);
-    hide.value = false;
-    showHint.value = true;
-    appendNextPage(PAGE_NUMBER);
+    console.log(`Page ${PAGE_NUMBER} shown`)
+    hide.value = false
+  
+    let time = 0
+    const delays = [0, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
+  
+    const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`))
+    textList.forEach((el, index) => {
+      setTimeout(() => {
+        unhide(el)
+      }, time += delays[index] ?? 200)
+    })
+  
+    // 所有文字出现后再append
+    setTimeout(() => {
+      showHint.value = true
+      appendNextPage(PAGE_NUMBER)
+    }, time + 200)
   }
   
   onMounted(() => {
-    init();
-    onEnterViewportForFirstTime(PAGE_NUMBER, onShow);
-  });
+    init()
+    onEnterViewportForFirstTime(PAGE_NUMBER, onShow)
+  })
   </script>
   
   <style scoped>
@@ -236,6 +253,7 @@
   .group_3 {
     text-align: center;
     width: 100%;
+    margin-top:-2.5rem;
   }
   .pos {
     position: relative;
@@ -267,21 +285,15 @@
     margin-top: 2rem;
   }
   .textAni {
-    animation-name: textAniKey;
-    animation-duration: 1.5s;
-    animation-timing-function: cubic-bezier(0, 0, 0.5, 1);
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-fill-mode: both;
-  }
-  @keyframes textAniKey {
-    0% {
-      transform: translateY(2vw);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0vw);
-      opacity: 1;
-    }
-  }
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.textAni.hide {
+  opacity: 0;
+}
+
+.textAni:not(.hide) {
+  opacity: 1;
+}
   </style>

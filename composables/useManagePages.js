@@ -11,12 +11,14 @@ import Page2 from "~/components/page/2.vue";
 import Page3 from "~/components/page/3.vue";
 import Page4 from "~/components/page/4.vue";
 import Page5 from "~/components/page/5.vue";
+
 export const PAGES = {
   Page1: Page1,
   Page2: Page2,
   Page3: Page3,
   Page4: Page4,
   Page5: Page5,
+ 
 };
 
 export const showUpTo = ref(1);

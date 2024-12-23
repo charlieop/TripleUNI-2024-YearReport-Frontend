@@ -8,7 +8,11 @@
       It is normal if u see yellow background, it is an intention design to help
       spot abnormaliies. This should be channged in the public version.
     </p>
+    <button @click="appendNextPage(PAGE_NUMBER)" class="bottom">
+      Show Next Page
+    </button>
   </div>
+  
 </template>
 
 <script setup>
