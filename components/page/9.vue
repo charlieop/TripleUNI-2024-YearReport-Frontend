@@ -49,7 +49,7 @@ function onShow() {
   }, (time += 1000));
 
   setTimeout(() => {
-    const hand = document.querySelector(".hand");
+    const hand = document.querySelector(".page9 .hand");
     hand.style.animationPlayState = "running";
   }, (time += 500));
 
