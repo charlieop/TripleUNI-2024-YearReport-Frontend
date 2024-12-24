@@ -15,8 +15,7 @@
         <div class="mt-12">
           <div class="textAni" style="animation-delay: 0.2s;">
           <span class="font_2">
-            今年，你很爱xx
-            </span>
+            今年，你很爱xx</span>
           </div>
          
        
@@ -88,12 +87,12 @@
     </div>
     <ScrollUpHint v-if="showHint" />
       <Footer />
-  </div>
+ </div>
 </template>
 
 <script setup>
 
-import { reactive, onMounted } from 'vue';
+import { onMounted } from 'vue';
 
 const PAGE_NUMBER = 4;
 const hide = ref(true)
@@ -125,8 +124,11 @@ function onShow() {
     showHint.value = true
     appendNextPage?.(PAGE_NUMBER) // 确保 appendNextPage 传递 true 参数
   }, time + 200)
-}
 
+  console.log(`Page ${PAGE_NUMBER} shown`);
+
+  
+}
 onMounted(() => {
   init()
   onEnterViewportForFirstTime?.(PAGE_NUMBER, onShow)
@@ -265,6 +267,9 @@ onMounted(() => {
 .group_5 {
   text-align: center;
 }
+.page4 {
+  background-color: #39372a;
+}
 .pos_2 {
   position: absolute;
   left: 0.62rem;
@@ -304,20 +309,11 @@ onMounted(() => {
   width: 21.88rem; /* 21.88rem */
   height: 17.25rem; /* 17.25rem */
 }
-.pos {
-  position: absolute;
-  left: 1.12rem;
-  bottom: 0;
-}
-.background {
-  position: absolute;
-  width: 24.56rem;
-  height: 8.19rem;
-  z-index: -1;
-}
-
 .text_2 {
   color: var(--clr-oragne);
+  font-size: var(--fs-primary);
+  font-family: var(--ff-accent);
+  line-height: 1.16rem;
 }
 .pos {
   position: absolute;

@@ -38,7 +38,8 @@
    
     <ScrollUpHint v-if="showHint" />
     <Footer />
-  </div>
+    </div>
+  
 </template>
 
 <script setup>
@@ -151,6 +152,9 @@ function onShow() {
     showHint.value = true
     appendNextPage(PAGE_NUMBER)
   }, time + 200)
+  console.log(`Page ${PAGE_NUMBER} shown`);
+
+
 }
 
 onMounted(() => {

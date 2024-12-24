@@ -1,7 +1,8 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <h1>Page {{ PAGE_NUMBER }}</h1>
-    <button @click="appendNextPage(PAGE_NUMBER, true)">Show Next Page</button>
+    <br />
+    <p>NOT DONE, going to the next page in 2 second...</p>
   </div>
 </template>
 
@@ -14,6 +15,10 @@ function init() {
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+
+  setTimeout(() => {
+    appendNextPage(PAGE_NUMBER, true);
+  }, 2000);
 }
 
 onMounted(() => {

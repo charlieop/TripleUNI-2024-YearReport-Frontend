@@ -96,6 +96,9 @@ function onShow() {
     showHint.value = true
     appendNextPage(PAGE_NUMBER)
   }, time + 400)
+  console.log(`Page ${PAGE_NUMBER} shown`);
+
+ 
 }
 
 onMounted(() => {
