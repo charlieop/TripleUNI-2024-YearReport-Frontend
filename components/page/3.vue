@@ -1,138 +1,105 @@
 <template>
-    <div class="flex-col page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-      <div class="flex-col self-start group">
-        <div class="self-end">
-          <div class="textAni">
-            <span class="font">
-              到今天
-              <br />
-            </span>
-          </div>
-          <div class="textAni" style="animation-delay: 0.2s;">
-            <span class="font">
-              xx已经诞生
-            </span>
-            <span class="font_2">X</span>
-            <span class="font">年</span>
-            <span class="font_2">X</span>
-            <span class="font">月</span>
-            <span class="font_2">X</span>
-            <span class="font">
-              日啦！
-              <br />
-              <br />
-            </span>
-          </div>
-          <div class="textAni" style="animation-delay: 0.8s;">
-            <span class="font_2">X</span>
-            <span class="font">年</span>
-            <span class="font_2">X</span>
-            <span class="font">月</span>
-            <span class="font_2">X</span>
-            <span class="font">
-              日
-              <br />
-            </span>
-          </div>
-          <div class="textAni" style="animation-delay: 1.0s;">
-            <span class="font">是你和xx第一次见面的日子</span>
-              <br />
-              <br />
-           
-          </div>
-          <div class="textAni" style="animation-delay: 1.2s;">
-            <span class="font">xx与你相伴已经</span>
-            <span class="font_2">X</span>
-            <span class="font">
-              天了
-              <br />
-            </span>
-          </div>
-          <div class="textAni" style="animation-delay: 1.4s;">
-            <span class="font">
-              还是如此一往情深！
-              <br />
-              <br />
-            </span>
-          </div>
-          <div class="textAni" style="animation-delay: 1.6s;">
-            <span class="font">你是第</span>
-            <span class="font_2">X</span>
-            <span class="font">个注册xx的用户</span>
-           
-          </div>
+  <div
+    class="flex-col page"
+    :class="`page${PAGE_NUMBER}`"
+    :id="`page${PAGE_NUMBER}`"
+  >
+    <div class="flex-col self-start group">
+      <div class="self-end content-block group_1">
+        <div class="textAni hide">
+
+          <p>到今天</p>
         </div>
-        <div class="flex-col justify-start items-start self-stretch relative group_2">
-          <img
-            class="image"
-            src="/imgs/3/bottle.svg"
-            alt=""
-          />
-          <div class="group_3 pos textAni" style="animation-delay: 1.8s;">
-            <span class="font_3 text">
-              ——
-              <br />
-            </span>
-           
-            <span class="font_3 text_2">
-              xx我真是万人迷呀
-              <br />
-            </span>
-            <span class="font text_3">（得意）</span>
-          </div>
+        <div class="textAni hide">
+          <p>
+        xx已经诞生
+        <span class="font_2">X</span>年<span class="font_2">X</span>月
+        <span class="font_2">X</span>日啦！
+          </p>
+        </div>
+        <div class="textAni hide">
+          <p>
+          <span class="font_2">X</span>年
+          <span class="font_2">X</span>月
+          <span class="font_2">X</span>日
+          </p>
+        </div>
+        <div class="textAni hide">
+          <p>是你和xx第一次见面的日子</p>
+        </div>
+        <div class="textAni hide">
+          <p>xx与你相伴已经
+          <span class="font_2">X</span>天了</p>
+        </div>
+        <div class="textAni hide">
+          <p>还是如此一往情深！</p>
+        </div>
+        <div class="textAni hide">
+          <p>
+          你是第
+          <span class="font_2">X</span>
+         个注册xx的用户</p>
         </div>
       </div>
-      <ScrollUpHint v-if="showHint" />
-      <Footer />
+      <div class="flex-col justify-start items-center  group_2">
+        <img class="image" src="/imgs/3/bottle.svg" alt="" />
+        <div class="group_3 pos textAni hide">
+          <span class="font_3 text">——</span>
+          <span class="font_3 text_2">xx我真是万人迷呀</span>
+          <span class="font text_3">（得意）</span>
+        </div>
+      </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref, onMounted } from 'vue'
-  
-  
-  const PAGE_NUMBER = 3
-  const hide = ref(true)
-  const showHint = ref(false)
-  
-  function init() {
-    console.log(`Page ${PAGE_NUMBER} initialized`)
-    // 先隐藏所有文本
-    const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
-    texts.forEach(el => el.classList.add('hide'))
-  }
-  
-  function onShow() {
-    console.log(`Page ${PAGE_NUMBER} shown`)
-    hide.value = false
-  
-    let time = 0
-    const delays = [0, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
-  
-    const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`))
-    textList.forEach((el, index) => {
-      setTimeout(() => {
-        unhide(el)
-      }, time += delays[index] ?? 200)
-    })
-  
-    // 所有文字出现后再append
+    <ScrollUpHint v-if="showHint" />
+    <Footer />
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+
+const PAGE_NUMBER = 3
+const hide = ref(true)
+const showHint = ref(false)
+
+function init() {
+  console.log(`Page ${PAGE_NUMBER} initialized`)
+  // 先隐藏所有文本
+  const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
+  texts.forEach(el => el.classList.add('hide'))
+}
+
+function onShow() {
+  console.log(`Page ${PAGE_NUMBER} shown`)
+  hide.value = false
+
+  let time = 0
+  const delays = [0, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
+
+  const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`))
+  textList.forEach((el, index) => {
     setTimeout(() => {
-      showHint.value = true
-      appendNextPage(PAGE_NUMBER)
-    }, time + 200)
-  }
-  
-  onMounted(() => {
-    init()
-    onEnterViewportForFirstTime(PAGE_NUMBER, onShow)
+      unhideAll(PAGE_NUMBER, [`.textAni:nth-child(${index + 1})`])
+    }, time += delays[index] ?? 200)
   })
-  </script>
+
+  // 所有文字出现后再append
+  setTimeout(() => {
+    showHint.value = true
+    appendNextPage(PAGE_NUMBER)
+  }, time + 200)
+}
+
+onMounted(() => {
+  init()
+  onEnterViewportForFirstTime(PAGE_NUMBER, onShow)
+})
+</script>
+
   
   <style scoped>
-  .mt-67 {
-    margin-top: 4.19rem;
-  }
+
   .flex-row {
     display: flex;
     flex-direction: row;
@@ -142,6 +109,7 @@
     display: flex;
     flex-direction: column;
     overflow-y:hidden;
+    gap:0;
   }
   .justify-start {
     justify-content: flex-start;
@@ -213,7 +181,7 @@
     position: relative;
   }
   .page3 {
-    padding: 3.5rem 0 1.5rem;
+    padding: 10% 0 5% 0;
     background-color: var(--clr-green);
     width: 100%;
     overflow-y: auto;
@@ -224,8 +192,11 @@
   }
   .group {
     overflow-x: hidden;
-    width: 21.53rem;
-    height: 40.85rem;
+   
+  }
+  .group_1{
+    width:auto;
+    height:38%vw;
   }
   .font {
     font-size: var(--fs-primary);
@@ -244,12 +215,11 @@
     overflow-x: hidden;
   }
   .image {
-     
-      width: 18.4rem; /* 294.37px / 16 */
-    height: 19.24rem; /* 307.78px / 16 */
-     margin-bottom: -2.5rpm;
-    
-  }
+  width: 73vw; /* 设备宽度的 73% */
+  height: 37vh; /* 设备高度的 36% */
+  margin-left:-3.5rem;
+  margin-bottom: -2.5rem;
+}
   .group_3 {
     text-align: center;
     width: 100%;
@@ -257,7 +227,7 @@
   }
   .pos {
     position: relative;
-    height:6.25rem;
+    height:10%;
   }
   .font_3 {
     font-size: 2rem;
