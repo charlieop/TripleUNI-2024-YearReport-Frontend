@@ -141,7 +141,6 @@ const handelToggle = () => {
   const page_width = scrollingContext.clientWidth;
 
   const targetScrollX = scrollX > page_width / 2 ? 0 : page_width;
-  console.log("targetScrollX", targetScrollX);
   scrollingContext.scrollTo({
     left: targetScrollX,
     behavior: "smooth",

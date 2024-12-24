@@ -76,7 +76,6 @@
 defineProps(["postInfo"]);
 
 function showDetail(e) {
-  console.log(e.target);
   const parentElement = e.target.closest(".post-wrapper");
   const dim = parentElement.querySelector(".dim");
   const postExpand = parentElement.querySelector(".post-expand");

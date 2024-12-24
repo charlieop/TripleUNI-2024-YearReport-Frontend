@@ -68,7 +68,6 @@ function onShow() {
     hour.style.animationPlayState = "running";
     minute.style.animationPlayState = "running";
   }, (time += 300));
-  console.log(time);
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [
       "li.pt1.hide",

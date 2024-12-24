@@ -7,8 +7,8 @@
     <div class="flex-col self-stretch">
       <div class="flex-col self-center group content-block">
         <div class="flex-row justify-end group_2">
-          <img class="image" src="/imgs/4/person.webp" />
-          <img class="self-start image_2" src="/imgs/4/2.webp" />
+          <img class="image run-ltr" src="/imgs/4/person.webp" />
+          <img class="self-start image_2 run-ltr" src="/imgs/4/2.webp" />
         </div>
         <div class="mt-12">
           <div class="textAni" style="animation-delay: 0.2s">
@@ -57,7 +57,7 @@
             <img class="image_4 pos_3" src="/imgs/4/broken heart.webp" />
           </div>
         </div>
-        <img class="image_3 pos" src="/imgs/4/star in.webp" />
+        <img class="image_3 pos star-in" src="/imgs/4/star in.webp" />
       </div>
     </div>
     <ScrollUpHint v-if="showHint" />
@@ -73,12 +73,16 @@ const hide = ref(true);
 const showHint = ref(false);
 
 function init() {
+  console.log(`Page ${PAGE_NUMBER} initialized`);
+
   // 将所有 .textAni 的内容先隐藏
   const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`);
   texts.forEach((el) => el.classList.add("hide"));
 }
 
 function onShow() {
+  console.log(`Page ${PAGE_NUMBER} shown`);
+
   hide.value = false;
   let time = 0;
   // 这里的延时数组可根据需要调整
@@ -98,8 +102,6 @@ function onShow() {
     showHint.value = true;
     appendNextPage?.(PAGE_NUMBER); // 确保 appendNextPage 传递 true 参数
   }, time + 200);
-
-  console.log(`Page ${PAGE_NUMBER} shown`);
 }
 onMounted(() => {
   init();
@@ -108,6 +110,36 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.run-ltr {
+  position: relative;
+  /* 单次从左向右移动并最终停留在终点 */
+  animation: runLeftToRight 2s ease-in-out forwards;
+}
+.star-in {
+  opacity: 0;
+  clip-path: inset(0 0 0 100%);
+  animation: moveIn 1s ease-in-out forwards;
+  animation-delay: 2s; /* 2秒后开始动画 */
+}
+
+@keyframes moveIn {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 50% 0 50%); /* 从中间开始 */
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0); /* 完全展开 */
+  }
+}
+@keyframes runLeftToRight {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .mt-12 {
   margin-top: 0.75rem;
 }
@@ -185,12 +217,12 @@ onMounted(() => {
   padding: 0 2.63rem;
 }
 .image {
-  margin-right: -4.44rem;
+  margin-right: -4.84rem;
   width: 4.13rem;
   height: 6.13rem;
 }
 .image_2 {
-  margin-right: 1.88rem;
+  margin-right: 3rem;
   margin-top: 2rem;
   width: 4vw;
   height: 2.1vh;
