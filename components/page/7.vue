@@ -80,7 +80,7 @@ onMounted(() => {
 .hotword {
   font-size: var(--fs-extra-large);
   transition: all 0.8s cubic-bezier(0.2, 0.1, 0.78, 1.44);
-  margin-block: 0rem 3rem;
+  margin-block: 0rem 1rem;
 }
 .hotword.hide {
   transform: translate(-100%);
@@ -92,7 +92,7 @@ onMounted(() => {
 .hand {
   width: 80%;
   position: absolute;
-  top: 53%;
+  top: 40%;
   right: -40%;
   animation: hand 2s infinite;
   transition: all 0.8s cubic-bezier(0.2, 0.1, 0.78, 1.44);

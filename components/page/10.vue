@@ -1,7 +1,7 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="decor-img">
-      <img src="/imgs/10/bg.webp" alt="" class="bg" />
+      <img src="/imgs/10/bg.svg" alt="" class="bg" />
       <img src="/imgs/10/fill.webp" alt="" class="decor fill hide" />
       <img src="/imgs/10/lines.webp" alt="" class="decor lines hide" />
       <img src="/imgs/10/nuts.webp" alt="" class="decor nuts hide" />
@@ -30,7 +30,7 @@
       </div>
       <div class="accent hide">
         <img
-          src="/imgs/10/text-background.webp"
+          src="/imgs/10/text-background.svg"
           alt=""
           class="text-background"
         />
@@ -143,33 +143,34 @@ onMounted(() => {
   position: absolute;
   top: 0;
   left: 0;
-  width: 90%;
-  height: 130%;
-  translate: -3% -15%;
+  width: 100%;
+  height: 100%;
+  scale: 1.6;
+  translate: -7% -2%;
+}
+.content-block {
+  z-index: 1;
 }
 
 .decor-img {
   position: absolute;
-  bottom: 45%;
-  right: -10%;
-  width: 90%;
-  translate: 0 100%;
+  bottom: 25%;
+  right: -7%;
+  translate: 0 63%;
+  scale: 1.2;
+  /* background-color: red; */
 }
 .decor {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
 }
-
 .nuts.hide {
   transform: none;
 }
 .fill.hide {
   transform: none;
 }
-
 .lines {
   filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.3));
 }

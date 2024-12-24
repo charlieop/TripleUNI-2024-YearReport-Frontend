@@ -35,7 +35,7 @@
       </div>
       <div class="subpage subpage2">
         <img
-          src="/imgs/6/stars.svg"
+          src="/imgs/6/stars.webp"
           alt=""
           class="stars"
           :style="{ '--_opacity-day': opacity }"

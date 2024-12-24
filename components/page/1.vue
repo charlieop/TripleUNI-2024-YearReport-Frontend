@@ -3,13 +3,13 @@
     <div class="content">
       <div>
         <div class="dome" :class="{ 'hide-decor': start }">
-          <img src="/imgs/home/dome.svg" alt="" class="frame" />
+          <img src="/imgs/home/dome.webp" alt="" class="frame" />
 
-          <img src="/imgs/home/UST.svg" alt="" class="decor ust" />
-          <img src="/imgs/home/HKU.svg" alt="" class="decor hku" />
-          <img src="/imgs/home/CU.svg" alt="" class="decor cu" />
+          <img src="/imgs/home/UST.webp" alt="" class="decor ust" />
+          <img src="/imgs/home/HKU.webp" alt="" class="decor hku" />
+          <img src="/imgs/home/CU.webp" alt="" class="decor cu" />
 
-          <img src="/imgs/home/comet.svg" alt="" class="decor comet" />
+          <img src="/imgs/home/comet.webp" alt="" class="decor comet" />
           <img
             src="/imgs/home/stars-1.svg"
             alt=""
@@ -24,8 +24,11 @@
         </div>
       </div>
       <div>
-        <div class="start-button" @click="handelStart">立即开始
-          <p class="home-footer" v-show="!start">点击即代表您同意我们的隐私政策</p>
+        <div class="start-button" @click="handelStart">
+          立即开始
+          <p class="home-footer" v-show="!start">
+            点击即代表您同意我们的隐私政策
+          </p>
         </div>
       </div>
     </div>
@@ -104,7 +107,7 @@ onMounted(() => {
   position: relative;
 }
 .frame {
-  width: calc(var(--width) * 0.80);
+  width: calc(var(--width) * 0.8);
   max-height: calc(0.7 * var(--height));
 }
 .hku {
