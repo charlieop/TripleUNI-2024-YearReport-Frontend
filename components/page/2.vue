@@ -123,7 +123,7 @@ onMounted(() => {
   display: grid;
   grid-template-rows: 2fr 3fr;
   gap: 1rem;
-  padding-block: 1.5rem 6rem;
+  padding-block: 3rem 6rem;
 }
 
 .greeting {

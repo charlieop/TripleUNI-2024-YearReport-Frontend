@@ -37,15 +37,14 @@
         <p>像屯粮的小松鼠一样 :D</p>
       </div>
     </div>
-    <div class="scroll-up-hint hide">
-      <ScrollUpHint style="filter: brightness(0)" />
-    </div>
+    <ScrollUpHint style="filter: brightness(0)" v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-brown)" />
   </div>
 </template>
 
 <script setup>
 const PAGE_NUMBER = 10;
+const shwoScrollUpHint = ref(false);
 
 const dummyPostInfo = {
   post_id: 13552,
@@ -102,7 +101,8 @@ function onShow() {
     unhideAll(PAGE_NUMBER, [".pt3 .accent", ".fill"]);
   }, (time += 1000));
   setTimeout(() => {
-    unhideAll(PAGE_NUMBER, [".pt3 .accent", ".nuts", ".scroll-up-hint"]);
+    unhideAll(PAGE_NUMBER, [".pt3 .accent", ".nuts"]);
+    shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
   }, (time += 1000));
 }

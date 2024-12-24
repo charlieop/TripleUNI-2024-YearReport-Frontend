@@ -43,7 +43,7 @@ video {
 }
 
 html {
-  hanging-punctuation: first last;
+  /* hanging-punctuation: first last; */
 }
 
 body {
