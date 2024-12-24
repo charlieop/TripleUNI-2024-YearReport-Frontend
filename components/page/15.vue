@@ -63,7 +63,12 @@ onMounted(() => {
 <style scoped>
 .page15 {
   background-color: var(--clr-green);
-  padding-top: calc(0.07 * var(--height));
+  padding-top: calc(0.06 * var(--height));
+}
+@media (min-height: 830px) {
+  .page15 {
+    padding-top: calc(0.10 * var(--height));
+  }
 }
 .content-block {
   text-align: center;

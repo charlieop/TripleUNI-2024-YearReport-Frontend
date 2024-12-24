@@ -1,54 +1,36 @@
 <template>
-  <div
-    class="flex-col page"
-    :class="`page${PAGE_NUMBER}`"
-    :id="`page${PAGE_NUMBER}`"
-  >
-    <div class="flex-col self-start group">
-      <div class="self-end content-block group_1">
-        <div class="textAni hide">
+  <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
+    <div class="content-block pt1">
+      <p class="hide">到今天</p>
+      <p class="hide">
+        XX已经诞生
+        <span class="figure">X</span>年<span class="figure">X</span>月
+        <span class="figure">X</span>日啦!
+      </p>
+      <div>
+        <p class="hide">
+          <span class="figure">X</span>年 <span class="figure">X</span>月
+          <span class="figure">X</span>日
+        </p>
+        <p class="hide">是你和XX第一次见面的日子</p>
+      </div>
+      <div>
+        <p class="hide">XX与你相伴已经<span class="figure">X</span>天了</p>
+        <p class="hide">还是如此一往情深 !</p>
+      </div>
+      <p class="hide">你是第<span class="figure">X</span>个注册XX的用户</p>
+      <div class="img-wrapper">
+        <img src="/imgs/3/bg.svg" alt="" class="bg" />
+        <img src="/imgs/3/bottle.svg" alt="" class="decor bottle hide" />
+        <img src="/imgs/3/wave.svg" alt="" class="decor wave" />
+        <img src="/imgs/3/bird.svg" alt="" class="decor bird hide" />
+      </div>
+    </div>
 
-          <p>到今天</p>
-        </div>
-        <div class="textAni hide">
-          <p>
-        xx已经诞生
-        <span class="font_2">X</span>年<span class="font_2">X</span>月
-        <span class="font_2">X</span>日啦！
-          </p>
-        </div>
-        <div class="textAni hide">
-          <p>
-          <span class="font_2">X</span>年
-          <span class="font_2">X</span>月
-          <span class="font_2">X</span>日
-          </p>
-        </div>
-        <div class="textAni hide">
-          <p>是你和xx第一次见面的日子</p>
-        </div>
-        <div class="textAni hide">
-          <p>xx与你相伴已经
-          <span class="font_2">X</span>天了</p>
-        </div>
-        <div class="textAni hide">
-          <p>还是如此一往情深！</p>
-        </div>
-        <div class="textAni hide">
-          <p>
-          你是第
-          <span class="font_2">X</span>
-         个注册xx的用户</p>
-        </div>
-      </div>
-      <div class="flex-col justify-start items-center  group_2">
-        <img class="image" src="/imgs/3/bottle.svg" alt="" />
-        <div class="group_3 pos textAni hide">
-          <span class="font_3 text">——</span>
-          <span class="font_3 text_2">xx我真是万人迷呀</span>
-          <span class="font text_3">（得意）</span>
-        </div>
-      </div>
+    <div class="content-block pt2">
+      <p class="text hide">——</p>
+      <p class="text highlight hide">XX我真是万人迷呀</p>
+      <p class="hide">(得意)</p>
     </div>
     <ScrollUpHint v-if="showHint" />
     <Footer />
@@ -56,17 +38,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
-const PAGE_NUMBER = 3
-const hide = ref(true)
-const showHint = ref(false)
+const PAGE_NUMBER = 3;
+const hide = ref(true);
+const showHint = ref(false);
 
 function init() {
-  console.log(`Page ${PAGE_NUMBER} initialized`)
+  console.log(`Page ${PAGE_NUMBER} initialized`);
   // 先隐藏所有文本
-  const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
-  texts.forEach(el => el.classList.add('hide'))
+  const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`);
+  texts.forEach((el) => el.classList.add("hide"));
 }
 
 function onShow() {
@@ -97,8 +79,57 @@ function onShow() {
     appendNextPage(PAGE_NUMBER)
   }, time + 400)
   console.log(`Page ${PAGE_NUMBER} shown`);
+  hide.value = false;
 
- 
+  let time = 0;
+
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt1 > p:nth-child(1)"]);
+  }, (time += 1500));
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt1 > p:nth-child(2)"]);
+  }, (time += 500));
+
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".bottle"]);
+  }, (time += 500));
+
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(3) p:nth-child(1)"]);
+  }, (time += 1500));
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(3) p:nth-child(2)"]);
+  }, (time += 500));
+
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(4) p:nth-child(1)"]);
+  }, (time += 1000));
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(4) p:nth-child(2)"]);
+  }, (time += 500));
+
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".bird"]);
+  }, (time += 500));
+
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(5)"]);
+  }, (time += 1500));
+
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(1)"]);
+  }, (time += 2000));
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(2)"]);
+  }, (time += 500));
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(3)"]);
+  }, (time += 500));
+
+  setTimeout(() => {
+    showHint.value = true;
+    appendNextPage(PAGE_NUMBER);
+  }, (time += 500));
 }
 
 onMounted(() => {
@@ -107,128 +138,110 @@ onMounted(() => {
 })
 </script>
 
-  
-  <style scoped>
+<style scoped>
+p {
+  text-wrap: balance;
+}
+.page3 {
+  padding-top: 5%;
+  background-color: var(--clr-green);
+}
+.content-block {
+  gap: 0.375rem;
+}
 
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-    overflow-x: hidden;
+@media (min-height: 650px) {
+  .content-block {
+    gap: 0.75rem;
   }
-  .flex-col {
-    display: flex;
-    flex-direction: column;
-    overflow-y:hidden;
-    gap:0;
+}
+@media (min-height: 730px) {
+  .content-block {
+    gap: 1rem;
   }
-  .justify-start {
-    justify-content: flex-start;
+}
+@media (min-height: 790px) {
+  .content-block {
+    gap: 0.5rem;
   }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-  .justify-between {
-    justify-content: space-between;
-  }
-  .justify-around {
-    justify-content: space-around;
-  }
-  .justify-evenly {
-    justify-content: space-evenly;
-  }
-  .items-start {
-    align-items: flex-start;
-  }
-  .items-end {
-    align-items: flex-end;
-  }
-  .items-center {
-    align-items: center;
-  }
-  .items-baseline {
-    align-items: baseline;
-  }
-  .items-stretch {
-    align-items: stretch;
-  }
-  .self-start {
-    align-self: flex-start;
-  }
-  .self-end {
-    align-self: flex-end;
-  }
-  .self-center {
-    align-self: center;
-  }
-  .self-baseline {
-    align-self: baseline;
-  }
-  .self-stretch {
-    align-self: stretch;
-  }
-  .flex-1 {
-    flex: 1 1 0%;
-  }
-  .flex-auto {
-    flex: 1 1 auto;
-  }
-  .grow {
-    flex-grow: 1;
-  }
-  .grow-0 {
-    flex-grow: 0;
-  }
-  .shrink {
-    flex-shrink: 1;
-  }
-  .shrink-0 {
-    flex-shrink: 0;
-  }
-  .relative {
-    position: relative;
-  }
+}
+@media (min-height: 850px) {
   .page3 {
-    padding: 10% 0 5% 0;
-    background-color: var(--clr-green);
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-    display: flex;
-    flex-direction: column;
+    padding-top: 20%;
   }
-  .group {
-    overflow-x: hidden;
-   
+}
+
+.img-wrapper {
+  width: 80%;
+  margin-block: -18% -20%;
+  scale: 1.3;
+  position: relative;
+}
+.decor {
+  top: 0;
+  left: 0;
+}
+.bottle {
+  animation: bottle 4s infinite, wave 5s infinite;
+}
+.wave {
+  animation: wave 5s infinite;
+}
+@keyframes bottle {
+  0% {
+    transform: translateX(3px) rotate(-3deg);
   }
-  .group_1{
-    width:auto;
-    height:38%vw;
+  50% {
+    transform: translateX(-3px) rotate(3deg);
   }
-  .font {
-    font-size: var(--fs-primary);
-    font-family: var(--ff-primary);
-    line-height: 1.5rem;
-    color: var(--clr-text);
+  100% {
+    transform: translateX(3px) rotate(-3deg);
   }
-  .font_2 {
-    font-size: var(--fs-figure);
-    font-family: var(--ff-primary);
-    line-height: 2.69rem;
-    color: var(--clr-text);
+}
+@keyframes wave {
+  0% {
+    translate: 0 -1%;
   }
-  .group_2 {
-    margin-top: -2.75rem;
-    overflow-x: hidden;
+  50% {
+    translate: 0 1%;
   }
-  .image {
-  width: 73vw; /* 设备宽度的 73% */
-  height: 37vh; /* 设备高度的 36% */
-  margin-left:-3.5rem;
-  margin-bottom: -2.5rem;
+  100% {
+    translate: 0 -1%;
+  }
+}
+.bird {
+  top: 10%;
+  animation: bird 10s infinite;
+}
+@keyframes bird {
+  0% {
+    transform: translate(5rem, 0);
+  }
+  25% {
+    transform: translate(2rem, 2rem);
+  }
+  50% {
+    transform: translate(-10rem, -1rem);
+  }
+  51% {
+    transform: translate(-10rem, -0.5rem) rotateY(180deg);
+  }
+  75% {
+    transform: translate(-3rem, 2rem) rotateY(180deg);
+  }
+  100% {
+    transform: translate(5rem, 0);
+  }
+}
+
+.pt2 {
+  text-align: center;
+}
+.text {
+  font-size: 2rem;
+}
+.highlight {
+  color: var(--clr-oragne);
 }
   .group_3 {
     text-align: center;

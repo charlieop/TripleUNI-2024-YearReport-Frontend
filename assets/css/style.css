@@ -13,7 +13,7 @@
 
 /* Global Settings */
 :root {
-  --height: clamp(650px, 100svh, 1000px);
+  --height: clamp(650px, 100svh, 950px);
   --width: clamp(375px, 100vw, 450px);
 
   --transition: all 0.3s ease-in-out;
@@ -58,6 +58,13 @@ body {
   flex-direction: column;
   gap: 0.75rem;
 }
+
 .decor {
   position: absolute;
+}
+
+@media (min-height: 790px) {
+  .content-block {
+    gap: 1.25rem;
+  }
 }

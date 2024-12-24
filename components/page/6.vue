@@ -13,7 +13,7 @@
     </div>
     <div class="scrolling-context">
       <div class="subpage subpage1">
-        <div class="text-area">
+        <div class="content-block">
           <p class="hide prompt">
             <span class="figure">有一天</span>你比XX起得还要早
           </p>
@@ -40,7 +40,7 @@
           class="stars"
           :style="{ '--_opacity-day': opacity }"
         />
-        <div class="text-area">
+        <div class="content-block">
           <p class="hide prompt">
             <span class="figure">有一天</span>星星都在数人类的时候✨
           </p>
@@ -52,7 +52,7 @@
         <div class="post-container hide">
           <Post :post-info="dummyPostInfo" />
         </div>
-        <div class="text-area">
+        <div class="content-block">
           <p class="accent hide">一定很辛苦吧👉🏻👈🏻</p>
         </div>
         <ScrollUpHint v-show="shwoScrollUpHint" />
@@ -185,7 +185,7 @@ onMounted(() => {
   padding-inline: 2.25rem;
 }
 
-.text-area {
+.content-block {
   padding: 0 1rem;
   text-align: center;
 }

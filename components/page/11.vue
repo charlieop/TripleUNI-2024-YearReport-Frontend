@@ -76,10 +76,16 @@ onMounted(() => {
   background-color: #eeb77a;
   padding-top: calc(0.05 * var(--height));
 }
+@media (min-height: 790px) {
+  .page11 {
+    background-color: #eeb77a;
+    padding-top: calc(0.08 * var(--height));
+  }
+}
+
 .content-block {
   color: var(--clr-brown);
   text-align: center;
-  gap: 0.5rem;
 }
 .title {
   position: relative;

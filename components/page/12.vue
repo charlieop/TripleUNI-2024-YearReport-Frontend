@@ -122,6 +122,11 @@ onMounted(() => {
   gap: 0.25rem;
   padding-bottom: calc(0.03 * var(--height));
 }
+@media (min-height: 860px) {
+  .content-block {
+    padding-bottom: calc(0.05 * var(--height));
+  }
+}
 .title {
   position: relative;
 }

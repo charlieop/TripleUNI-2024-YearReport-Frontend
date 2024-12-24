@@ -202,16 +202,25 @@ onMounted(() => {
 
 .imgAni:not(.hide) {
   opacity: 1;
+<<<<<<< HEAD
   clip-path: inset(0 0 0 0);
 }
 
+=======
+  transform: translateX(0);
+}
+>>>>>>> faa8c455a73c0aa11f89196f05b1b304f99bccc1
   .singleLine{
   display: inline-block;
   white-space: nowrap;
 }
 .chart-wrapper {
   width: 80%;
+<<<<<<< HEAD
   height: 25vh;
+=======
+  height: 16vh;
+>>>>>>> faa8c455a73c0aa11f89196f05b1b304f99bccc1
   min-height: 100px;
   flex-shrink: 0;
   margin:0;
@@ -298,7 +307,16 @@ onMounted(() => {
     margin-left: 0.38rem;
     margin-top:5rem;
   }
+<<<<<<< HEAD
  
+=======
+  .font_2 {
+    font-size: 1.25rem;
+    font-family: AaTangYuanTi;
+    line-height: 1.5rem;
+    color: #ffffff;
+  }
+>>>>>>> faa8c455a73c0aa11f89196f05b1b304f99bccc1
   .text_2 {
     line-height: 1.16rem;
   }

@@ -77,6 +77,7 @@ onMounted(() => {
   text-align: center;
   gap: 0;
 }
+
 .highlight {
   position: relative;
   font-family: var(--ff-accent);
@@ -98,6 +99,15 @@ onMounted(() => {
   margin-top: 1.5rem;
   position: relative;
   width: 100%;
+}
+@media (min-height: 850px) {
+  .page14 {
+    padding-top: calc(0.1 * var(--height));
+  }
+  .emoji-wrapper {
+    margin-top: 2.5rem;
+    scale: 1.1;
+  }
 }
 .bg {
   width: 85%;
