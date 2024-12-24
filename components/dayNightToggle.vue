@@ -116,7 +116,6 @@
 }
 
 .decor {
-  position: absolute;
   transition: none;
 }
 .cloud1 {

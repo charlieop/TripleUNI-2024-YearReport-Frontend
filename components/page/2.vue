@@ -79,7 +79,7 @@ function onShow() {
   setTimeout(() => {
     const pt1 = document.querySelector(".page2 li.pt1");
     pt1.classList.add("hide");
-  }, (time += 5000));
+  }, (time += 3000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, ["li.pt2.hide", "img.grass.hide"]);
   }, (time += 1500));
@@ -92,7 +92,7 @@ function onShow() {
     minute.classList.add("hide");
     const pt2 = document.querySelector(".page2 li.pt2");
     pt2.classList.add("hide");
-  }, (time += 5000));
+  }, (time += 3000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, ["li.pt3.hide", "img.ground.hide"]);
   }, (time += 1500));
@@ -103,7 +103,6 @@ function onShow() {
     showHint.value = true;
     appendNextPage(PAGE_NUMBER);
   }, (time += 1000));
-
 }
 
 onMounted(() => {
@@ -154,13 +153,9 @@ onMounted(() => {
 .base {
   width: calc(0.8 * var(--width));
 }
-.decor {
-  position: absolute;
-  left: 0;
-  display: block;
-}
 .grass {
   /* display: none; */
+  left: 0;
   top: 0;
   scale: 1.08;
   overflow: clip;
@@ -226,6 +221,7 @@ onMounted(() => {
 }
 .ground {
   bottom: -1rem;
+  left: 0;
 }
 .ground.hide {
   transform: scaleY(0);

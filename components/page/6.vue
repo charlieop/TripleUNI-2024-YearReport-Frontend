@@ -1,7 +1,7 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="button-container">
-      <div class="night-decor" :style="{ '--_opacity-day': opacity }">
+      <div class="night-decor decor" :style="{ '--_opacity-day': opacity }">
         <img src="/imgs/6/plant.svg" alt="" class="plant" />
         <img src="/imgs/6/cat.svg" alt="" class="cat" />
       </div>
@@ -272,7 +272,6 @@ onMounted(() => {
 .night-decor {
   --_opacity-day: 1;
   --_opacity-night: calc(1 - var(--_opacity-day));
-  position: absolute;
   width: 100%;
   top: 0;
   right: 1.5rem;

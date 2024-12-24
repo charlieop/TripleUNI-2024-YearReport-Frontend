@@ -107,9 +107,6 @@ onMounted(() => {
   width: calc(var(--width) * 0.80);
   max-height: calc(0.7 * var(--height));
 }
-.decor {
-  position: absolute;
-}
 .hku {
   width: 43%;
   top: -14%;
