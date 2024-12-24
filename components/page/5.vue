@@ -6,7 +6,7 @@
       </p>
     </div>
     <img
-      class="image pos "
+      class="image pos star-twinkle"
       src="/imgs/5/star out.webp"
     />
     <div class="chart-wrapper imgAni hide" ref="chartRef"></div>
@@ -172,26 +172,55 @@ onMounted(() => {
 <style scoped lang="css">
 .imgAni {
   opacity: 0;
-  transform: translateX(-20px);
-  transition: all 1.0s ease-out;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.0s ease-out, opacity 1.0s ease-out;
+}
+.star-twinkle {
+  /* 1.5s闪烁一次，前后交替、无限循环 */
+  animation: flicker 1.5s infinite alternate ease-in-out;
 }
 
+/* 通过opacity和scale实现星星闪烁 */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .imgAni.hide {
   opacity: 0;
-  transform: translateX(-20px);
+  clip-path: inset(0 100% 0 0);
 }
 
 .imgAni:not(.hide) {
   opacity: 1;
+<<<<<<< HEAD
+  clip-path: inset(0 0 0 0);
+}
+
+=======
   transform: translateX(0);
 }
+>>>>>>> faa8c455a73c0aa11f89196f05b1b304f99bccc1
   .singleLine{
   display: inline-block;
   white-space: nowrap;
 }
 .chart-wrapper {
   width: 80%;
+<<<<<<< HEAD
+  height: 25vh;
+=======
   height: 16vh;
+>>>>>>> faa8c455a73c0aa11f89196f05b1b304f99bccc1
   min-height: 100px;
   flex-shrink: 0;
   margin:0;
@@ -278,12 +307,16 @@ onMounted(() => {
     margin-left: 0.38rem;
     margin-top:5rem;
   }
+<<<<<<< HEAD
+ 
+=======
   .font_2 {
     font-size: 1.25rem;
     font-family: AaTangYuanTi;
     line-height: 1.5rem;
     color: #ffffff;
   }
+>>>>>>> faa8c455a73c0aa11f89196f05b1b304f99bccc1
   .text_2 {
     line-height: 1.16rem;
   }

@@ -52,6 +52,32 @@ function init() {
 }
 
 function onShow() {
+  console.log(`Page ${PAGE_NUMBER} shown`)
+  hide.value = false
+
+  let time = 0
+  const delays = [200, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
+
+  const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni:not(.group_3)`))
+  textList.forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.remove('hide')
+    }, time += delays[index] ?? 200)
+  })
+
+  // 最后一部分文字动画
+  setTimeout(() => {
+    const group3 = document.querySelector(`.page${PAGE_NUMBER} .group_3`)
+    if (group3) {
+      group3.classList.remove('hide')
+    }
+  }, time + 200)
+
+  // 所有文字出现后再append
+  setTimeout(() => {
+    showHint.value = true
+    appendNextPage(PAGE_NUMBER)
+  }, time + 400)
   console.log(`Page ${PAGE_NUMBER} shown`);
   hide.value = false;
 
@@ -107,10 +133,9 @@ function onShow() {
 }
 
 onMounted(() => {
-  init();
-
-  onEnterViewportForFirstTime(PAGE_NUMBER, onShow);
-});
+  init()
+  onEnterViewportForFirstTime(PAGE_NUMBER, onShow)
+})
 </script>
 
 <style scoped>
@@ -218,4 +243,50 @@ p {
 .highlight {
   color: var(--clr-oragne);
 }
-</style>
+  .group_3 {
+    text-align: center;
+    width: 100%;
+    margin-top:-2.5rem;
+  }
+  .pos {
+    position: relative;
+    height:10%;
+  }
+  .font_3 {
+    font-size: 2rem;
+    font-family: var(--ff-primary);
+    line-height: 2.38rem;
+  }
+  .text {
+    color: var(--clr-offwhite);
+  }
+  .text_2 {
+    color: var(--clr-oragne);
+    display: block;
+    text-align: center;
+  }
+  .text_3 {
+    color: var(--clr-offwhite);
+  }
+  .text_4 {
+    color: var(--clr-offwhite);
+    font-size: var(--fs-primary);
+    font-family: var(--ff-accent);
+    line-height: 1.16rem;
+  }
+  .hint-wrapper {
+    margin-top: 2rem;
+  }
+  .textAni {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.textAni.hide {
+  opacity: 0;
+}
+
+.textAni:not(.hide) {
+  opacity: 1;
+}
+  </style>
