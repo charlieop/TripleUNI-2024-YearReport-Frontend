@@ -76,6 +76,11 @@ onMounted(() => {
 .page1 {
   background-color: var(--clr-offwhite);
 }
+@media (min-height: 860px) {
+  .page1 {
+    padding-top: calc(0.04 * var(--height));
+  }
+}
 .page1 .content {
   display: grid;
   grid-template-rows: 1fr auto;

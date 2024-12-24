@@ -100,7 +100,6 @@ onMounted(() => {
 }
 .content-block {
   text-align: center;
-  gap: 0;
   margin-bottom: calc(0.05 * var(--height));
 }
 .pt2 {
@@ -108,7 +107,7 @@ onMounted(() => {
 }
 .decor-img {
   position: absolute;
-  bottom: 7%;
+  bottom: 0%;
   right: 5%;
   animation: move 3s infinite linear;
 }
@@ -128,7 +127,6 @@ onMounted(() => {
     filter: brightness(1.2);
   }
 }
-
 @keyframes move {
   0% {
     transform: rotate(0deg) translate(0.5rem) rotate(0deg);
@@ -140,6 +138,15 @@ onMounted(() => {
     transform: rotate(-360deg) translate(0.5rem) rotate(360deg);
   }
 }
+@media (min-height: 750px) {
+  .page16 {
+    background-color: var(--clr-green);
+    padding-top: calc(0.08 * var(--height));
+  }
+  .decor-img {
+    bottom: 5%;
+  }
+}
 
 .searchbar {
   position: relative;
@@ -148,7 +155,7 @@ onMounted(() => {
   background-color: var(--clr-offwhite);
   padding: 0.835rem 3.5rem;
   text-align: left;
-  font-size: var(--fs-accent);
+  font-size: 24px;
   font-family: monospace;
 }
 .decor {

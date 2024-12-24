@@ -89,7 +89,7 @@ onMounted(() => {
   left: 50%;
   translate: -50% -50%;
   color: var(--clr-green);
-  font-size: 8.125rem;
+  font-size: 6.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

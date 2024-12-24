@@ -1,8 +1,6 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-    <h1>Page {{ PAGE_NUMBER }}</h1>
-    <br />
-    <p>NOT DONE, going to the next page in 2 second...</p>
+    
   </div>
 </template>
 

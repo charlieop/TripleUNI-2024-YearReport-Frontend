@@ -32,6 +32,19 @@
   --fs-extra-large: 8.125rem;
 }
 
+@media (min-height: 790px) {
+  :root {
+    --fs-primary: 24px;
+    --fs-accent: 28px;
+    --fs-figure: 44px;
+    --fs-large: 56px;
+    --fs-extra-large: 140px;
+  }
+  html {
+    font-size: 20px;
+  }
+}
+
 body {
   font-family: var(--ff-primary);
   font-size: var(--fs-primary);
