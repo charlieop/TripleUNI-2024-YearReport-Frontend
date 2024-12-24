@@ -211,7 +211,7 @@ onMounted(() => {
 }
 .chart-wrapper {
   width: 80%;
-  height: 16vh;
+  height: 25vh;
   min-height: 100px;
   flex-shrink: 0;
   margin:0;
