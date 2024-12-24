@@ -29,15 +29,15 @@
       <div class="image">
         <div class="images-wrapper">
           <img
-            src="/imgs/2/background.svg"
+            src="/imgs/2/background.webp"
             alt=""
             class="base"
             :class="{ hide: hide }"
           />
           <div class="hour-hand clock-hand hide"></div>
           <div class="minute-hand clock-hand hide"></div>
-          <img src="/imgs/2/grass.svg" alt="" class="decor grass hide" />
-          <img src="/imgs/2/clock.svg" alt="" class="decor clock hide" />
+          <img src="/imgs/2/grass.webp" alt="" class="decor grass hide" />
+          <img src="/imgs/2/clock.webp" alt="" class="decor clock hide" />
           <img src="/imgs/2/ground.svg" alt="" class="decor ground hide" />
           <img src="/imgs/2/rabbit.svg" alt="" class="decor rabbit hide" />
         </div>
@@ -79,7 +79,7 @@ function onShow() {
   setTimeout(() => {
     const pt1 = document.querySelector(".page2 li.pt1");
     pt1.classList.add("hide");
-  }, (time += 5000));
+  }, (time += 3000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, ["li.pt2.hide", "img.grass.hide"]);
   }, (time += 1500));
@@ -92,7 +92,7 @@ function onShow() {
     minute.classList.add("hide");
     const pt2 = document.querySelector(".page2 li.pt2");
     pt2.classList.add("hide");
-  }, (time += 5000));
+  }, (time += 3000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, ["li.pt3.hide", "img.ground.hide"]);
   }, (time += 1500));
@@ -103,7 +103,6 @@ function onShow() {
     showHint.value = true;
     appendNextPage(PAGE_NUMBER);
   }, (time += 1000));
-
 }
 
 onMounted(() => {
@@ -124,7 +123,7 @@ onMounted(() => {
   display: grid;
   grid-template-rows: 2fr 3fr;
   gap: 1rem;
-  padding-block: 1.5rem 6rem;
+  padding-block: 3rem 6rem;
 }
 
 .greeting {
@@ -151,24 +150,49 @@ onMounted(() => {
 .images-wrapper {
   position: relative;
 }
+
 .base {
   width: calc(0.8 * var(--width));
 }
 .decor {
   position: absolute;
+  top: 0;
   left: 0;
-  display: block;
 }
 .grass {
-  /* display: none; */
-  top: 0;
-  scale: 1.08;
   overflow: clip;
+  scale: 1.08;
 }
 .grass.hide {
   transform: scale(1.45);
 }
+.clock {
+  top: -2%;
+  scale: 0.9;
+}
+.clock.hide {
+  transform: rotate(-45deg) scale(0);
+}
+.ground {
+  top: unset;
+  bottom: -6%;
+  transform-origin: bottom;
+}
+.ground.hide {
+  transform: scaleY(0);
+}
+.rabbit {
+  width: 40%;
+  top: unset;
+  bottom: 0;
+  left: 55%;
+  translate: -50% 0;
+  transform-origin: bottom;
+}
 
+.rabbit.hide {
+  transform: rotateX(90deg);
+}
 .clock-hand {
   --_threshold: 0.25;
   position: absolute;
@@ -179,7 +203,6 @@ onMounted(() => {
   border-radius: 60% 30% 30% 60%;
   transition: all 1.5s ease-in;
 }
-
 .hour-hand {
   --_length: 4rem;
   --_start-at: 30deg;
@@ -212,30 +235,5 @@ onMounted(() => {
       translateX(calc(-1 * var(--_threshold) * var(--_length)))
       rotate(calc(var(--_start-at) + 360deg));
   }
-}
-
-.clock {
-  width: calc(0.8 * var(--width));
-  top: 0;
-  top: -0.4rem;
-  left: -2px;
-  scale: 0.89;
-}
-.clock.hide {
-  transform: rotate(-45deg) scale(0);
-}
-.ground {
-  bottom: -1rem;
-}
-.ground.hide {
-  transform: scaleY(0);
-}
-.rabbit {
-  bottom: 0;
-  left: 32%;
-  transform-origin: bottom;
-}
-.rabbit.hide {
-  transform: rotateX(90deg);
 }
 </style>

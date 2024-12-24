@@ -12,7 +12,7 @@
   position: absolute;
   bottom: 1rem;
   left: 50%;
-  transform: translate(-50%, -50%);
+  translate: -2rem -2rem;
   animation: hint 3s ease-in-out infinite;
 }
 
@@ -22,11 +22,11 @@
   }
   20% {
     opacity: 0;
-    transform: translate(-50%, -50%) translateY(0.4rem);
+    bottom: 0.6rem;
   }
   30% {
     opacity: 0.5;
-    transform: translate(-50%, -50%) translateY(0.4rem);
+    bottom: 0.6rem;
   }
   40% {
     opacity: 1;
@@ -36,11 +36,11 @@
   }
   70% {
     opacity: 0.5;
-    transform: translate(-50%, -50%) translateY(-0.4rem);
+    bottom: 1.4rem;
   }
   80% {
     opacity: 0;
-    transform: translate(-50%, -50%) translateY(-0.4rem);
+    bottom: 1.4rem;
   }
   100% {
     opacity: 0;

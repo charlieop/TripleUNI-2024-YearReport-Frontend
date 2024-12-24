@@ -5,11 +5,12 @@
       <img src="/imgs/dayNightToggle/cloud1.svg" alt="" class="decor cloud1" />
     </div>
     <div class="night">
-      <img src="/imgs/dayNightToggle/stars.svg" alt="" class="decor stars" />
+      <img src="/imgs/dayNightToggle/stars.webp" alt="" class="decor stars" />
     </div>
     <div class="toggle">
       <div class="inner">
-        <img src="/imgs/dayNightToggle/sun.webp" alt="" class="sun" />
+        <!-- <img src="/imgs/dayNightToggle/sun.svg" alt="" class="sun" /> -->
+        <div class="sun"></div>
       </div>
       <div class="inner">
         <img src="/imgs/dayNightToggle/moon.webp" alt="" class="moon" />
@@ -65,7 +66,6 @@
 
 .sun {
   transition: none;
-  scale: 1.8;
   opacity: var(--_opacity-day);
   transform: scale(calc(0.6 + 0.4 * var(--_opacity-day)))
     rotate(calc(160deg * var(--_opacity-day)))
@@ -73,6 +73,13 @@
       calc(2rem * var(--_opacity-night)),
       calc(3rem * var(--_opacity-night))
     );
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #fcdc38;
+  box-shadow: inset 0 2px 10px #c8a73ac2, 0 0 10px rgba(242, 213, 138, 0.5),
+    0 0 30px rgba(242, 213, 138, 0.2);
+  border-radius: inherit;
+  filter: brightness(calc(0.5 + 0.5 * var(--_opacity-day)));
 }
 .moon {
   transition: none;
@@ -116,7 +123,6 @@
 }
 
 .decor {
-  position: absolute;
   transition: none;
 }
 .cloud1 {

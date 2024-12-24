@@ -13,15 +13,14 @@
       <p class="hide comment">根据热词写出来的文案放在这里XXX...</p>
       <img src="/imgs/7/hand.webp" alt="" class="hand hide" />
     </div>
-    <div class="scroll-up-hint hide">
-      <ScrollUpHint />
-    </div>
+    <ScrollUpHint v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-oragne)" />
   </div>
 </template>
 
 <script setup>
 const PAGE_NUMBER = 7;
+const shwoScrollUpHint = ref(false);
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
@@ -51,7 +50,8 @@ function onShow() {
     unhideAll(PAGE_NUMBER, [".hotword"]);
   }, (time += 500));
   setTimeout(() => {
-    unhideAll(PAGE_NUMBER, [".comment", ".scroll-up-hint"]);
+    unhideAll(PAGE_NUMBER, [".comment"]);
+    shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
   }, (time += 1000));
 }
@@ -80,7 +80,7 @@ onMounted(() => {
 .hotword {
   font-size: var(--fs-extra-large);
   transition: all 0.8s cubic-bezier(0.2, 0.1, 0.78, 1.44);
-  margin-block: 0rem 3rem;
+  margin-block: 0rem 1rem;
 }
 .hotword.hide {
   transform: translate(-100%);
@@ -92,7 +92,7 @@ onMounted(() => {
 .hand {
   width: 80%;
   position: absolute;
-  top: 53%;
+  top: 40%;
   right: -40%;
   animation: hand 2s infinite;
   transition: all 0.8s cubic-bezier(0.2, 0.1, 0.78, 1.44);
