@@ -6,23 +6,23 @@
       </p>
     </div>
     <img
-      class="image pos"
-      src="https://ide.code.fun/api/image?token=676a34ba797f850011f3ffc2&name=f42a24e1bf12fbf3d793644f3e6ae26a.png"
+      class="image pos "
+      src="/imgs/5/star out.webp"
     />
-    <div class="chart-wrapper" ref="chartRef"></div>
+    <div class="chart-wrapper imgAni hide" ref="chartRef"></div>
     
     <div class="flex-row nowrap items-center equal-division">
       <div class="equal-division-item flex-row items-center">
         <img
-          class="shrink-0 image_3"
-          src="https://ide.code.fun/api/image?token=676a34ba797f850011f3ffc2&name=80ade87bcf90ba8543f3e9051f39c823.png"
+          class="shrink-0 image_3 imgAni hide"
+          src="/imgs/5/you.webp"
         />
         <p class="ml-6 font_4 textAni hide">你</p>
       </div>
       <div class="items-center equal-division-item">
         <img
-          class="shrink-0 image_3"
-          src="https://ide.code.fun/api/image?token=676a34ba797f850011f3ffc2&name=f004ea26bd3ee825426b09d834efda43.png"
+          class="shrink-0 image_3 imgAni hide"
+          src="/imgs/5/all.webp"
         />
         <span class="font_4 ml-9 textAni hide">大家</span>
       </div>
@@ -138,9 +138,15 @@ function onShow() {
   }, 200)
 
   let time = 0
-  const delays = [0, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
+  const delays = [0, 200, 0, 600, 600, 600, 600, 600] // 与原本style中delay对应
 
   const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`))
+  const imgList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .imgAni`))
+  imgList.forEach((el) => {
+    setTimeout(() => {
+      el.classList.remove('hide')
+    }, 200)
+  })
   textList.forEach((el, index) => {
     setTimeout(() => {
       el.classList.remove('hide')
@@ -164,6 +170,21 @@ onMounted(() => {
 </script>
 
 <style scoped lang="css">
+.imgAni {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 1.0s ease-out;
+}
+
+.imgAni.hide {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.imgAni:not(.hide) {
+  opacity: 1;
+  transform: translateX(0);
+}
   .singleLine{
   display: inline-block;
   white-space: nowrap;
