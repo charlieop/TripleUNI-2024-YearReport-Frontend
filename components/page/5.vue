@@ -2,12 +2,7 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <h1>Page {{ PAGE_NUMBER }}</h1>
     <br />
-    <button @click="appendNextPage(PAGE_NUMBER, true)">Show Next Page</button>
-    <br />
-    <p>
-      It is normal if u see yellow background, it is an intention design to help
-      spot abnormaliies. This should be channged in the public version.
-    </p>
+    <p>NOT DONE, going to the next page in 2 second...</p>
   </div>
 </template>
 
@@ -20,6 +15,10 @@ function init() {
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+
+  setTimeout(() => {
+    appendNextPage(PAGE_NUMBER, true);
+  }, 2000);
 }
 
 onMounted(() => {

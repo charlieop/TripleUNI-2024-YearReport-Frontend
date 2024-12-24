@@ -2,11 +2,7 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <h1>Page {{ PAGE_NUMBER }}</h1>
     <br />
-    <p>this is a single fixed height page</p>
-    <br />
-    <p>click the button and it will auto scroll to the next page</p>
-    <br />
-    <button @click="appendNextPage(PAGE_NUMBER, true)">Show Next Page</button>
+    <p>NOT DONE, going to the next page in 2 second...</p>
   </div>
 </template>
 
@@ -19,6 +15,10 @@ function init() {
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+
+  setTimeout(() => {
+    appendNextPage(PAGE_NUMBER, true);
+  }, 2000);
 }
 
 onMounted(() => {
