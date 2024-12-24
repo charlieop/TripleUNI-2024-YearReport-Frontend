@@ -8,7 +8,7 @@
           <img src="/imgs/14/highlight.svg" alt="" class="highlight-bg" />
           <span class="highlight-text">emoji</span>
         </span>
-        情有独钟?
+        情有独钟
       </p>
     </div>
     <div class="emoji-wrapper">
