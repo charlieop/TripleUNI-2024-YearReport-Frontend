@@ -58,3 +58,6 @@ body {
   flex-direction: column;
   gap: 0.75rem;
 }
+.decor {
+  position: absolute;
+}

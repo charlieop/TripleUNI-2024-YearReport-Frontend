@@ -1,7 +1,7 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="button-container">
-      <div class="night-decor" :style="{ '--_opacity-day': opacity }">
+      <div class="night-decor decor" :style="{ '--_opacity-day': opacity }">
         <img src="/imgs/6/plant.svg" alt="" class="plant" />
         <img src="/imgs/6/cat.svg" alt="" class="cat" />
       </div>
@@ -35,7 +35,7 @@
       </div>
       <div class="subpage subpage2">
         <img
-          src="/imgs/6/stars.svg"
+          src="/imgs/6/stars.webp"
           alt=""
           class="stars"
           :style="{ '--_opacity-day': opacity }"
@@ -55,9 +55,7 @@
         <div class="text-area">
           <p class="accent hide">一定很辛苦吧👉🏻👈🏻</p>
         </div>
-        <div class="scroll-up-hint hide">
-          <ScrollUpHint />
-        </div>
+        <ScrollUpHint v-show="shwoScrollUpHint" />
       </div>
     </div>
     <Footer style="--_clr-text: var(--clr-oragne)" />
@@ -67,6 +65,8 @@
 <script setup>
 const PAGE_NUMBER = 6;
 const opacity = ref(1);
+const shwoScrollUpHint = ref(false);
+
 let firstShowPage2 = false;
 
 function init() {
@@ -119,7 +119,8 @@ function onShowPage2() {
     unhideAll(PAGE_NUMBER, [".subpage2 .post-container"]);
   }, (time += 1500));
   setTimeout(() => {
-    unhideAll(PAGE_NUMBER, [".scroll-up-hint", ".accent"]);
+    unhideAll(PAGE_NUMBER, [".accent"]);
+    shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
   }, (time += 1500));
 }
@@ -161,8 +162,6 @@ onMounted(() => {
   scroll-snap-type: x mandatory;
   width: 100%;
   height: 100%;
-
-  overflow-x: scroll;
 }
 
 .button-container {
@@ -204,7 +203,7 @@ onMounted(() => {
 
 .subpage1 {
   background: linear-gradient(#eeb77a 14%, #b5b796 56%, #7cb6b2 71%);
-  padding-top: 1.5rem;
+  padding-top: 1.75rem;
   color: var(--clr-brown);
 }
 .cities {
@@ -274,7 +273,6 @@ onMounted(() => {
 .night-decor {
   --_opacity-day: 1;
   --_opacity-night: calc(1 - var(--_opacity-day));
-  position: absolute;
   width: 100%;
   top: 0;
   right: 1.5rem;

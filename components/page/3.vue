@@ -58,7 +58,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-
 const PAGE_NUMBER = 3
 const hide = ref(true)
 const showHint = ref(false)
@@ -75,20 +74,28 @@ function onShow() {
   hide.value = false
 
   let time = 0
-  const delays = [0, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
+  const delays = [200, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
 
-  const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`))
+  const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni:not(.group_3)`))
   textList.forEach((el, index) => {
     setTimeout(() => {
-      unhideAll(PAGE_NUMBER, [`.textAni:nth-child(${index + 1})`])
+      el.classList.remove('hide')
     }, time += delays[index] ?? 200)
   })
+
+  // 最后一部分文字动画
+  setTimeout(() => {
+    const group3 = document.querySelector(`.page${PAGE_NUMBER} .group_3`)
+    if (group3) {
+      group3.classList.remove('hide')
+    }
+  }, time + 200)
 
   // 所有文字出现后再append
   setTimeout(() => {
     showHint.value = true
     appendNextPage(PAGE_NUMBER)
-  }, time + 200)
+  }, time + 400)
 }
 
 onMounted(() => {
