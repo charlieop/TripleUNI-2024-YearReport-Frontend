@@ -37,7 +37,7 @@
         <p>像屯粮的小松鼠一样 :D</p>
       </div>
     </div>
-    <ScrollUpHint style="filter: brightness(0)" v-show="shwoScrollUpHint" />
+    <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-brown)" />
   </div>
 </template>

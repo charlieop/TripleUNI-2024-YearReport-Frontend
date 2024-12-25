@@ -157,10 +157,10 @@ p {
   left: 0;
 }
 .bottle {
-  animation: bottle 4s infinite, wave 5s infinite;
+  animation: bottle 4s infinite, wave 5s infinite linear;
 }
 .wave {
-  animation: wave 5s infinite;
+  animation: wave 5s infinite linear;
 }
 @keyframes bottle {
   0% {
@@ -175,13 +175,13 @@ p {
 }
 @keyframes wave {
   0% {
-    translate: 0 -1%;
+    translate: 0 -5px;
   }
   50% {
-    translate: 0 1%;
+    translate: 0 5px;
   }
   100% {
-    translate: 0 -1%;
+    translate: 0 -5px;
   }
 }
 .bird {

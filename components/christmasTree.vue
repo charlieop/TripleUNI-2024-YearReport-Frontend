@@ -330,6 +330,7 @@ ul li {
   right: 60px;
   border-bottom-right-radius: 25px;
   border: none;
+  overflow: hidden;
   overflow: clip;
 }
 
@@ -451,6 +452,7 @@ ul li {
   margin: auto;
   position: relative;
   border: none;
+  overflow: hidden;
   overflow: clip;
 }
 

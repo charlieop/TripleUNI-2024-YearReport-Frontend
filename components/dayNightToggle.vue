@@ -36,6 +36,7 @@
   width: var(--_button-width);
   aspect-ratio: 2.5 /1;
   border-radius: 999rem;
+  overflow: hidden;
   overflow: clip;
 }
 

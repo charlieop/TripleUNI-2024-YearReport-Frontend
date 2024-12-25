@@ -166,17 +166,16 @@ onMounted(() => {
 .button-container {
   position: absolute;
   top: 44%;
-  right: 1.5rem;
+  right: 2rem;
   transform: translateY(-50%);
-  width: 250px;
   z-index: 1;
 }
 
 .scroll-hint {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   position: absolute;
   bottom: 40%;
-  left: 30%;
+  left: 73%;
 }
 
 .post-container {
@@ -274,7 +273,7 @@ onMounted(() => {
   --_opacity-night: calc(1 - var(--_opacity-day));
   width: 100%;
   top: 0;
-  right: 1.5rem;
+  right: 0.5rem;
   translate: 0 -100%;
 }
 </style>
