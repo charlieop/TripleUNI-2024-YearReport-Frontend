@@ -159,6 +159,7 @@ onMounted(() => {
   left: 0;
 }
 .grass {
+  overflow: hidden;
   overflow: clip;
   scale: 1.08;
 }

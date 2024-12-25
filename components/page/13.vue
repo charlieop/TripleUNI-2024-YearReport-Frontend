@@ -11,7 +11,7 @@
     <div class="content-block pt2">
       <p class="hide">它是否是你许多纷飞思绪的源头呢?</p>
     </div>
-    <ScrollUpHint style="filter: brightness(0)" v-show="shwoScrollUpHint" />
+    <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-brown)" />
   </div>
 </template>

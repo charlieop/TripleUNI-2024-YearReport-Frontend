@@ -22,7 +22,7 @@
         {{ emoji }}
       </div>
     </div>
-    <ScrollUpHint style="filter: brightness(0)" v-show="shwoScrollUpHint" />
+    <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-brown)" />
   </div>
 </template>

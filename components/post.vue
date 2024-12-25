@@ -113,6 +113,7 @@ function hideDetail(e) {
   display: grid;
   grid-template-rows: 1fr 1fr;
   font-size: 1rem;
+  overflow: hidden;
   overflow: clip;
   width: auto;
 }
@@ -234,6 +235,7 @@ function hideDetail(e) {
   display: -webkit-box;
 
   text-overflow: ellipsis;
+  overflow: hidden;
   overflow: clip;
   overflow-wrap: break-word;
 }
