@@ -6,7 +6,7 @@
   >
    
       <div class="group content-block">
-        <div class="flex-row justify-end group_2">
+        <div class=" group_2">
           <img class="image run-ltr" src="/imgs/4/person.webp" />
           <img class=" image_2 run-ltr" src="/imgs/4/2.webp" />
         </div>
@@ -196,13 +196,13 @@ onMounted(() => {
 }
 
 .image {
-  margin-right: -4.84rem;
+  margin-right: -4.44rem;
   width: 4.13rem;
   height: 6.13rem;
 }
 
 .image_2 {
-  margin-right: 3rem;
+  margin-right: 3.5rem;
   margin-top: 2rem;
   width: 4vw;
   height: 2.1vh;
@@ -245,6 +245,7 @@ onMounted(() => {
 .group_4 {
   display: flex;
   flex-direction: column;
+ 
   position: relative;
   margin-right: 0.5rem;
   padding-top: 1.88rem;

@@ -1,5 +1,5 @@
 <template>
-  <div class=" page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
+  <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
      
       <div class="flex-col">
         <div class="group_2 content-block">
@@ -15,7 +15,7 @@
             的用户
           </p>
           <p class="textAni hide">2024年你刷到的第一条噗噗是</p>
-        </div>
+          </div>
         <div class="text-wrapper">
           <span class="text textAni hide">（树洞）</span>
         </div>
@@ -25,20 +25,51 @@
           class="image self-center image-draw"
           src="/imgs/8/Vector.webp"
           />
-        <div class=" group_4 ">
+        
+        
+          <div v-if="control==0" class="text-center">
+          
           <p class="textAni hide">你收藏了
             <span class="text_2">
               【年度收藏前🔟热帖】
             </span>
           </p>
           <p class="textAni hide">爱看热闹的小姐姐/小哥哥一枚吖</p>
-        </div>
-      </div>
-    </div>
-    <img
+          <img
           class=" image_2 handshake-ani"
           src="/imgs/8/8.webp"
         />
+           </div>
+           <div v-else-if="control==1" class="text-center">
+            
+          <p class="textAni hide">你在
+            <span class="text_2">
+              【年度收藏前🔟热帖】
+            </span>
+            评价了
+          </p>
+          <div class="special textAni hide">
+          <span class="font_2">【XX】</span></div>
+          <p class="textAni hide ">万丈高楼平地起</p>
+          <p class="textAni hide ">你也是其中的一层呢</p>
+     
+          </div>
+          <div v-else class="flex-row">
+            <div class="text-start">
+            <p class="textAni hide">你<span class="text_2">完全没有</span>涉足过</p>
+            <p class="textAni hide">xx最热的帖子</p>
+            <p class="textAni hide">真是个遗世独立的高人啊</p>
+          </div>
+          <img src="/imgs/8/lengthwise.webp" class="image_3" />
+          </div>
+        
+
+          </div>
+          
+      
+      
+    </div>
+   
     <ScrollUpHint v-if="showHint" />
     <Footer />
   </div>
@@ -49,19 +80,22 @@ import { ref, onMounted } from 'vue'
 
 const PAGE_NUMBER = 8
 const showHint = ref(false)
-
+const control=ref(2)
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`)
   // 先隐藏所有文本
   const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
   texts.forEach(el => el.classList.add('hide'))
+  const arm = document.querySelector('.image_3')
+  
 }
+
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`)
-
+  
   let time = 0
-  const delays = [200, 200, 600, 600, 600, 600, 600, 600] // 与原本style中delay对应
+  const delays = [200, 200, 600, 600, 600, 600, 600, 600, 600]
 
   const textList = Array.from(document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`))
   textList.forEach((el, index) => {
@@ -70,16 +104,18 @@ function onShow() {
     }, time += delays[index] ?? 200)
   })
 
-  // 所有文字出现后再append
+  // 在所有文字显示完毕后执行
   setTimeout(() => {
     showHint.value = true
     appendNextPage(PAGE_NUMBER)
-  }, time + 400)
+    console.log('Next page appended')
+  }, time + 200) // 额外添加500ms缓冲时间
 }
-
 onMounted(() => {
   init()
   onEnterViewportForFirstTime(PAGE_NUMBER, onShow)
+  // 添加动画结束监听器
+
 })
 </script>
 
@@ -137,7 +173,15 @@ to {
   overflow-x:hidden;
   gap:0;
 }
-
+.flex-row{
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  gap:0.5rem;
+  margin-top:0.75rem;
+  margin-left:-1.5rem;
+}
 .page {
   padding: 3.98rem 0 0 0;
   background-color: #7cb6b2;
@@ -147,8 +191,16 @@ to {
   overflow-x: hidden;
 }
 
-
-
+.text-center{
+  display:grid;
+  place-items: center;
+  gap:0.5rem;
+}
+.text-start{
+  display:grid;
+  place-items: start;
+  gap:0.5rem;
+}
 .group_2 {
   margin-left: 0.13rem;
 }
@@ -160,7 +212,7 @@ to {
 }
 .text-wrapper {
 width: 80%;
-height:16vh;
+height:14vh;
 margin: auto;
 display:grid;
 place-content: center;
@@ -180,7 +232,6 @@ background-color: #f9f5f0;
   
  margin-top:1rem;
 }
-
 .image {
   width: 15rem;
   height: 4.5vh;
@@ -188,8 +239,8 @@ background-color: #f9f5f0;
 }
 
 .group_4 {
-  text-align: center;
- 
+  text-align:center;
+  gap:0.75rem;
 
 }
 
@@ -198,6 +249,12 @@ background-color: #f9f5f0;
   font-size: 1.35rem;
   font-family: AaTangYuanTi;
   line-height: 1.81rem;
+}
+.special{
+  display:grid;
+  place-content:center;
+  margin-top:2rem;
+  margin-bottom:2rem;
 }
 
 .group_5 {
@@ -213,10 +270,46 @@ background-color: #f9f5f0;
 }
 
 .image_2 {
-  width: 134vw;
-  height: 35vh;
+  width: 130vw;
+  height: 32vh;
+}
+.image_3 {
+  position: absolute;
+  right: -5%;
+  transform-origin: center 20%;
+  /* 确保初始状态是在底部 */
+  transform: translateY(100%); /* 添加初始transform */
+  animation: 
+    armRise 1.5s ease-out forwards,
+    fingerWave 2.5s 1.5s linear infinite;
 }
 
+@keyframes armRise {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fingerWave {
+  10% {
+    transform: rotate(3deg);
+  }
+  20% {
+    transform: rotate(-2deg);
+  }
+  30% {
+    transform: rotate(1deg);
+  }
+  40% {
+    transform: rotate(-1deg);
+  }
+  50%, 100% {
+    transform: rotate(0deg);
+  }
+}
 .pos {
   position: absolute;
   left: 0;
@@ -225,3 +318,4 @@ background-color: #f9f5f0;
   bottom: 0;
 }
 </style>
+
