@@ -1,5 +1,5 @@
 <template>
-  <div class="page flex-col" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
+  <div class="page " :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="group_2 content-block">
       <p class="textAni hide">你最常与xx见面的时间是
         <span class="font_2">XX</span>
@@ -11,15 +11,15 @@
     />
     <div class="chart-wrapper imgAni hide" ref="chartRef"></div>
     
-    <div class="flex-row nowrap items-center equal-division">
-      <div class="equal-division-item flex-row items-center">
+    <div class=" equal-division">
+      <div class="equal-division-item">
         <img
           class="shrink-0 image_3 imgAni hide"
           src="/imgs/5/you.webp"
         />
-        <p class="ml-6 font_4 textAni hide">你</p>
+        <p class="ml-9 font_4 textAni hide">你</p>
       </div>
-      <div class="items-center equal-division-item">
+      <div class="equal-division-item">
         <img
           class="shrink-0 image_3 imgAni hide"
           src="/imgs/5/all.webp"
@@ -28,7 +28,7 @@
       </div>
     </div>
    
-    <div class="self-end group_8 content-block">
+    <div class=" group_8 content-block">
       <p class="textAni hide"><span class="font_2">XX%</span>的日子里熬着夜刷噗噗</p>
       <p class="textAni hide">不睡觉的时候</p>
       <p class="textAni hide">你都在想什么呢？</p>
@@ -158,6 +158,8 @@ function onShow() {
     showHint.value = true
     appendNextPage(PAGE_NUMBER)
   }, time + 200)
+  console.log(`Page ${PAGE_NUMBER} shown`);
+
 
 }
 
@@ -171,7 +173,7 @@ onMounted(() => {
 .imgAni {
   opacity: 0;
   clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.0s ease-out, opacity 1.0s ease-out;
+  transition: clip-path 1.5s ease-out, opacity 1.5s ease-out;
 }
 .star-twinkle {
   /* 1.5s闪烁一次，前后交替、无限循环 */
@@ -214,75 +216,11 @@ onMounted(() => {
   flex-shrink: 0;
   margin:0;
 }
-.nowrap{
-  flex-wrap:nowrap;
-  overflow:hidden;
-}
-.chart {
-  width: 100%;
-  height: 100% ;
-  min-height: inherit;
-}
-  .ml-9 {
-    margin-left: 0.56rem;
-  }
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-    overflow-x: hidden;
-    overflow-y:hidden;
-  }
-  .flex-col {
-    display: flex;
-    flex-direction: column;
-    
-    overflow-y:hidden;
-    overflow-x:hidden;
-    
-  }
-  .justify-start {
-    justify-content: flex-start;
-  }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-  .items-start {
-    align-items: flex-start;
-  }
-  .items-center {
-    align-items: center;
-  }
-  .items-baseline {
-    align-items: baseline;
-  }
-  .items-stretch {
-    align-items: stretch;
-  }
-  .self-start {
-    align-self: flex-start;
-  }
-  .self-end {
-    align-self: flex-end;
-  }
-  .self-center {
-    align-self: center;
-  }
 
-  .self-stretch {
-    align-self: stretch;
-  }
-  .shrink {
-    flex-shrink: 1;
-  }
   .shrink-0 {
     flex-shrink: 0;
   }
-  .relative {
-    position: relative;
-  }
+  
   .page {
     background-color: #39372a;
     width: 100%;
@@ -337,12 +275,19 @@ onMounted(() => {
   
   
   .equal-division {
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
     align-self: center;
     margin-top: 1.25rem;
   }
  
   .equal-division-item {
     padding: 0.13rem 0;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+   margin:0 0.5rem;
   }
   .image_3 {
     width: 3.34rem;
@@ -355,7 +300,7 @@ onMounted(() => {
     color: #ffffff;
   }
   .group_8 {
-    
+    text-align:end;
     margin-top: 2.63rem;
     text-align: right;
     margin-bottom:1rem;
@@ -368,6 +313,4 @@ onMounted(() => {
     width: 4.63rem;
     height: 4.63rem;
   }
-  
-
-</style>
+  </style>
