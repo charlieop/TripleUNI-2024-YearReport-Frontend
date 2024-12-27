@@ -67,48 +67,48 @@ const chartOption = {
     axisLabel: { color: "#f9f5f0" },
     splitLine: { show: true, lineStyle: { color: "#ffffff1A" } },
   },
-  series: [
-    {
-      name: "你",
-      type: "line",
-      smooth: true,
-      data: [30, 40, 60, 70, 80, 70, 60, 50, 40, 30, 20, 10],
-      itemStyle: { color: "#7CB6B2" },
-      areaStyle: {
-        color: {
-          type: "linear",
-          x: 0,
-          y: 0,
-          x2: 0,
-          y2: 1,
-          colorStops: [
-            { offset: 0, color: "#7CB6B2AA" },
-            { offset: 1, color: "#7CB6B211" },
-          ],
-        },
+series: [
+  {
+    name: "你",
+    type: "line",
+    smooth: true,
+    data: [30, 40, 60, 70, 80, 70, 60, 50, 40, 30, 20, 10],
+    itemStyle: { color: "#FACB98" }, // 改为橙色
+    areaStyle: {
+      color: {
+        type: "linear",
+        x: 0,
+        y: 0,
+        x2: 0,
+        y2: 1,
+        colorStops: [
+          { offset: 0, color: "#FACB98AA" }, // 改为橙色
+          { offset: 1, color: "#FACB9811" }, // 改为橙色
+        ],
       },
     },
-    {
-      name: "大家",
-      type: "line",
-      smooth: true,
-      data: [20, 30, 40, 50, 60, 70, 80, 70, 60, 50, 40, 30],
-      itemStyle: { color: "#FACB98" },
-      areaStyle: {
-        color: {
-          type: "linear",
-          x: 0,
-          y: 0,
-          x2: 0,
-          y2: 1,
-          colorStops: [
-            { offset: 0, color: "#FACB98AA" },
-            { offset: 1, color: "#FACB9811" },
-          ],
-        },
+  },
+  {
+    name: "大家",
+    type: "line",
+    smooth: true,
+    data: [20, 30, 40, 50, 60, 70, 80, 70, 60, 50, 40, 30],
+    itemStyle: { color: "#7CB6B2" }, // 改为绿色
+    areaStyle: {
+      color: {
+        type: "linear",
+        x: 0,
+        y: 0,
+        x2: 0,
+        y2: 1,
+        colorStops: [
+          { offset: 0, color: "#7CB6B2AA" }, // 改为绿色
+          { offset: 1, color: "#7CB6B211" }, // 改为绿色
+        ],
       },
     },
-  ],
+  }
+],
 };
 
 let chart = null;
@@ -211,13 +211,13 @@ onMounted(() => {
   white-space: nowrap;
 }
 .chart-wrapper {
-  width: 80%;
-  height: 25vh;
-  min-height: 100px;
-  flex-shrink: 0;
-  margin: 0;
+  width: 100%; /* 设置合适的宽度 */
+  margin: 0 auto; /* 水平居中 */
+  display: flex;
+  height:24vh;
+  justify-content: center; /* 内容水平居中 */
+  align-items: center; /* 内容垂直居中 */
 }
-
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -282,7 +282,7 @@ onMounted(() => {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 0.5rem;
+  margin: 0 1.2rem;
 }
 .image_3 {
   width: 3.34rem;

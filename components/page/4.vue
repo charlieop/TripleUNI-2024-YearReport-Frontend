@@ -28,6 +28,8 @@
     </div>
     <div class="group_3">
       <div class="section">
+        <img src="/imgs/4/background.webp" alt="" class="background-img">
+         <slot></slot>
         <div class="group_4">
           <div class="section_2"></div>
           <div class="pos_2">
@@ -166,7 +168,7 @@ onMounted(() => {
 }
 
 .group {
-  width: 18.09rem;
+  width: 100%;
 }
 
 .group_2 {
@@ -216,11 +218,25 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   padding: 1.41rem 3.44rem 0;
-  background-image: url("imgs/4/white_background.webp");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  position: relative; /* 添加相对定位 */
   height: 8.75rem;
   width: 100%;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* 确保图片在底层 */
+}
+
+/* 确保其他内容在图片上层 */
+.section > *:not(.background-img) {
+  position: relative;
+  z-index: 1;
 }
 
 .group_4 {
