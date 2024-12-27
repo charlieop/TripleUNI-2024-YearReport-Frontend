@@ -259,6 +259,7 @@ onMounted(() => {
   position: absolute;
   right: -5%;
   transform-origin: center 20%;
+  bottom:-1%;
   /* 确保初始状态是在底部 */
   transform: translateY(100%); /* 添加初始transform */
   animation: armRise 1.5s ease-out forwards,
