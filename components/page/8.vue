@@ -116,7 +116,6 @@ function onShow() {
   setTimeout(() => {
     showHint.value = true;
     appendNextPage(PAGE_NUMBER);
-    console.log("Next page appended");
   }, time + 200); // 额外添加500ms缓冲时间
 }
 onMounted(() => {

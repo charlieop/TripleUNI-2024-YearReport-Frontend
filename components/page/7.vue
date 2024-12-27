@@ -11,8 +11,10 @@
     </div>
     <div class="hotword-wrapper content-block">
       <p class="hide">今年{{ appName }}的年度热词是...</p>
-      <p class="highlight hotword hide">XX</p>
-      <p class="hide comment">根据热词写出来的文案放在这里XXX...</p>
+      <p class="highlight hotword hide">交换</p>
+      <p class="hide comment">旷妈！人是野生的！</p>
+      <p class="hide comment">让我们一起做一场海角天涯的梦</p>
+
       <img src="/imgs/7/hand.webp" alt="" class="hand hide" />
     </div>
     <ScrollUpHint v-show="shwoScrollUpHint" />
@@ -54,7 +56,10 @@ function onShow() {
     unhideAll(PAGE_NUMBER, [".hotword"]);
   }, (time += 500));
   setTimeout(() => {
-    unhideAll(PAGE_NUMBER, [".comment"]);
+    unhideAll(PAGE_NUMBER, [".comment:nth-child(3)"]);
+  }, (time += 500));
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".comment:nth-child(4)"]);
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
   }, (time += 1000));

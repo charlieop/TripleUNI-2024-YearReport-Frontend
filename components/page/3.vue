@@ -3,9 +3,9 @@
     <div class="content-block pt1">
       <p class="hide">到今天</p>
       <p class="hide">
-        {{ appName }}已经诞生 <span class="figure">{{ appAge.year }}</span
-        >年 <span class="figure">{{ appAge.month }}</span
-        >月 <span class="figure">{{ appAge.day }}</span
+        {{ appName }}已经诞生<span class="figure">{{ appAge.year }}</span
+        >年<span class="figure">{{ appAge.month }}</span
+        >月<span class="figure">{{ appAge.day }}</span
         >日啦!
       </p>
       <div v-if="summary?.user_register_date != undefined">
@@ -18,7 +18,7 @@
         <p class="hide">是你和{{ appName }}第一次见面的日子</p>
       </div>
       <div v-else>
-        <p class="hide">我们已经认识了<span class="figure">太久了</span></p>
+        <p class="hide"><br>我们已经认识了<span class="accent">很久了</span></p>
         <p class="hide">久到{{ appName }}都已经忘记和你第一次见面的日子</p>
       </div>
       <div v-if="summary?.user_age">
@@ -31,7 +31,7 @@
         <p class="hide">还是如此一往情深 !</p>
       </div>
       <div v-else>
-        <p class="hide">我们一路走来</p>
+        <p class="hide"><br>我们一路走来</p>
         <p class="hide">还是如此一往情深 !</p>
       </div>
       <p class="hide" v-if="summary?.user_register_rank">
@@ -39,8 +39,9 @@
         >个注册{{ appName }}的用户
       </p>
       <p class="hide" style="text-wrap: unset" v-else>
-        你也是众多人中<span class="figure">最早</span>与我相识的那一批
+        <br>这些相伴的日子里，{{ appName }}永远是你安心的兔子洞
       </p>
+
       <div class="img-wrapper">
         <img src="/imgs/3/bg.svg" alt="" class="bg" />
         <img src="/imgs/3/bottle.svg" alt="" class="decor bottle hide" />

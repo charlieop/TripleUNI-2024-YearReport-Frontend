@@ -7,8 +7,8 @@
         <p class="hide"><span class="figure">最高频</span>出现的词是</p>
       </template>
       <template v-else>
-        <p class="hide">你今年似乎</p>
-        <p class="hide">没有发布过树洞</p>
+        <p class="hide">你今年似乎没有发布过树洞</p>
+        <p class="hide">静默如谜</p>
       </template>
     </div>
     <div class="word-wrapper">
@@ -24,7 +24,7 @@
       <p class="hide" v-if="summary?.user_frequent_view_keyword != ''">
         它是否是你许多纷飞思绪的源头呢?
       </p>
-      <p class="hide" v-else>你是否有什么想要倾诉的呢?</p>
+      <p class="hide" v-else>你是否有很多不愿分享的心绪呢？</p>
     </div>
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-brown)" />

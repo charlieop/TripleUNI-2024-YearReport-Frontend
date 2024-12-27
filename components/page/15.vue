@@ -1,6 +1,6 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-    <div class="content-block pt1">
+    <div class="content-block pt1" v-if="summary?.user_pm_count > 0">
       <p class="figure hide">今年</p>
       <p class="hide">
         你跟<span class="figure">{{ summary?.user_pm_user_count }}</span
@@ -11,6 +11,11 @@
         >条私信
       </p>
     </div>
+    <div class="content-block pt1" v-else>
+      <p class="figure hide">今年</p>
+      <p class="hide">你在{{ appName }}开启了隐身模式</p>
+      <p class="hide">一条私信也没有发过,<br>被确诊为线上i人</p>
+    </div>
     <div class="decor-img">
       <img src="/imgs/15/bg.svg" alt="" class="bg" />
       <img src="/imgs/15/team.webp" alt="" class="team decor hide" />
@@ -19,7 +24,7 @@
       <p class="hide" v-if="summary?.user_pm_count > 0">
         「点点星光，汇聚起无声的星河」
       </p>
-      <p class="hide" v-else>来年, 要不要试试私信?</p>
+      <p class="hide" v-else>答应{{ appName }}明年试试私信功能好吗？</p>
     </div>
     <ScrollUpHint v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-offwhite)" />

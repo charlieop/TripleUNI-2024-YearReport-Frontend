@@ -23,8 +23,8 @@
           </p>
         </template>
         <template v-else>
-          <p class="hide">你今年没有收藏过最热门的帖子</p>
-          <p class="hide">是一个不爱凑热闹的人呢</p>
+          <p class="hide">哦豁！今年你没有收藏过最热门的帖子</p>
+          <p class="hide">你的眼光是有点子特别的🤔</p>
         </template>
       </div>
     </div>
@@ -43,12 +43,12 @@
         <p class="right hide">你没有收藏过任何小众的帖子</p>
         <div class="right">
           <p class="hide"><br />是还没有找到你的共鸣</p>
-          <p class="hide"><br />还是天生不爱收藏呢</p>
+          <p class="hide">还是天生不爱收藏呢</p>
         </div>
       </template>
     </div>
     <div class="content-block pt3">
-      <div>
+      <div v-if="summary?.user_followed_no_review_post_count > 0">
         <p class="figure hide">不过</p>
         <p class="hide">
           有<span class="figure">{{
@@ -58,16 +58,22 @@
         </p>
         <p class="hide">你围观后再也没看过</p>
       </div>
+      <div v-else>
+        <p class="figure hide">不过</p>
+        <p class="hide">
+          <span>每一个</span>收藏的帖子你都会回看
+        </p>
+        <p class="hide">再看的时候，心绪会不会不同呢</p>
+      </div>
       <div class="accent hide">
         <img
           src="/imgs/10/text-background.svg"
           alt=""
           class="text-background"
         />
-        <p v-if="summary?.user_followed_no_review_post_count > 0">
+        <p>
           像屯粮的小松鼠一样 :D
         </p>
-        <p v-else>真是太不可思议了 :O</p>
       </div>
     </div>
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
