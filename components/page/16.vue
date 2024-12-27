@@ -2,7 +2,12 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="content-block pt1">
       <p class="figure hide">今年</p>
-      <p class="hide">你在XX总共搜索了<span class="figure">XX</span>次</p>
+      <p class="hide">
+        你在{{ appName }}总共搜索了<span class="figure">{{
+          summary?.user_search_count
+        }}</span
+        >次
+      </p>
     </div>
     <div class="content-block pt2">
       <p class="hide">搜索高频词是</p>
@@ -13,10 +18,33 @@
       </div>
       <p class="hide">「你得到你想要的答案了吗?」</p>
     </div>
-    <div class="content-block pt3">
+    <div
+      class="content-block pt3"
+      v-if="user_frequent_search_keyword_user_count > 0"
+    >
       <p class="hide">其实不只是你</p>
-      <p class="hide">有<span class="figure">XX</span>人也和你一样搜索了</p>
-      <p class="hide"><span class="figure">【XXX】</span>的内容呢!</p>
+      <p class="hide">
+        有<span class="figure">{{
+          summary?.user_frequent_search_keyword_user_count
+        }}</span
+        >人也和你一样搜索了
+      </p>
+      <p class="hide">
+        <span class="figure"
+          >【{{ summary?.user_frequent_search_keyword }}】</span
+        >的内容呢!
+      </p>
+    </div>
+    <div class="content-block pt3" v-else>
+      <p class="hide">真奇怪</p>
+      <p class="hide">
+        全{{ appName }}只有你一个人搜索了
+      </p>
+      <p class="hide">
+        <span class="figure"
+          >【{{ summary?.user_frequent_search_keyword }}】</span
+        >的内容呢!
+      </p>
     </div>
     <div class="decor-img">
       <img src="/imgs/16/bg.svg" alt="" class="bg" />
@@ -29,11 +57,13 @@
 
 <script setup>
 const PAGE_NUMBER = 16;
+const { summary, appName } = useSummary();
+
 const TIME_TO_TYPE = 250;
 const shwoScrollUpHint = ref(false);
 
-const searchedWord = "COMP 2011好难";
-const searchContent = ref(" ");
+const searchedWord = summary.value?.user_frequent_search_keyword;
+const searchContent = ref("");
 
 function showSearched() {
   let time = 0;

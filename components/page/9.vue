@@ -2,15 +2,15 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="content-block pt1">
       <div>
-        <p class="hide">你在XX浏览的内容</p>
+        <p class="hide">你在{{ appName }}浏览的内容</p>
         <p class="hide">总是涉及关键词...</p>
       </div>
-      <p class="keyword hide">XX</p>
+      <p class="keyword hide">{{ summary?.user_frequent_view_keyword }}</p>
     </div>
     <img src="/imgs/9/hand.webp" alt="" class="hand" />
     <div class="content-block pt2">
       <p class="hide">你最常浏览的话题是...</p>
-      <p class="keyword hide">XXX</p>
+      <p class="keyword hide">{{ summary?.user_frequent_view_topic }}</p>
     </div>
 
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
@@ -20,6 +20,8 @@
 
 <script setup>
 const PAGE_NUMBER = 9;
+const { summary, appName } = useSummary();
+
 const shwoScrollUpHint = ref(false);
 
 function init() {

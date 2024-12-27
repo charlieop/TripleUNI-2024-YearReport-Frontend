@@ -10,6 +10,8 @@
 
 <script setup>
 const PAGE_NUMBER = 17;
+const { summary, appName } = useSummary();
+
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);

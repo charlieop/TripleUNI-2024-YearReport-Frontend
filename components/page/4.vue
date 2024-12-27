@@ -7,35 +7,48 @@
       </div>
       <div class="mt-12">
         <div class="textAni" style="animation-delay: 0.2s">
-          <span class="font_2"> 今年，你很爱xx</span>
+          <span class="font_2">
+            今年，你<span class="accent" v-if="summary?.user_date_count <= 10"
+              >好像不是</span
+            >很爱{{ appName }}
+            <span v-if="summary?.user_date_count <= 10">:(</span>
+            <span v-else>❤️</span>
+          </span>
         </div>
 
         <div class="textAni hide">
-          <p>你在xx登陆了 <span class="font_2">X</span>天</p>
+          <p>
+            你在{{ appName }}登陆了
+            <span class="font_2">{{ summary?.user_date_count }}</span
+            >天
+          </p>
         </div>
         <div class="textAni hide">
-          <p>一共使用xx <span class="font_2">XX</span>分钟</p>
+          <p>
+            一共使用{{ appName }}
+            <span class="font_2">{{ summary?.user_minute_count }}</span
+            >分钟
+          </p>
         </div>
         <div class="textAni hide">
           <p>
             在校内排名第
-            <span class="font_2">XX</span>
-
-            名
+            <span class="font_2">{{ summary?.user_minute_count_rank }}</span
+            >名
           </p>
         </div>
       </div>
     </div>
     <div class="group_3">
       <div class="section">
-        <img src="/imgs/4/background.webp" alt="" class="background-img">
-         <slot></slot>
+        <img src="/imgs/4/background.webp" alt="" class="background-img" />
+        <slot></slot>
         <div class="group_4">
           <div class="section_2"></div>
           <div class="pos_2">
             <div class="textAni hide">
               <span class="font_3">相当于看了</span>
-              <span class="font_2 text">XX</span>
+              <span class="font_2 text">{{ effectiveEpisodeCount }}</span>
               <span class="font_3">集 </span>
               <div class="text-center">
                 <span class="font_3">《再见爱人》</span>
@@ -60,8 +73,15 @@
 import { onMounted } from "vue";
 
 const PAGE_NUMBER = 4;
+const { summary, appName } = useSummary();
+
 const hide = ref(true);
 const showHint = ref(false);
+
+const effectiveEpisodeCount = computed(() => {
+  const minutes = summary.value?.user_minute_count / 90;
+  return Number.isInteger(minutes) ? minutes : minutes.toFixed(1);
+});
 
 function init() {
   // 将所有 .textAni 的内容先隐藏
@@ -246,7 +266,7 @@ onMounted(() => {
   position: relative;
   margin-right: 0.5rem;
   padding-top: 1.88rem;
-  width: 12.99rem;
+  width: 100%;
 }
 
 .section_2 {

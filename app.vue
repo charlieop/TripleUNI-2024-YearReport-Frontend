@@ -41,10 +41,12 @@
 
 <script setup>
 const isScreenSizeOk = ref(true);
+const { fetchSummary } = useSummary();
 
 onMounted(() => {
   if (window.innerWidth < 375 || window.innerHeight < 650) {
     isScreenSizeOk.value = false;
   }
+  fetchSummary();
 });
 </script>

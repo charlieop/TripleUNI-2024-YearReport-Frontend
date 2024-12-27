@@ -5,8 +5,15 @@
         <img src="/imgs/11/bg1.svg" alt="" class="bg" />
         <span>今年</span>
       </div>
-      <p class="hide">你一共发布了<span class="figure">XX</span>条树洞</p>
-      <p class="hide">打败了<span class="figure">XX%</span>的用户</p>
+      <p class="hide">
+        你一共发布了<span class="figure">{{ summary?.user_post_count }}</span
+        >条树洞
+      </p>
+      <p class="hide">
+        打败了<span class="figure"
+          >{{ summary?.user_post_count_rank_percentage }}%</span
+        >的用户
+      </p>
     </div>
     <div class="decor-img">
       <img src="/imgs/11/bg.webp" alt="" class="decor bg-img hide" />
@@ -26,8 +33,30 @@
         <img src="/imgs/11/bg2.svg" alt="" class="bg" />
         <span> 与去年相比 </span>
       </div>
-      <p class="hide">你多发布了<span class="figure">XX</span>条</p>
-      <p class="hide">XX已经感受到你旺盛的分享欲了!XX</p>
+      <p class="hide">
+        <template v-if="summary?.user_post_count_diff > 0">
+          你多发布了<span class="figure">{{
+            summary?.user_post_count_diff
+          }}</span
+          >条
+        </template>
+        <template v-else-if="summary?.user_post_count_diff < 0">
+          你少发布了<span class="figure">{{
+            -summary?.user_post_count_diff
+          }}</span
+          >条
+        </template>
+        <template v-else> 你的发布数量与去年持平 </template>
+      </p>
+      <p class="hide">
+        <template v-if="summary?.user_post_count_diff > 0">
+          {{ appName }}已经感受到你旺盛的分享欲了!
+        </template>
+        <template v-else-if="summary?.user_post_count_diff < 0">
+          希望是生活中有人成为了你的树洞叭!
+        </template>
+        <template v-else> 你的分享欲望保持稳定呢! </template>
+      </p>
     </div>
 
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
@@ -37,6 +66,8 @@
 
 <script setup>
 const PAGE_NUMBER = 11;
+const { summary, appName } = useSummary();
+
 const shwoScrollUpHint = ref(false);
 
 function init() {

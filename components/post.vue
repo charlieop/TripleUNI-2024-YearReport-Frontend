@@ -2,7 +2,7 @@
   <div class="post-wrapper">
     <div class="post" v-if="postInfo" @click="showDetail">
       <div class="post-header post-row">
-        <div class="post-id">#{{ postInfo.post_id }}</div>
+        <div class="post-id">#{{ postInfo.uni_post_id }}</div>
         <img
           class="post-avatar"
           :src="
@@ -37,7 +37,7 @@
     <div class="dim transit" @click="hideDetail"></div>
     <div class="post-expand transit" v-if="postInfo">
       <div class="post-header post-row">
-        <div class="post-id">#{{ postInfo.post_id }}</div>
+        <div class="post-id">#{{ postInfo.uni_post_id }}</div>
         <img
           class="post-avatar"
           :src="

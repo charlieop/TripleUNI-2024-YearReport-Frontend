@@ -5,19 +5,19 @@
         <span class="font_2 textAni hide"> 2024年 </span>
         <p class="textAni hide">
           你一共浏览了
-          <span>XX</span>
+          <span>{{ summary?.user_view_post_count }}</span>
           条树洞
         </p>
         <p class="textAni hide">
           击败了
-          <span class="font_2">XX%</span>
+          <span class="font_2">{{ summary?.user_view_rank }}%</span>
           的用户
         </p>
-        <p class="textAni hide">2024年你刷到的第一条噗噗是</p>
+        <p class="textAni hide">2024年你刷到的第一条{{ appName }}是</p>
       </div>
 
       <div class="post-container textAni hide">
-        <Post :post-info="dummyPostInfo" />
+        <Post :post-info="summary?.user_first_view_post" />
       </div>
       <div class="mt-40 flex-col group_3">
         <img class="image self-center image-draw" src="/imgs/8/Vector.webp" />
@@ -37,7 +37,7 @@
             评价了
           </p>
           <div class="special textAni hide">
-            <span class="font_2">【XX】</span>
+            <span class="font_2">【{{ summary?.user_comment_for_top10 }}】</span>
           </div>
           <p class="textAni hide">万丈高楼平地起</p>
           <p class="textAni hide">你也是其中的一层呢</p>
@@ -74,8 +74,20 @@ const dummyPostInfo = {
 };
 
 const PAGE_NUMBER = 8;
+const { summary, appName } = useSummary();
+
 const showHint = ref(false);
-const control = ref(2);
+const control = computed(() => {
+  if (summary?.user_followed_top10) {
+    return 0;
+  } else if (summary?.user_commented_top10) {
+    return 1;
+  } else {
+    return 2;
+  }
+});
+
+
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
   // 先隐藏所有文本

@@ -3,12 +3,12 @@
     <div class="content-block">
       <p class="title figure hide">2024年</p>
       <div class="group">
-        <p class="hide">XX一共产生了<span class="figure">XX</span>条树洞</p>
+        <p class="hide">{{ appName }}一共产生了<span class="figure">XX</span>条树洞</p>
         <p class="highlight hide">车水马龙、 人潮依旧</p>
       </div>
     </div>
     <div class="hotword-wrapper content-block">
-      <p class="hide">今年XX的年度热词是...</p>
+      <p class="hide">今年{{ appName }}的年度热词是...</p>
       <p class="highlight hotword hide">XX</p>
       <p class="hide comment">根据热词写出来的文案放在这里XXX...</p>
       <img src="/imgs/7/hand.webp" alt="" class="hand hide" />
@@ -20,6 +20,8 @@
 
 <script setup>
 const PAGE_NUMBER = 7;
+const { summary, appName } = useSummary();
+
 const shwoScrollUpHint = ref(false);
 
 function init() {

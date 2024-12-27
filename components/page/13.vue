@@ -2,14 +2,29 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <img src="/imgs/13/blast.svg" alt="" class="blast hide" />
     <div class="content-block pt1">
-      <p class="hide">你所发布的树洞中</p>
-      <p class="hide"><span class="figure">最高频</span>出现的词是</p>
+      <template v-if="summary?.user_frequent_view_keyword != ''">
+        <p class="hide">你所发布的树洞中</p>
+        <p class="hide"><span class="figure">最高频</span>出现的词是</p>
+      </template>
+      <template v-else>
+        <p class="hide">你今年似乎</p>
+        <p class="hide">没有发布过树洞</p>
+      </template>
     </div>
     <div class="word-wrapper">
-      <p class="word hide">“XXX”</p>
+      <p class="word hide">
+        “{{
+          summary?.user_frequent_view_keyword != ""
+            ? summary?.user_frequent_view_keyword
+            : "空!"
+        }}”
+      </p>
     </div>
     <div class="content-block pt2">
-      <p class="hide">它是否是你许多纷飞思绪的源头呢?</p>
+      <p class="hide" v-if="summary?.user_frequent_view_keyword != ''">
+        它是否是你许多纷飞思绪的源头呢?
+      </p>
+      <p class="hide" v-else>你是否有什么想要倾诉的呢?</p>
     </div>
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-brown)" />
@@ -18,6 +33,8 @@
 
 <script setup>
 const PAGE_NUMBER = 13;
+const { summary, appName } = useSummary();
+
 const shwoScrollUpHint = ref(false);
 
 function init() {

@@ -1,26 +1,22 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
+    <div class="loading-overlay" v-if="!isLoaded && showLoading">
+      <div class="loading-spinner"></div>
+      <p>正在布置爱丽丝的兔子洞<span class="loading-animation">...</span></p>
+    </div>
     <div class="content">
       <div>
         <div class="dome" :class="{ 'hide-decor': start }">
-          <img src="/imgs/home/dome.webp" alt="" class="frame" />
+          <img src="/imgs/1/dome.webp" alt="" class="frame" />
 
-          <img src="/imgs/home/UST.webp" alt="" class="decor ust" />
-          <img src="/imgs/home/HKU.webp" alt="" class="decor hku" />
-          <img src="/imgs/home/CU.webp" alt="" class="decor cu" />
+          <img src="/imgs/1/UST.webp" alt="" class="decor ust" />
+          <img src="/imgs/1/HKU.webp" alt="" class="decor hku" />
+          <img src="/imgs/1/CU.webp" alt="" class="decor cu" />
 
-          <img src="/imgs/home/comet.webp" alt="" class="decor comet" />
-          <img
-            src="/imgs/home/stars-1.svg"
-            alt=""
-            class="decor stars stars-1"
-          />
-          <img
-            src="/imgs/home/stars-2.svg"
-            alt=""
-            class="decor stars stars-2"
-          />
-          <img src="/imgs/home/light.svg" alt="" class="decor light" />
+          <img src="/imgs/1/comet.webp" alt="" class="decor comet" />
+          <img src="/imgs/1/stars-1.svg" alt="" class="decor stars stars-1" />
+          <img src="/imgs/1/stars-2.svg" alt="" class="decor stars stars-2" />
+          <img src="/imgs/1/light.svg" alt="" class="decor light" />
         </div>
       </div>
       <div>
@@ -37,11 +33,24 @@
 
 <script setup>
 const PAGE_NUMBER = 1;
+const { summary } = useSummary();
+const isLoaded = computed(() => summary.value != undefined);
+const showLoading = ref(false);
 
 const start = ref(false);
 let runned = false;
 
+watch(isLoaded, (newVal) => {
+  if (newVal && showLoading.value) {
+    handelStart();
+  }
+});
+
 function handelStart() {
+  if (!isLoaded.value) {
+    showLoading.value = true;
+    return;
+  }
   if (!runned) {
     start.value = true;
     runned = true;
@@ -73,6 +82,52 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #000000cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  gap: 1rem;
+}
+
+.loading-animation {
+  clip-path: inset(0 100% 0 0);
+  animation: l1 2s steps(4) infinite;
+}
+@keyframes l1 {
+  to {
+    clip-path: inset(0 -34% 0 0);
+  }
+}
+
+.loading-spinner {
+  width: calc(6 * 30px);
+  height: 50px;
+  display: flex;
+  color: var(--clr-oragne);
+  filter: drop-shadow(30px 25px 0 currentColor)
+    drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);
+  clip-path: inset(0 100% 0 0);
+  animation: l12 2s infinite steps(7);
+}
+.loading-spinner:before {
+  content: "";
+  width: 30px;
+  height: 25px;
+  --c: no-repeat radial-gradient(farthest-side, currentColor 92%, #0000);
+  background: var(--c) left / 70% 70%, var(--c) right/20% 20%,
+    var(--c) top 0 right 15%/20% 20%, var(--c) bottom 0 right 15%/20% 20%;
+}
+@keyframes l12 {
+  100% {
+    clip-path: inset(0 -30px 0 0);
+  }
+}
+
 .page1 {
   background-color: var(--clr-offwhite);
 }

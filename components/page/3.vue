@@ -3,22 +3,32 @@
     <div class="content-block pt1">
       <p class="hide">到今天</p>
       <p class="hide">
-        XX已经诞生
-        <span class="figure">X</span>年<span class="figure">X</span>月
-        <span class="figure">X</span>日啦!
+        {{ appName }}已经诞生 <span class="figure">{{ appAge.year }}</span
+        >年 <span class="figure">{{ appAge.month }}</span
+        >月 <span class="figure">{{ appAge.day }}</span
+        >日啦!
       </p>
       <div>
         <p class="hide">
-          <span class="figure">X</span>年 <span class="figure">X</span>月
-          <span class="figure">X</span>日
+          <span class="figure">{{ userRegisterDate.year }}</span
+          >年 <span class="figure">{{ userRegisterDate.month }}</span
+          >月 <span class="figure">{{ userRegisterDate.day }}</span
+          >日
         </p>
-        <p class="hide">是你和XX第一次见面的日子</p>
+        <p class="hide">是你和{{ appName }}第一次见面的日子</p>
       </div>
       <div>
-        <p class="hide">XX与你相伴已经<span class="figure">X</span>天了</p>
+        <p class="hide">
+          {{ appName }}与你相伴已经<span class="figure">{{
+            summary?.user_age
+          }}</span
+          >天了
+        </p>
         <p class="hide">还是如此一往情深 !</p>
       </div>
-      <p class="hide">你是第<span class="figure">X</span>个注册XX的用户</p>
+      <p class="hide">
+        你是第<span class="figure">{{ summary?.user_register_rank }}</span>个注册{{ appName }}的用户
+      </p>
       <div class="img-wrapper">
         <img src="/imgs/3/bg.svg" alt="" class="bg" />
         <img src="/imgs/3/bottle.svg" alt="" class="decor bottle hide" />
@@ -29,7 +39,7 @@
 
     <div class="content-block pt2">
       <p class="text hide">——</p>
-      <p class="text highlight hide">XX我真是万人迷呀</p>
+      <p class="text highlight hide">{{ appName }}我真是万人迷呀</p>
       <p class="hide">(得意)</p>
     </div>
     <ScrollUpHint v-if="showHint" />
@@ -41,8 +51,46 @@
 import { ref, onMounted } from "vue";
 
 const PAGE_NUMBER = 3;
+const { summary, appName } = useSummary();
+
 const hide = ref(true);
 const showHint = ref(false);
+
+const appAge = computed(() => {
+  let date;
+  switch (summary.value?.user_school_label) {
+    case "HKU":
+      date = new Date("2020-10-31");
+      break;
+    case "UST":
+      date = new Date("2020-5-2");
+      break;
+    case "CUHK":
+      date = new Date("2020-8-24");
+      break;
+    default:
+      date = new Date("2023-7-28");
+  }
+  const diffTime = Date.now() - date;
+  return {
+    year: Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365)),
+    month: Math.floor(
+      (diffTime % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30)
+    ),
+    day: Math.floor(
+      (diffTime % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)
+    ),
+  };
+});
+
+const userRegisterDate = computed(() => {
+  const date = new Date(summary.value?.user_register_date);
+  return {
+    year: date.getFullYear(),
+    month: date.getMonth() + 1,
+    day: date.getDate(),
+  };
+});
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);

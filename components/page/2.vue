@@ -3,7 +3,7 @@
     <div class="content">
       <div class="content-block">
         <p class="greeting" :class="{ hide: hide }">
-          <span>XXX</span>
+          <span>{{ summary?.user_itsc }}</span>
           <span>, <span class="figure">新年好</span>!</span>
         </p>
         <ul class="text-list">
@@ -50,6 +50,8 @@
 
 <script setup>
 const PAGE_NUMBER = 2;
+const { summary, appName } = useSummary();
+
 const hide = ref(true);
 const showHint = ref(false);
 

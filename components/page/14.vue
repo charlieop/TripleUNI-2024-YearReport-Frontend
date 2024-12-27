@@ -1,6 +1,6 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-    <div class="content-block">
+    <div class="content-block" v-if="summary?.user_frequent_emoji?.length > 0">
       <p class="figure hide">不知为何</p>
       <p class="hide">
         你对这些
@@ -11,12 +11,23 @@
         情有独钟
       </p>
     </div>
+    <div class="content-block" v-else>
+      <p class="hide">
+        你没有常用的 <span class="highlight">
+          <img src="/imgs/14/highlight.svg" alt="" class="highlight-bg" />
+          <span class="highlight-text">emoji</span>
+        </span>
+      </p>
+      <p class="hide accent"><br>让{{ appName }}送你几个过圣诞吧!</p>
+    </div>
     <div class="emoji-wrapper">
       <ChristmasTree />
       <div
         class="emoji hide"
         :class="`emoji${i}`"
-        v-for="(emoji, i) in tempEmojies"
+        v-for="(emoji, i) in summary?.user_frequent_emoji.length > 0
+          ? summary?.user_frequent_emoji
+          : ['🌟', '🦌', '🎁', '❄️', '🔔']"
         :key="emoji"
       >
         {{ emoji }}
@@ -29,9 +40,9 @@
 
 <script setup>
 const PAGE_NUMBER = 14;
-const shwoScrollUpHint = ref(false);
+const { summary, appName } = useSummary();
 
-const tempEmojies = ref(["😅", "⚠️", "❤️", "💩", "🥰"]);
+const shwoScrollUpHint = ref(false);
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
@@ -45,9 +56,10 @@ function onShow() {
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".content-block p:nth-child(1)"]);
   }, (time += 2000));
-  tempEmojies.value.forEach((_, i) => {
+  const allEmojis = document.querySelectorAll(".emoji");
+  allEmojis.forEach((emoji, i) => {
     setTimeout(() => {
-      unhideAll(PAGE_NUMBER, [`.emoji${i}`]);
+      emoji.classList.remove("hide");
     }, (time += 1800));
   });
   setTimeout(() => {

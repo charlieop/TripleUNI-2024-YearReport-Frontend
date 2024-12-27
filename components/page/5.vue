@@ -2,8 +2,8 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="group_2 content-block">
       <p class="textAni hide">
-        你最常与xx见面的时间是
-        <span class="font_2">XX</span>
+        你最常与{{ appName }}见面的时间是
+        <span class="accent">{{ mostActiveTime }}</span>
       </p>
     </div>
     <img class="image pos star-twinkle" src="/imgs/5/star out.webp" />
@@ -22,12 +22,21 @@
 
     <div class="group_8 content-block">
       <p class="textAni hide">
-        <span class="font_2">XX%</span>的日子里熬着夜刷噗噗
+        <span class="font_2">{{ summary?.user_stayup_late_ratio }}% </span
+        >的日子里熬着夜刷{{ appName }}
       </p>
-      <p class="textAni hide">不睡觉的时候</p>
-      <p class="textAni hide">你都在想什么呢？</p>
-      <p class="textAni hide">就你这个作息</p>
-      <p class="textAni hide">不谈异国恋真是可惜了</p>
+      <template v-if="summary?.user_stayup_late_ratio > 40">
+        <p class="textAni hide">不睡觉的时候</p>
+        <p class="textAni hide">你都在想什么呢？</p>
+        <p class="textAni hide">就你这个作息</p>
+        <p class="textAni hide">不谈异国恋真是可惜了</p>
+      </template>
+      <template v-else>
+        <p class="textAni hide">拥有者很多人做不到的</p>
+        <p class="textAni hide">早睡早起健康生活</p>
+        <p class="textAni hide">你肯定是个很自律的人吧</p>
+        <p class="textAni hide">要坚持哦!</p>
+      </template>
     </div>
 
     <ScrollUpHint v-if="showHint" />
@@ -40,9 +49,26 @@ import * as echarts from "echarts";
 import { ref, onMounted } from "vue";
 
 const PAGE_NUMBER = 5;
+const { summary, appName } = useSummary();
+
 const showHint = ref(false);
 const chartRef = ref(null);
 const loading = ref(true);
+
+const mostActiveTime = computed(() => {
+  switch (summary.value?.user_most_active_period) {
+    case "morning":
+      return "早上";
+    case "afternoon":
+      return "下午";
+    case "evening":
+      return "晚上";
+    case "midnight":
+      return "深夜";
+    default:
+      return "未知时间";
+  }
+});
 
 const chartOption = {
   grid: {

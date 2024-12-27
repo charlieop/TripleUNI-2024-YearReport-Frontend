@@ -8,24 +8,49 @@
     </div>
     <div class="content-block pt1">
       <div>
-        <p class="hide">某大量收藏帖子</p>
-        <p class="hide">你是第<span class="figure">X</span>个收藏的</p>
+        <template v-if="summary?.user_followed_top_follow_rank > 0">
+          <p class="hide">
+            某大量收藏帖子
+            <span class="accent">
+              #{{ summary?.user_followed_top_follow.uni_post_id }}
+            </span>
+          </p>
+          <p class="hide">
+            你是第<span class="figure">{{
+              summary?.user_followed_top_follow_rank
+            }}</span
+            >个收藏的
+          </p>
+        </template>
+        <template v-else>
+          <p class="hide">你今年没有收藏过最热门的帖子</p>
+          <p class="hide">是一个不爱凑热闹的人呢</p>
+        </template>
       </div>
     </div>
     <div class="content-block pt2">
-      <p class="right hide">大家都没有围观的帖子</p>
-      <div class="post-wrapper hide">
-        <Post :post-info="dummyPostInfo" />
-      </div>
-      <div class="right">
-        <p class="hide">你是唯一一个收藏的</p>
-        <p class="hide">它一定对你有什么特别的意义吧!</p>
-      </div>
+      <template v-if="summary?.user_followed_only_follow_post_list.length > 0">
+        <p class="right hide">大家都没有围观的帖子</p>
+        <div class="post-wrapper hide">
+          <Post :post-info="summary?.user_followed_only_follow_post_list[0]" />
+        </div>
+        <div class="right">
+          <p class="hide">你是唯一一个收藏的</p>
+          <p class="hide">它一定对你有什么特别的意义吧!</p>
+        </div>
+      </template>
+      <template v-else>
+        <p class="right hide">你没有收藏过任何小众的帖子</p>
+        <div class="right">
+          <p class="hide">是还没有找到你的共鸣</p>
+          <p class="hide">还是天生不爱收藏呢</p>
+        </div>
+      </template>
     </div>
     <div class="content-block pt3">
       <div>
         <p class="figure hide">不过</p>
-        <p class="hide">有<span class="figure">XX</span>条帖子</p>
+        <p class="hide">有<span class="figure">{{ summary?.user_followed_no_review_post_count }}</span>条帖子</p>
         <p class="hide">你围观后再也没看过</p>
       </div>
       <div class="accent hide">
@@ -34,7 +59,10 @@
           alt=""
           class="text-background"
         />
-        <p>像屯粮的小松鼠一样 :D</p>
+        <p v-if="summary?.user_followed_no_review_post_count > 0">
+          像屯粮的小松鼠一样 :D
+        </p>
+        <p v-else>真是太不可思议了 :O</p>
       </div>
     </div>
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
@@ -44,6 +72,8 @@
 
 <script setup>
 const PAGE_NUMBER = 10;
+const { summary, appName } = useSummary();
+
 const shwoScrollUpHint = ref(false);
 
 const dummyPostInfo = {
@@ -147,9 +177,6 @@ onMounted(() => {
   height: 100%;
   scale: 1.6;
   translate: -7% -2%;
-}
-.content-block {
-  z-index: 1;
 }
 
 .decor-img {

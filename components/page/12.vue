@@ -44,6 +44,8 @@
 
 <script setup>
 const PAGE_NUMBER = 12;
+const { summary, appName } = useSummary();
+
 const shwoScrollUpHint = ref(false);
 
 function init() {

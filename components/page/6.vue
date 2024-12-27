@@ -15,15 +15,23 @@
       <div class="subpage subpage1">
         <div class="content-block">
           <p class="hide prompt">
-            <span class="figure">有一天</span>你比XX起得还要早
+            <span class="accent">{{ earliestDate.month }}月</span>
+            <span class="accent">{{ earliestDate.day }}日</span>, 你比{{
+              appName
+            }}起得还要早
           </p>
           <p class="hide time">
-            你在<span class="figure">XX</span>点开了XX, 看的是
+            你在<span class="figure">{{ earliestDate.hour }}</span
+            >点<template v-if="earliestDate.minute === 0">整</template>
+            <template v-else>
+              <span class="figure">{{ earliestDate.minute }}</span
+              >分</template
+            >打开了{{ appName }}, 看的是
           </p>
         </div>
 
         <div class="post-container hide">
-          <Post :post-info="dummyPostInfo" />
+          <Post :post-info="summary?.user_earliest_view_post" />
         </div>
         <div class="cities" :style="{ '--_opacity-day': opacity }">
           <img src="/imgs/6/city1.svg" alt="" class="city city1" />
@@ -42,15 +50,22 @@
         />
         <div class="content-block">
           <p class="hide prompt">
-            <span class="figure">有一天</span>星星都在数人类的时候✨
+            <span class="accent">{{ latestDate.month }}月</span>
+            <span class="accent">{{ latestDate.day }}日, </span
+            >星星都在数人类的时候✨
           </p>
           <p class="hide time">
-            你在<span class="figure">XX</span>点还留在XX, 看的是
+            你在<span class="figure">{{ latestDate.hour }}</span
+            >点<template v-if="latestDate.minute === 0">整</template>
+            <template v-else>
+              <span class="figure">{{ latestDate.minute }}</span
+              >分</template
+            >还留在{{ appName }}, 看的是
           </p>
         </div>
 
         <div class="post-container hide">
-          <Post :post-info="dummyPostInfo" />
+          <Post :post-info="summary?.user_latest_view_post" />
         </div>
         <div class="content-block">
           <p class="accent hide">一定很辛苦吧👉🏻👈🏻</p>
@@ -64,8 +79,30 @@
 
 <script setup>
 const PAGE_NUMBER = 6;
+const { summary, appName } = useSummary();
+
 const opacity = ref(1);
 const shwoScrollUpHint = ref(false);
+
+const earliestDate = computed(() => {
+  const date = new Date(summary.value?.user_earliest_view_time);
+  return {
+    month: date.getMonth() + 1,
+    day: date.getDate(),
+    hour: date.getHours(),
+    minute: date.getMinutes(),
+  };
+});
+
+const latestDate = computed(() => {
+  const date = new Date(summary.value?.user_latest_view_time);
+  return {
+    month: date.getMonth() + 1,
+    day: date.getDate(),
+    hour: date.getHours(),
+    minute: date.getMinutes(),
+  };
+});
 
 let firstShowPage2 = false;
 
