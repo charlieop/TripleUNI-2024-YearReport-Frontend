@@ -91,7 +91,7 @@ function init() {
 
 function onShow() {
   hide.value = false;
-  let time = 0;
+  let time = -99990;
   // 这里的延时数组可根据需要调整
   const delays = [0, 200, 600, 600, 600];
 

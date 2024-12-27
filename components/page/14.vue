@@ -13,12 +13,13 @@
     </div>
     <div class="content-block" v-else>
       <p class="hide">
-        你没有常用的 <span class="highlight">
+        你没有常用的
+        <span class="highlight">
           <img src="/imgs/14/highlight.svg" alt="" class="highlight-bg" />
           <span class="highlight-text">emoji</span>
         </span>
       </p>
-      <p class="hide accent"><br>让{{ appName }}送你几个过圣诞吧!</p>
+      <p class="hide accent"><br />让{{ appName }}送你几个过圣诞吧!</p>
     </div>
     <div class="emoji-wrapper">
       <ChristmasTree />
@@ -51,7 +52,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = 0;
+  let time = -99990;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".content-block p:nth-child(1)"]);

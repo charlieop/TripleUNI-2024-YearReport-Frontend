@@ -37,7 +37,9 @@
             评价了
           </p>
           <div class="special textAni hide">
-            <span class="font_2">【{{ summary?.user_comment_for_top10 }}】</span>
+            <span class="font_2"
+              >【{{ summary?.user_comment_for_top10 }}】</span
+            >
           </div>
           <p class="textAni hide">万丈高楼平地起</p>
           <p class="textAni hide">你也是其中的一层呢</p>
@@ -87,7 +89,6 @@ const control = computed(() => {
   }
 });
 
-
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
   // 先隐藏所有文本
@@ -99,7 +100,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = 0;
+  let time = -99990;
   const delays = [1500, 500, 500, 500, 500, 1000, 500, 500, 500];
 
   const textList = Array.from(

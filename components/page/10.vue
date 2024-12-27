@@ -42,15 +42,20 @@
       <template v-else>
         <p class="right hide">你没有收藏过任何小众的帖子</p>
         <div class="right">
-          <p class="hide">是还没有找到你的共鸣</p>
-          <p class="hide">还是天生不爱收藏呢</p>
+          <p class="hide"><br />是还没有找到你的共鸣</p>
+          <p class="hide"><br />还是天生不爱收藏呢</p>
         </div>
       </template>
     </div>
     <div class="content-block pt3">
       <div>
         <p class="figure hide">不过</p>
-        <p class="hide">有<span class="figure">{{ summary?.user_followed_no_review_post_count }}</span>条帖子</p>
+        <p class="hide">
+          有<span class="figure">{{
+            summary?.user_followed_no_review_post_count
+          }}</span
+          >条帖子
+        </p>
         <p class="hide">你围观后再也没看过</p>
       </div>
       <div class="accent hide">
@@ -93,7 +98,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = 0;
+  let time = -99990;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(1) p:nth-child(1)"]);
