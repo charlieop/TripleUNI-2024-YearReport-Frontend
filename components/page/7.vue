@@ -3,7 +3,9 @@
     <div class="content-block">
       <p class="title figure hide">2024年</p>
       <div class="group">
-        <p class="hide">{{ appName }}一共产生了<span class="figure">XX</span>条树洞</p>
+        <p class="hide">
+          {{ appName }}一共产生了<span class="figure">XX</span>条树洞
+        </p>
         <p class="highlight hide">车水马龙、 人潮依旧</p>
       </div>
     </div>
@@ -31,7 +33,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = 0;
+  let time = -99990;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".title"]);

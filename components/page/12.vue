@@ -55,7 +55,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = 0;
+  let time = -99990;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 .title"]);

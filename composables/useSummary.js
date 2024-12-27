@@ -5,8 +5,6 @@ export const useSummary = () => {
   const fetchSummary = async () => {
     if (summary.value) return;
 
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
     const body = new URLSearchParams();
     body.append("user_itsc", "zyangbh");
     body.append("user_school_label", "UST");

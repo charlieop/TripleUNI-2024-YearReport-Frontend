@@ -62,7 +62,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = 0;
+  let time = -99990;
   setTimeout(() => {
     hide.value = false;
     const hour = document.querySelector(".page2 .clock-hand.hour-hand");

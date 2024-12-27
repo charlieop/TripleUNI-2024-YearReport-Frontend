@@ -8,7 +8,7 @@
         >月 <span class="figure">{{ appAge.day }}</span
         >日啦!
       </p>
-      <div>
+      <div v-if="summary?.user_register_date != undefined">
         <p class="hide">
           <span class="figure">{{ userRegisterDate.year }}</span
           >年 <span class="figure">{{ userRegisterDate.month }}</span
@@ -17,7 +17,11 @@
         </p>
         <p class="hide">是你和{{ appName }}第一次见面的日子</p>
       </div>
-      <div>
+      <div v-else>
+        <p class="hide">我们已经认识了<span class="figure">太久了</span></p>
+        <p class="hide">久到{{ appName }}都已经忘记和你第一次见面的日子</p>
+      </div>
+      <div v-if="summary?.user_age">
         <p class="hide">
           {{ appName }}与你相伴已经<span class="figure">{{
             summary?.user_age
@@ -26,8 +30,16 @@
         </p>
         <p class="hide">还是如此一往情深 !</p>
       </div>
-      <p class="hide">
-        你是第<span class="figure">{{ summary?.user_register_rank }}</span>个注册{{ appName }}的用户
+      <div v-else>
+        <p class="hide">我们一路走来</p>
+        <p class="hide">还是如此一往情深 !</p>
+      </div>
+      <p class="hide" v-if="summary?.user_register_rank">
+        你是第<span class="figure">{{ summary?.user_register_rank }}</span
+        >个注册{{ appName }}的用户
+      </p>
+      <p class="hide" style="text-wrap: unset" v-else>
+        你也是众多人中<span class="figure">最早</span>与我相识的那一批
       </p>
       <div class="img-wrapper">
         <img src="/imgs/3/bg.svg" alt="" class="bg" />
@@ -63,13 +75,13 @@ const appAge = computed(() => {
       date = new Date("2020-10-31");
       break;
     case "UST":
-      date = new Date("2020-5-2");
+      date = new Date("2020-05-02");
       break;
     case "CUHK":
-      date = new Date("2020-8-24");
+      date = new Date("2020-08-24");
       break;
     default:
-      date = new Date("2023-7-28");
+      date = new Date("2023-07-28");
   }
   const diffTime = Date.now() - date;
   return {
@@ -103,7 +115,7 @@ function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
   hide.value = false;
 
-  let time = 0;
+  let time = -99990;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 > p:nth-child(1)"]);

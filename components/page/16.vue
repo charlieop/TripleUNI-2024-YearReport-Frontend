@@ -37,9 +37,7 @@
     </div>
     <div class="content-block pt3" v-else>
       <p class="hide">真奇怪</p>
-      <p class="hide">
-        全{{ appName }}只有你一个人搜索了
-      </p>
+      <p class="hide">全{{ appName }}只有你一个人搜索了</p>
       <p class="hide">
         <span class="figure"
           >【{{ summary?.user_frequent_search_keyword }}】</span
@@ -66,7 +64,7 @@ const searchedWord = summary.value?.user_frequent_search_keyword;
 const searchContent = ref("");
 
 function showSearched() {
-  let time = 0;
+  let time = -99990;
   searchedWord.split("").forEach((char, index) => {
     setTimeout(() => {
       searchContent.value += char;
@@ -81,7 +79,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = 0;
+  let time = -99990;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);

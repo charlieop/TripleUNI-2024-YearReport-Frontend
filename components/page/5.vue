@@ -174,7 +174,7 @@ function onShow() {
     loading.value = false;
   }, 200);
 
-  let time = 0;
+  let time = -99990;
   const delays = [1000, 500, 0, 1500, 500, 500, 500, 500]; // 与原本style中delay对应
 
   const textList = Array.from(
