@@ -55,8 +55,15 @@ const chartOption = {
   xAxis: {
     type: "category",
     data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22],
-    axisLine: { lineStyle: { color: "#f9f5f0" } },
+    axisLine: { lineStyle: { color: "#000000aa" } },
+    axisTick: {
+      show: false,
+    },
     axisLabel: { color: "#f9f5f0" },
+    splitLine: {
+      show: true,
+      lineStyle: { color: "#00000040", type: "dashed" },
+    },
   },
   yAxis: {
     type: "value",
@@ -65,50 +72,55 @@ const chartOption = {
     interval: 25,
     axisLine: { lineStyle: { color: "#f9f5f0" } },
     axisLabel: { color: "#f9f5f0" },
-    splitLine: { show: true, lineStyle: { color: "#ffffff1A" } },
-  },
-series: [
-  {
-    name: "你",
-    type: "line",
-    smooth: true,
-    data: [30, 40, 60, 70, 80, 70, 60, 50, 40, 30, 20, 10],
-    itemStyle: { color: "#FACB98" }, // 改为橙色
-    areaStyle: {
-      color: {
-        type: "linear",
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [
-          { offset: 0, color: "#FACB98AA" }, // 改为橙色
-          { offset: 1, color: "#FACB9811" }, // 改为橙色
-        ],
-      },
+    splitLine: {
+      show: true,
+      lineStyle: { color: "#00000040", type: "dashed" },
     },
   },
-  {
-    name: "大家",
-    type: "line",
-    smooth: true,
-    data: [20, 30, 40, 50, 60, 70, 80, 70, 60, 50, 40, 30],
-    itemStyle: { color: "#7CB6B2" }, // 改为绿色
-    areaStyle: {
-      color: {
-        type: "linear",
-        x: 0,
-        y: 0,
-        x2: 0,
-        y2: 1,
-        colorStops: [
-          { offset: 0, color: "#7CB6B2AA" }, // 改为绿色
-          { offset: 1, color: "#7CB6B211" }, // 改为绿色
-        ],
+  series: [
+    {
+      name: "你",
+      type: "line",
+      smooth: true,
+      symbol: "none",
+      data: [30, 40, 60, 70, 80, 70, 60, 50, 40, 30, 20, 10],
+      itemStyle: { color: "#FACB98" }, // 改为橙色
+      areaStyle: {
+        color: {
+          type: "linear",
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [
+            { offset: 0, color: "#FACB98AA" }, // 改为橙色
+            { offset: 1, color: "#FACB9811" }, // 改为橙色
+          ],
+        },
       },
     },
-  }
-],
+    {
+      name: "大家",
+      type: "line",
+      smooth: true,
+      symbol: "none",
+      data: [20, 30, 40, 50, 60, 70, 80, 70, 60, 50, 40, 30],
+      itemStyle: { color: "#ddc5f7" }, // 改为绿色
+      areaStyle: {
+        color: {
+          type: "linear",
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [
+            { offset: 0, color: "#ddc5f7aa" }, // 改为绿色
+            { offset: 1, color: "#ddc5f711" }, // 改为绿色
+          ],
+        },
+      },
+    },
+  ],
 };
 
 let chart = null;
@@ -214,7 +226,7 @@ onMounted(() => {
   width: 100%; /* 设置合适的宽度 */
   margin: 0 auto; /* 水平居中 */
   display: flex;
-  height:24vh;
+  height: 24vh;
   justify-content: center; /* 内容水平居中 */
   align-items: center; /* 内容垂直居中 */
 }

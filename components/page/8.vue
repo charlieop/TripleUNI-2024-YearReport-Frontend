@@ -15,10 +15,10 @@
         </p>
         <p class="textAni hide">2024年你刷到的第一条噗噗是</p>
       </div>
-      <div class="text-wrapper">
-        <span class="text textAni hide">（树洞）</span>
-      </div>
 
+      <div class="post-container textAni hide">
+        <Post :post-info="dummyPostInfo" />
+      </div>
       <div class="mt-40 flex-col group_3">
         <img class="image self-center image-draw" src="/imgs/8/Vector.webp" />
 
@@ -63,6 +63,16 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
+const dummyPostInfo = {
+  post_id: 13552,
+  user_avatar: "UST",
+  post_topic: "情感",
+  is_following: true,
+  post_follower_num: 100,
+  post_comment_num: 50,
+  post_msg: "This is a post message. lorem ipsum dolor sit amet. lorem",
+};
+
 const PAGE_NUMBER = 8;
 const showHint = ref(false);
 const control = ref(2);
@@ -104,6 +114,11 @@ onMounted(() => {
 </script>
 
 <style scoped lang="css">
+.post-container {
+  margin-block: 0.5rem;
+  padding-inline: 2.25rem;
+}
+
 .textAni {
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -194,20 +209,6 @@ onMounted(() => {
   line-height: 2.69rem;
   color: var(--clr-text);
 }
-.text-wrapper {
-  width: 80%;
-  height: 14vh;
-  margin: auto;
-  display: grid;
-  place-content: center;
-  padding: 0;
-  background-color: #f9f5f0;
-}
-
-.text {
-  color: #39372a;
-  line-height: 1.19rem;
-}
 
 .group_3 {
   width: 100%;
@@ -259,7 +260,7 @@ onMounted(() => {
   position: absolute;
   right: -5%;
   transform-origin: center 20%;
-  bottom:-1%;
+  bottom: -1%;
   /* 确保初始状态是在底部 */
   transform: translateY(100%); /* 添加初始transform */
   animation: armRise 1.5s ease-out forwards,
