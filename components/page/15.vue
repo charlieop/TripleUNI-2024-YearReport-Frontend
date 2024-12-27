@@ -13,12 +13,62 @@
     </div>
     <div class="content-block pt1" v-else>
       <p class="figure hide">今年</p>
-      <p class="hide">你在{{ appName }}开启了隐身模式</p>
-      <p class="hide">一条私信也没有发过,<br>被确诊为线上i人</p>
+      <p class="hide">
+        你在{{ appName }}开启了<span class="accent">隐身模式</span>
+      </p>
+      <p class="hide">
+        一条私信也没有发过,<br />被确诊为<span class="accent"
+          >线上<span class="figure">i</span>人</span
+        >
+      </p>
     </div>
     <div class="decor-img">
       <img src="/imgs/15/bg.svg" alt="" class="bg" />
-      <img src="/imgs/15/team.webp" alt="" class="team decor hide" />
+      <div class="ul">
+        <img src="/imgs/15/cat.webp" alt="" class="cat decor hide" />
+        <img
+          src="/imgs/15/ul-puzzle.webp"
+          alt=""
+          class="ul-puzzle decor hide"
+        />
+      </div>
+
+      <div class="ll">
+        <img
+          src="/imgs/15/ll-person.webp"
+          alt=""
+          class="ll-person decor hide"
+        />
+        <img
+          src="/imgs/15/ll-puzzle.webp"
+          alt=""
+          class="ll-puzzle decor hide"
+        />
+      </div>
+      <div class="ur">
+        <img
+          src="/imgs/15/ur-person.webp"
+          alt=""
+          class="ur-person decor hide"
+        />
+        <img
+          src="/imgs/15/ur-puzzle.webp"
+          alt=""
+          class="ur-puzzle decor hide"
+        />
+      </div>
+      <div class="lr">
+        <img
+          src="/imgs/15/lr-person.webp"
+          alt=""
+          class="lr-person decor hide"
+        />
+        <img
+          src="/imgs/15/lr-puzzle.webp"
+          alt=""
+          class="lr-puzzle decor hide"
+        />
+      </div>
     </div>
     <div class="content-block pt2">
       <p class="hide" v-if="summary?.user_pm_count > 0">
@@ -45,7 +95,7 @@ function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
   let time = -99990;
-
+  
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);
   }, (time += 1000));
@@ -55,9 +105,11 @@ function onShow() {
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(3)"]);
   }, (time += 500));
-
   setTimeout(() => {
-    unhideAll(PAGE_NUMBER, [".decor-img .team"]);
+    unhideAll(PAGE_NUMBER, [".cat", ".ll-person", ".ur-person", ".lr-person"]);
+  }, (time += 500));
+  setTimeout(() => {
+    unhideAll(PAGE_NUMBER, [".decor-img .decor"]);
   }, (time += 1000));
 
   setTimeout(() => {
@@ -92,16 +144,86 @@ onMounted(() => {
 }
 .decor-img {
   position: relative;
-  margin-block: calc(0.06 * var(--height));
+  width: 80%;
+  margin: calc(0.06 * var(--height)) auto;
+  animation: 55s bg-rotate infinite linear;
 }
 .bg {
-  width: 80%;
-  margin-inline: auto;
-  display: block;
+  width: 100%;
+  animation: 90s bg-rotate infinite linear reverse;
 }
-.team {
-  width: 95%;
-  top: -8%;
+@keyframes bg-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.9);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.decor {
+  top: 3%;
   left: 5%;
+}
+
+.cat,
+.ul-puzzle {
+  animation: ul 2s infinite alternate;
+}
+@keyframes ul {
+  0% {
+    transform: translate(0.65rem, 0.65rem);
+  }
+  100% {
+    transform: translate(-0.65rem, -0.65rem);
+  }
+}
+
+.ll-person,
+.ll-puzzle {
+  animation: ll 2.25s infinite alternate;
+}
+@keyframes ll {
+  0% {
+    transform: translate(0.65rem, -0.65rem);
+  }
+  100% {
+    transform: translate(-0.65rem, 0.65rem);
+  }
+}
+
+.ur-person,
+.ur-puzzle {
+  animation: ur 2.5s 1s infinite alternate;
+}
+@keyframes ur {
+  0% {
+    transform: translate(-0.65rem, 0.65rem);
+  }
+  100% {
+    transform: translate(0.65rem, -0.65rem);
+  }
+}
+
+.lr-person,
+.lr-puzzle {
+  animation: lr 1.75s 0.5s infinite alternate;
+}
+@keyframes lr {
+  0% {
+    transform: translate(-0.65rem, -0.65rem);
+  }
+  100% {
+    transform: translate(0.65rem, 0.65rem);
+  }
 }
 </style>
