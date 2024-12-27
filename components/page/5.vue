@@ -47,14 +47,37 @@
 <script setup>
 import * as echarts from "echarts";
 import { ref, onMounted } from "vue";
-
+import { computed } from "vue";
 const PAGE_NUMBER = 5;
 const { summary, appName } = useSummary();
 
 const showHint = ref(false);
 const chartRef = ref(null);
 const loading = ref(true);
+const userHourDist = computed(() => {
+  let distRaw = summary.value?.user_hour_distribution;
+  if (typeof distRaw === "string") {
+    try {
+      distRaw = JSON.parse(distRaw);
+    } catch (e) {
+      console.error("解析 user_hour_distribution 出错：", e);
+      distRaw = [];
+    }
+  }
+  return Array.isArray(distRaw) ? distRaw.map(v => v * 100) : [];
+});
 
+// 解析 total_hour_distribution
+const totalHourDist = computed(() => {
+  return summary.value?.total_hour_distribution?.map(v => v * 100) ?? Array(24).fill(0);
+});
+const maxYValue = computed(() => {
+  const maxU = userHourDist.value.length ? Math.max(...userHourDist.value) : 0;
+  const maxT = totalHourDist.value.length ? Math.max(...totalHourDist.value) : 0;
+  const rawMax = Math.max(maxU, maxT);
+  const rounded = Math.ceil(rawMax / 5) * 5; 
+  return rounded
+});
 const mostActiveTime = computed(() => {
   switch (summary.value?.user_most_active_period) {
     case "morning":
@@ -80,12 +103,16 @@ const chartOption = {
   },
   xAxis: {
     type: "category",
-    data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22],
+    // 修改为24小时
+    data: Array.from({length: 24}, (_, i) => i),
     axisLine: { lineStyle: { color: "#000000aa" } },
     axisTick: {
       show: false,
     },
-    axisLabel: { color: "#f9f5f0" },
+    axisLabel: { 
+      color: "#f9f5f0",
+      interval: 2 // 每隔2小时显示一个刻度
+    },
     splitLine: {
       show: true,
       lineStyle: { color: "#00000040", type: "dashed" },
@@ -94,10 +121,13 @@ const chartOption = {
   yAxis: {
     type: "value",
     min: 0,
-    max: 100,
-    interval: 25,
+   max: maxYValue.value,  // 调整最大值以适应百分比数据
+    interval: 5,
     axisLine: { lineStyle: { color: "#f9f5f0" } },
-    axisLabel: { color: "#f9f5f0" },
+    axisLabel: { 
+      color: "#f9f5f0",
+      formatter: '{value}%' // 添加百分比符号
+    },
     splitLine: {
       show: true,
       lineStyle: { color: "#00000040", type: "dashed" },
@@ -109,8 +139,8 @@ const chartOption = {
       type: "line",
       smooth: true,
       symbol: "none",
-      data: [30, 40, 60, 70, 80, 70, 60, 50, 40, 30, 20, 10],
-      itemStyle: { color: "#FACB98" }, // 改为橙色
+      data: userHourDist.value,
+      itemStyle: { color: "#FACB98" },
       areaStyle: {
         color: {
           type: "linear",
@@ -119,8 +149,8 @@ const chartOption = {
           x2: 0,
           y2: 1,
           colorStops: [
-            { offset: 0, color: "#FACB98AA" }, // 改为橙色
-            { offset: 1, color: "#FACB9811" }, // 改为橙色
+            { offset: 0, color: "#FACB98AA" },
+            { offset: 1, color: "#FACB9811" },
           ],
         },
       },
@@ -130,8 +160,9 @@ const chartOption = {
       type: "line",
       smooth: true,
       symbol: "none",
-      data: [20, 30, 40, 50, 60, 70, 80, 70, 60, 50, 40, 30],
-      itemStyle: { color: "#ddc5f7" }, // 改为绿色
+      // 替换这里的数据
+      data: totalHourDist.value,
+      itemStyle: { color: "#ddc5f7" },
       areaStyle: {
         color: {
           type: "linear",
@@ -140,14 +171,14 @@ const chartOption = {
           x2: 0,
           y2: 1,
           colorStops: [
-            { offset: 0, color: "#ddc5f7aa" }, // 改为绿色
-            { offset: 1, color: "#ddc5f711" }, // 改为绿色
+            { offset: 0, color: "#ddc5f7AA" },
+            { offset: 1, color: "#ddc5f711" },
           ],
         },
       },
-    },
-  ],
-};
+    }
+  ]
+}
 
 let chart = null;
 
@@ -164,6 +195,7 @@ const drawChart = () => {
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
+  console.log(summary.value?.user_hour_distribution)
   loading.value = true;
 }
 
