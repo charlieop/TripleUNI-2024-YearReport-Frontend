@@ -171,7 +171,8 @@ onMounted(() => {
 }
 
 @keyframes planet-move {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0);
   }
   20% {

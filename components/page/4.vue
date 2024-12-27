@@ -1,119 +1,100 @@
 <template>
-  <div
-    class="page"
-    :class="`page${PAGE_NUMBER}`"
-    :id="`page${PAGE_NUMBER}`"
-  >
-   
-      <div class="group content-block">
-        <div class=" group_2">
-          <img class="image run-ltr" src="/imgs/4/person.webp" />
-          <img class=" image_2 run-ltr" src="/imgs/4/2.webp" />
+  <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
+    <div class="group content-block">
+      <div class="group_2">
+        <img class="image run-ltr" src="/imgs/4/person.webp" />
+        <img class="image_2 run-ltr" src="/imgs/4/2.webp" />
+      </div>
+      <div class="mt-12">
+        <div class="textAni" style="animation-delay: 0.2s">
+          <span class="font_2"> 今年，你很爱xx</span>
         </div>
-        <div class="mt-12">
-          <div class="textAni" style="animation-delay: 0.2s">
-            <span class="font_2"> 今年，你很爱xx</span>
-          </div>
 
+        <div class="textAni hide">
+          <p>你在xx登陆了 <span class="font_2">X</span>天</p>
+        </div>
+        <div class="textAni hide">
+          <p>一共使用xx <span class="font_2">XX</span>分钟</p>
+        </div>
+        <div class="textAni hide">
+          <p>
+            在校内排名第
+            <span class="font_2">XX</span>
 
-
-              <div class="textAni hide">
-                  <p>你在xx登陆了
-                      <span class="font_2">X</span>天
-                  </p>
-              </div>
-              <div class="textAni hide">
-                  <p>一共使用xx
-                      <span class="font_2">XX</span>分钟
-                  </p>
-              </div>
-              <div class="textAni hide">
-                  <p>在校内排名第
-                      <span class="font_2">XX</span>
-
-                      名
-
-                  </p>
-              </div>
-          </div>
+            名
+          </p>
+        </div>
       </div>
-      <div class="group_3">
-          <div class="section">
-
-              <div class="group_4">
-                  <div class="section_2"></div>
-                  <div class="pos_2">
-                      <div class="textAni hide">
-                          <span class="font_3">相当于看了</span>
-                          <span class="font_2 text">XX</span>
-                          <span class="font_3">集
-                          </span>
-                          <div class="text-center">
-                              <span class="font_3">《再见爱人》</span>
-                          </div>
-                      </div>
-                  </div>
+    </div>
+    <div class="group_3">
+      <div class="section">
+        <div class="group_4">
+          <div class="section_2"></div>
+          <div class="pos_2">
+            <div class="textAni hide">
+              <span class="font_3">相当于看了</span>
+              <span class="font_2 text">XX</span>
+              <span class="font_3">集 </span>
+              <div class="text-center">
+                <span class="font_3">《再见爱人》</span>
               </div>
-              <div class="group_6">
-                  <img class="image_5" src="/imgs/4/smiles.webp" />
-                  <img class="image_4 pos_3" src="/imgs/4/broken heart.webp" />
-              </div>
+            </div>
           </div>
-          <img class="image_3 pos star-in" src="/imgs/4/star in.webp" />
+        </div>
+        <div class="group_6">
+          <img class="image_5" src="/imgs/4/smiles.webp" />
+          <img class="image_4 pos_3" src="/imgs/4/broken heart.webp" />
+        </div>
       </div>
+      <img class="image_3 pos star-in" src="/imgs/4/star in.webp" />
+    </div>
 
-
-      <ScrollUpHint v-if="showHint" />
-      <Footer />
+    <ScrollUpHint v-if="showHint" />
+    <Footer />
   </div>
-
 </template>
 
 <script setup>
-
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 
 const PAGE_NUMBER = 4;
-const hide = ref(true)
-const showHint = ref(false)
+const hide = ref(true);
+const showHint = ref(false);
 
 function init() {
   // 将所有 .textAni 的内容先隐藏
-  const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
-  texts.forEach(el => el.classList.add('hide'))
+  const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`);
+  texts.forEach((el) => el.classList.add("hide"));
 }
 
 function onShow() {
-  hide.value = false
-  let time = 0
+  hide.value = false;
+  let time = 0;
   // 这里的延时数组可根据需要调整
-  const delays = [0, 200, 600, 600, 600,]
+  const delays = [0, 200, 600, 600, 600];
 
   const textList = Array.from(
-      document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
-  )
+    document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
+  );
   textList.forEach((el, index) => {
-      setTimeout(() => {
-          unhide(el)
-      }, (time += delays[index] ?? 200))
-  })
+    setTimeout(() => {
+      unhide(el);
+    }, (time += delays[index] ?? 200));
+  });
 
   // 所有文字出现后可执行后续操作
   setTimeout(() => {
-      showHint.value = true
-      appendNextPage?.(PAGE_NUMBER) // 确保 appendNextPage 传递 true 参数
-  }, time + 200)
+    showHint.value = true;
+    appendNextPage?.(PAGE_NUMBER); // 确保 appendNextPage 传递 true 参数
+  }, time + 200);
 
   console.log(`Page ${PAGE_NUMBER} shown`);
-
-
 }
 onMounted(() => {
-  init()
-  onEnterViewportForFirstTime?.(PAGE_NUMBER, onShow)
-})
+  init();
+  onEnterViewportForFirstTime?.(PAGE_NUMBER, onShow);
+});
 </script>
-
 
 <style scoped>
 .run-ltr {
@@ -132,25 +113,25 @@ onMounted(() => {
 
 @keyframes moveIn {
   0% {
-      opacity: 0;
-      clip-path: inset(0 50% 0 50%);
-      /* 从中间开始 */
+    opacity: 0;
+    clip-path: inset(0 50% 0 50%);
+    /* 从中间开始 */
   }
 
   100% {
-      opacity: 1;
-      clip-path: inset(0 0 0 0);
-      /* 完全展开 */
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    /* 完全展开 */
   }
 }
 
 @keyframes runLeftToRight {
   0% {
-      transform: translateX(-200px);
+    transform: translateX(-200px);
   }
 
   100% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
@@ -235,7 +216,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   padding: 1.41rem 3.44rem 0;
-  background-image: url('imgs/4/white_background.webp');
+  background-image: url("imgs/4/white_background.webp");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 8.75rem;
@@ -245,19 +226,22 @@ onMounted(() => {
 .group_4 {
   display: flex;
   flex-direction: column;
- 
+
   position: relative;
   margin-right: 0.5rem;
   padding-top: 1.88rem;
   width: 12.99rem;
-
 }
 
 .section_2 {
   width: 100%;
   margin-left: -0.3rem;
   opacity: 0.9;
-  background-image: radial-gradient(50% 50% at 50% 50%, #facb98 0%, #e8e8e8 92%);
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    #facb98 0%,
+    #e8e8e8 92%
+  );
   filter: blur(0.13rem);
   border-radius: 50%;
   height: 2.94rem;
@@ -303,7 +287,6 @@ onMounted(() => {
 
 .image_4 {
   width: 3.88rem;
-  ;
   height: 3.44rem;
   margin-bottom: -0.8rem;
 }
@@ -316,7 +299,6 @@ onMounted(() => {
 }
 
 .image_3 {
-
   width: 21.88rem;
   /* 21.88rem */
   height: 17.25rem;

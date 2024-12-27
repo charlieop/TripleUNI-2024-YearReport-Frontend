@@ -95,7 +95,7 @@ function onShow() {
   }, (time += 1500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage1 .time"]);
-  }, (time += 1500));
+  }, (time += 500));
   setTimeout(() => {
     const scrollingContext = document.querySelector(
       ".page6 .scrolling-context"
@@ -103,7 +103,7 @@ function onShow() {
     scrollingContext.style.overflowX = "scroll";
 
     unhideAll(PAGE_NUMBER, [".subpage1 .post-container", ".scroll-hint"]);
-  }, (time += 1500));
+  }, (time += 1000));
 }
 
 function onShowPage2() {
@@ -114,15 +114,15 @@ function onShowPage2() {
   }, (time += 1500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .time"]);
-  }, (time += 1500));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .post-container"]);
-  }, (time += 1500));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".accent"]);
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 1500));
+  }, (time += 1000));
 }
 
 const dummyPostInfo = {
