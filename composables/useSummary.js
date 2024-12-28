@@ -43,7 +43,7 @@ export const useSummary = () => {
         appName.value = "哔哔机";
         break;
       default:
-        appName.value = "Triple UNI";
+        appName.value = "UNI";
     }
   }
 

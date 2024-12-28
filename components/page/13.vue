@@ -44,7 +44,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);
@@ -59,7 +59,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);

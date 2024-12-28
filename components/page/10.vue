@@ -23,7 +23,7 @@
           </p>
         </template>
         <template v-else>
-          <p class="hide">哦豁！今年你没有收藏过最热门的帖子</p>
+          <p class="hide"><br />哦豁！今年你没有收藏过最热门的帖子</p>
           <p class="hide">你的眼光是有点子特别的🤔</p>
         </template>
       </div>
@@ -40,9 +40,9 @@
         </div>
       </template>
       <template v-else>
-        <p class="right hide">你没有收藏过任何小众的帖子</p>
+        <p class="right hide"><br />你没有收藏过任何小众的帖子</p>
         <div class="right">
-          <p class="hide"><br />是还没有找到你的共鸣</p>
+          <p class="hide">是还没有找到你的共鸣</p>
           <p class="hide">还是天生不爱收藏呢</p>
         </div>
       </template>
@@ -60,9 +60,7 @@
       </div>
       <div v-else>
         <p class="figure hide">不过</p>
-        <p class="hide">
-          <span>每一个</span>收藏的帖子你都会回看
-        </p>
+        <p class="hide"><span>每一个</span>收藏的帖子你都会回看</p>
         <p class="hide">再看的时候，心绪会不会不同呢</p>
       </div>
       <div class="accent hide">
@@ -71,9 +69,7 @@
           alt=""
           class="text-background"
         />
-        <p>
-          像屯粮的小松鼠一样 :D
-        </p>
+        <p>像屯粮的小松鼠一样 :D</p>
       </div>
     </div>
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
@@ -104,7 +100,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(1) p:nth-child(1)"]);
@@ -115,7 +111,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p.right"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".post-wrapper"]);
   }, (time += 500));
@@ -128,10 +124,10 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 div:nth-child(1) p:nth-child(1)"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 div:nth-child(1) p:nth-child(2)"]);
-  }, (time += 1000));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 div:nth-child(1) p:nth-child(3)"]);
   }, (time += 500));

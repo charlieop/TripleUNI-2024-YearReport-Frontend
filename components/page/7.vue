@@ -35,29 +35,29 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".title"]);
   }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".group p:first-child"]);
-  }, (time += 1000));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".group .highlight"]);
-  }, (time += 1000));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".hotword-wrapper p:first-child"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".hand"]);
-  }, (time += 1000));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".hotword"]);
   }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".comment:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".comment:nth-child(4)"]);
     shwoScrollUpHint.value = true;

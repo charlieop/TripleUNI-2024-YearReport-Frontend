@@ -52,11 +52,11 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".content-block p:nth-child(1)"]);
-  }, (time += 2000));
+  }, (time += 1000));
   const allEmojis = document.querySelectorAll(".emoji");
   allEmojis.forEach((emoji, i) => {
     setTimeout(() => {
@@ -69,7 +69,7 @@ function onShow() {
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 1000));
+  }, (time += 500));
 }
 
 onMounted(() => {

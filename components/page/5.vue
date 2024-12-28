@@ -64,19 +64,24 @@ const userHourDist = computed(() => {
       distRaw = [];
     }
   }
-  return Array.isArray(distRaw) ? distRaw.map(v => v * 100) : [];
+  return Array.isArray(distRaw) ? distRaw.map((v) => v * 100) : [];
 });
 
 // 解析 total_hour_distribution
 const totalHourDist = computed(() => {
-  return summary.value?.total_hour_distribution?.map(v => v * 100) ?? Array(24).fill(0);
+  return (
+    summary.value?.total_hour_distribution?.map((v) => v * 100) ??
+    Array(24).fill(0)
+  );
 });
 const maxYValue = computed(() => {
   const maxU = userHourDist.value.length ? Math.max(...userHourDist.value) : 0;
-  const maxT = totalHourDist.value.length ? Math.max(...totalHourDist.value) : 0;
+  const maxT = totalHourDist.value.length
+    ? Math.max(...totalHourDist.value)
+    : 0;
   const rawMax = Math.max(maxU, maxT);
-  const rounded = Math.ceil(rawMax / 5) * 5; 
-  return rounded
+  const rounded = Math.ceil(rawMax / 5) * 5;
+  return rounded;
 });
 const mostActiveTime = computed(() => {
   switch (summary.value?.user_most_active_period) {
@@ -104,14 +109,14 @@ const chartOption = {
   xAxis: {
     type: "category",
     // 修改为24小时
-    data: Array.from({length: 24}, (_, i) => i),
+    data: Array.from({ length: 24 }, (_, i) => i),
     axisLine: { lineStyle: { color: "#000000aa" } },
     axisTick: {
       show: false,
     },
-    axisLabel: { 
+    axisLabel: {
       color: "#f9f5f0",
-      interval: 2 // 每隔2小时显示一个刻度
+      interval: 2, // 每隔2小时显示一个刻度
     },
     splitLine: {
       show: true,
@@ -121,12 +126,12 @@ const chartOption = {
   yAxis: {
     type: "value",
     min: 0,
-   max: maxYValue.value,  // 调整最大值以适应百分比数据
+    max: maxYValue.value, // 调整最大值以适应百分比数据
     interval: 5,
     axisLine: { lineStyle: { color: "#f9f5f0" } },
-    axisLabel: { 
+    axisLabel: {
       color: "#f9f5f0",
-      formatter: '{value}%' // 添加百分比符号
+      formatter: "{value}%", // 添加百分比符号
     },
     splitLine: {
       show: true,
@@ -176,9 +181,9 @@ const chartOption = {
           ],
         },
       },
-    }
-  ]
-}
+    },
+  ],
+};
 
 let chart = null;
 
@@ -195,7 +200,6 @@ const drawChart = () => {
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
-  console.log(summary.value?.user_hour_distribution)
   loading.value = true;
 }
 
@@ -206,8 +210,8 @@ function onShow() {
     loading.value = false;
   }, 200);
 
-  let time = -99990;
-  const delays = [1000, 500, 0, 1500, 500, 500, 500, 500]; // 与原本style中delay对应
+  let time = 0;
+  const delays = [1000, 500, 0, 1000, 500, 500, 500, 500]; // 与原本style中delay对应
 
   const textList = Array.from(
     document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)
@@ -231,7 +235,6 @@ function onShow() {
     showHint.value = true;
     appendNextPage(PAGE_NUMBER);
   }, time + 200);
-  console.log(`Page ${PAGE_NUMBER} shown`);
 }
 
 onMounted(() => {

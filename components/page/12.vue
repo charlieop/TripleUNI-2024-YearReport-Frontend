@@ -55,7 +55,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 .title"]);
@@ -72,7 +72,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(1)"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(2)"]);
   }, (time += 500));
@@ -82,7 +82,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 p:nth-child(1)"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 p:nth-child(2)"]);
   }, (time += 500));
@@ -92,7 +92,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt4 p:nth-child(1)"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt4 p:nth-child(2)"]);
   }, (time += 500));

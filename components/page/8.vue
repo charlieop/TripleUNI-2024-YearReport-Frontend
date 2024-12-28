@@ -49,7 +49,7 @@
             <p class="textAni hide">
               你<span class="text_2">完全没有</span>涉足过
             </p>
-            <p class="textAni hide">xx最热的帖子</p>
+            <p class="textAni hide">{{ appName }}最热的帖子</p>
             <p class="textAni hide">真是个遗世独立的高人啊</p>
           </div>
           <img src="/imgs/8/lengthwise.webp" class="image_3" />
@@ -100,8 +100,8 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
-  const delays = [1500, 500, 500, 500, 500, 1000, 500, 500, 500];
+  let time = 0;
+  const delays = [1000, 500, 500, 500, 500, 1000, 500, 500, 500];
 
   const textList = Array.from(
     document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)

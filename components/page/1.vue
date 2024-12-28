@@ -4,6 +4,20 @@
       <div class="loading-spinner"></div>
       <p>正在布置爱丽丝的兔子洞<span class="loading-animation">...</span></p>
     </div>
+    <div class="music-icon" v-if="!start">
+      <img
+        src="/imgs/icons/music.webp"
+        alt=""
+        v-if="playMusic"
+        @click="playMusic = false"
+      />
+      <img
+        src="/imgs/icons/music-off.webp"
+        alt=""
+        v-else
+        @click="playMusic = true"
+      />
+    </div>
     <div class="content">
       <div>
         <div class="dome" :class="{ 'hide-decor': start }">
@@ -36,9 +50,11 @@ const PAGE_NUMBER = 1;
 const { summary } = useSummary();
 const isLoaded = computed(() => summary.value != undefined);
 const showLoading = ref(false);
+const playMusic = ref(true);
 
 const start = ref(false);
 let runned = false;
+let bgm;
 
 watch(isLoaded, (newVal) => {
   if (newVal && showLoading.value) {
@@ -47,6 +63,9 @@ watch(isLoaded, (newVal) => {
 });
 
 function handelStart() {
+  if (playMusic.value) {
+    bgm.play();
+  }
   if (!isLoaded.value) {
     showLoading.value = true;
     return;
@@ -68,6 +87,9 @@ function handelStart() {
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
+
+  bgm = new Audio("/audio/bgm.mp3");
+  bgm.loop = true;
 }
 
 function onShow() {
@@ -82,6 +104,29 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.music-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 3rem;
+  aspect-ratio: 1 / 1;
+  z-index: 1000;
+  border-radius: 999rem;
+  padding: 0.375rem;
+  overflow: hidden;
+  border: 2px solid var(--clr-brown);
+  background-color: var(--clr-purplr);
+  animation: music-icon-spin 10s linear infinite;
+}
+@keyframes music-icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .loading-overlay {
   position: fixed;
   inset: 0;

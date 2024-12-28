@@ -64,7 +64,7 @@ const searchedWord = summary.value?.user_frequent_search_keyword;
 const searchContent = ref("");
 
 function showSearched() {
-  let time = -99990;
+  let time = 0;
   searchedWord.split("").forEach((char, index) => {
     setTimeout(() => {
       searchContent.value += char;
@@ -79,7 +79,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);
@@ -90,7 +90,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(1)"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     showSearched();
   }, (time += 700));
@@ -100,7 +100,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 > p:nth-child(1)"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 > p:nth-child(2)"]);
   }, (time += 700));

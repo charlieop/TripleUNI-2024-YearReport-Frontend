@@ -126,10 +126,10 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage1 .prompt"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage1 .time"]);
   }, (time += 500));
@@ -144,11 +144,11 @@ function onShow() {
 }
 
 function onShowPage2() {
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .prompt"]);
-  }, (time += 1500));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .time"]);
   }, (time += 500));

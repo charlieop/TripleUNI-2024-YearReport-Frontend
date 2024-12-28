@@ -25,48 +25,48 @@
     <div class="decor-img">
       <img src="/imgs/15/bg.svg" alt="" class="bg" />
       <div class="ul">
-        <img src="/imgs/15/cat.webp" alt="" class="cat decor hide" />
         <img
           src="/imgs/15/ul-puzzle.webp"
           alt=""
           class="ul-puzzle decor hide"
         />
+        <img src="/imgs/15/cat.webp" alt="" class="cat decor hide" />
       </div>
 
       <div class="ll">
-        <img
-          src="/imgs/15/ll-person.webp"
-          alt=""
-          class="ll-person decor hide"
-        />
         <img
           src="/imgs/15/ll-puzzle.webp"
           alt=""
           class="ll-puzzle decor hide"
         />
+        <img
+          src="/imgs/15/ll-person.webp"
+          alt=""
+          class="ll-person decor hide"
+        />
       </div>
       <div class="ur">
-        <img
-          src="/imgs/15/ur-person.webp"
-          alt=""
-          class="ur-person decor hide"
-        />
         <img
           src="/imgs/15/ur-puzzle.webp"
           alt=""
           class="ur-puzzle decor hide"
         />
+        <img
+          src="/imgs/15/ur-person.webp"
+          alt=""
+          class="ur-person decor hide"
+        />
       </div>
       <div class="lr">
-        <img
-          src="/imgs/15/lr-person.webp"
-          alt=""
-          class="lr-person decor hide"
-        />
         <img
           src="/imgs/15/lr-puzzle.webp"
           alt=""
           class="lr-puzzle decor hide"
+        />
+        <img
+          src="/imgs/15/lr-person.webp"
+          alt=""
+          class="lr-person decor hide"
         />
       </div>
     </div>
@@ -94,8 +94,8 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
-  
+  let time = 0;
+
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);
   }, (time += 1000));
@@ -114,11 +114,11 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p"]);
-  }, (time += 1000));
+  }, (time += 500));
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 1000));
+  }, (time += 500));
 }
 
 onMounted(() => {

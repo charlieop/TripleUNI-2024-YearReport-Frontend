@@ -31,7 +31,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div p:nth-child(1)"]);
@@ -41,14 +41,14 @@ function onShow() {
   }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 .keyword"]);
-  }, (time += 1000));
+  }, (time += 500));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(1)"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 .keyword"]);
-  }, (time += 1000));
+  }, (time += 500));
 
   setTimeout(() => {
     const hand = document.querySelector(".page9 .hand");
@@ -58,7 +58,7 @@ function onShow() {
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 3000));
+  }, (time += 500));
 }
 
 onMounted(() => {
@@ -93,7 +93,7 @@ onMounted(() => {
   width: 170%;
   margin-block: -7rem -5rem;
   translate: -30% 0;
-  animation: hand 7s forwards;
+  animation: hand 5s forwards;
   animation-play-state: paused;
 }
 

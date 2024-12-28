@@ -62,7 +62,7 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  let time = -99990;
+  let time = 0;
   setTimeout(() => {
     hide.value = false;
     const hour = document.querySelector(".page2 .clock-hand.hour-hand");
@@ -99,7 +99,7 @@ function onShow() {
   }, (time += 1500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".final", "img.rabbit.hide"]);
-  }, (time += 3000));
+  }, (time += 1000));
   setTimeout(() => {
     showHint.value = true;
     appendNextPage(PAGE_NUMBER);

@@ -84,6 +84,8 @@ const effectiveEpisodeCount = computed(() => {
 });
 
 function init() {
+  console.log(`Page ${PAGE_NUMBER} initialized`);
+
   // 将所有 .textAni 的内容先隐藏
   const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`);
   texts.forEach((el) => el.classList.add("hide"));
@@ -91,7 +93,7 @@ function init() {
 
 function onShow() {
   hide.value = false;
-  let time = -99990;
+  let time = 0;
   // 这里的延时数组可根据需要调整
   const delays = [0, 200, 600, 600, 600];
 
