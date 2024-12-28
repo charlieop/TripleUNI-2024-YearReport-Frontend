@@ -14,12 +14,15 @@
         <div class="post-data">
           <img
             class="post-icon"
-            :src="
-              postInfo.is_following
-                ? '/imgs/icons/sf-star-fill.svg'
-                : '/imgs/icons/sf-star.svg'
-            "
+            :src="'/imgs/icons/sf-star-fill.svg'"
             alt=""
+            v-if="postInfo.is_following"
+          />
+          <img
+            class="post-icon"
+            :src="'/imgs/icons/sf-star-fill.svg'"
+            alt=""
+            v-else
           />
           <span>{{ postInfo.post_follower_num }}</span>
         </div>
@@ -49,12 +52,15 @@
         <div class="post-data">
           <img
             class="post-icon"
-            :src="
-              postInfo.is_following
-                ? '/imgs/icons/sf-star-fill.svg'
-                : '/imgs/icons/sf-star.svg'
-            "
+            :src="'/imgs/icons/sf-star-fill.svg'"
             alt=""
+            v-if="postInfo.is_following"
+          />
+          <img
+            class="post-icon"
+            :src="'/imgs/icons/sf-star-fill.svg'"
+            alt=""
+            v-else
           />
           <span>{{ postInfo.post_follower_num }}</span>
         </div>

@@ -2,9 +2,11 @@
   <div class="app-wrapper">
     <NuxtRouteAnnouncer />
     <div class="app">
+      <audio src="/audio/bgm.mp3" id="bgm" loop></audio>
       <div class="overlay" v-if="!isScreenSizeOk">
         很抱歉,你的屏幕尺寸过小，无法正常显示本页面，请更换设备再尝试打开。
       </div>
+
       <Pages />
     </div>
   </div>

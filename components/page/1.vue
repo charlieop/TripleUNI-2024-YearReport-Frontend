@@ -1,9 +1,5 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-    <div class="loading-overlay" v-if="!isLoaded && showLoading">
-      <div class="loading-spinner"></div>
-      <p>正在布置爱丽丝的兔子洞<span class="loading-animation">...</span></p>
-    </div>
     <div class="music-icon" v-if="!start">
       <img
         src="/imgs/icons/music.webp"
@@ -18,6 +14,11 @@
         @click="playMusic = true"
       />
     </div>
+    <div class="loading-overlay" v-if="!isLoaded && showLoading">
+      <div class="loading-spinner"></div>
+      <p>正在布置爱丽丝的兔子洞<span class="loading-animation">...</span></p>
+    </div>
+
     <div class="content">
       <div>
         <div class="dome" :class="{ 'hide-decor': start }">
@@ -88,8 +89,7 @@ function handelStart() {
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
 
-  bgm = new Audio("/audio/bgm.mp3");
-  bgm.loop = true;
+  bgm = document.getElementById("bgm");
 }
 
 function onShow() {
