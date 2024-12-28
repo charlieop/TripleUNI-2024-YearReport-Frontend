@@ -194,6 +194,8 @@ onMounted(() => {
   margin-left: -1.5rem;
 }
 .page {
+  display:flex;
+  overflow-y:hidden;
   padding: 3.98rem 0 0 0;
   background-color: #7cb6b2;
   height: 100%;
@@ -270,13 +272,11 @@ onMounted(() => {
 }
 .image_3 {
   position: absolute;
-  right: -5%;
+  right:0;
   transform-origin: center 20%;
-  bottom: -1%;
-  /* 确保初始状态是在底部 */
-  transform: translateY(100%); /* 添加初始transform */
-  animation: armRise 1.5s ease-out forwards,
-    fingerWave 2.5s 1.5s linear infinite;
+  bottom: 0%;
+  transform: translateY(100%);
+  animation: armRise 1.5s ease-out forwards;
 }
 
 @keyframes armRise {
@@ -288,24 +288,9 @@ onMounted(() => {
   }
 }
 
-@keyframes fingerWave {
-  10% {
-    transform: rotate(3deg);
-  }
-  20% {
-    transform: rotate(-2deg);
-  }
-  30% {
-    transform: rotate(1deg);
-  }
-  40% {
-    transform: rotate(-1deg);
-  }
-  50%,
-  100% {
-    transform: rotate(0deg);
-  }
-}
+
+
+
 .pos {
   position: absolute;
   left: 0;
