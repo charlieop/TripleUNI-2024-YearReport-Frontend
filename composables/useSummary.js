@@ -5,9 +5,19 @@ export const useSummary = () => {
   const fetchSummary = async () => {
     if (summary.value) return;
 
-    const body = new URLSearchParams();
-    body.append("user_itsc", "zyangbh");
-    body.append("user_school_label", "UST");
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const userSchoolLabel =
+      urlParams.get("school") ||
+      prompt("Please enter your school label (cuhk | hku | ust):");
+    const userItsc =
+      urlParams.get("itsc") ||
+      prompt(`Please enter your ${userSchoolLabel} ITSC:`);
+    const body = new URLSearchParams({
+      user_itsc: userItsc,
+      user_school_label: userSchoolLabel,
+    });
+
     const response = await $fetch(
       "https://api.uuunnniii.com/v4/report2024/get.php",
       {
@@ -32,7 +42,7 @@ export const useSummary = () => {
   };
 
   function setAppName(schoolLabel) {
-    switch (schoolLabel) {
+    switch (schoolLabel.toUpperCase()) {
       case "HKU":
         appName.value = "噗噗";
         break;
@@ -47,9 +57,24 @@ export const useSummary = () => {
     }
   }
 
+  function getPostID(post) {
+    if (!post) return undefined;
+    switch (summary.value.user_school_label.toUpperCase()) {
+      case "HKU":
+        return post.hku_post_id;
+      case "UST":
+        return post.ust_post_id;
+      case "CUHK":
+        return post.cuhk_post_id;
+      default:
+        return post.uni_post_id;
+    }
+  }
+
   return {
     summary,
     fetchSummary,
     appName,
+    getPostID,
   };
 };

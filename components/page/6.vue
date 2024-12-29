@@ -129,10 +129,10 @@ function onShow() {
   let time = 0;
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage1 .prompt"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage1 .time"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     const scrollingContext = document.querySelector(
       ".page6 .scrolling-context"
@@ -140,7 +140,7 @@ function onShow() {
     scrollingContext.style.overflowX = "scroll";
 
     unhideAll(PAGE_NUMBER, [".subpage1 .post-container", ".scroll-hint"]);
-  }, (time += 1000));
+  }, (time += 500));
 }
 
 function onShowPage2() {
@@ -148,18 +148,18 @@ function onShowPage2() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .prompt"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .time"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .post-container"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".accent"]);
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 1000));
+  }, (time += 300));
 }
 
 const dummyPostInfo = {

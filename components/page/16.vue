@@ -20,7 +20,7 @@
     </div>
     <div
       class="content-block pt3"
-      v-if="user_frequent_search_keyword_user_count > 0"
+      v-if="summary?.user_frequent_search_keyword_user_count > 0"
     >
       <p class="hide">其实不只是你</p>
       <p class="hide">
@@ -83,14 +83,14 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     showSearched();
   }, (time += 700));
@@ -100,7 +100,7 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 > p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 > p:nth-child(2)"]);
   }, (time += 700));
@@ -111,7 +111,7 @@ function onShow() {
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 1000));
+  }, (time += 700));
 }
 
 onMounted(() => {

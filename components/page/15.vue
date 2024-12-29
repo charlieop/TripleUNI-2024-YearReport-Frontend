@@ -98,27 +98,27 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".cat", ".ll-person", ".ur-person", ".lr-person"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".decor-img .decor"]);
-  }, (time += 1000));
+  }, (time += 700));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 500));
+  }, (time += 300));
 }
 
 onMounted(() => {

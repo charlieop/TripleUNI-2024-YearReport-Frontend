@@ -2,33 +2,22 @@
   <div class="post-wrapper">
     <div class="post" v-if="postInfo" @click="showDetail">
       <div class="post-header post-row">
-        <div class="post-id">#{{ postInfo.uni_post_id }}</div>
+        <div class="post-id">#{{ getPostID(postInfo) }}</div>
         <img
           class="post-avatar"
           :src="
-            'https://i.boatonland.com/avatar/' + postInfo.user_avatar + '.svg'
+            'https://i.boatonland.com/avatar/' + ( postInfo.user_avatar || 'ufo') + '.svg'
           "
           alt=""
         />
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
-          <img
-            class="post-icon"
-            :src="'/imgs/icons/sf-star-fill.svg'"
-            alt=""
-            v-if="postInfo.is_following"
-          />
-          <img
-            class="post-icon"
-            :src="'/imgs/icons/sf-star-fill.svg'"
-            alt=""
-            v-else
-          />
-          <span>{{ postInfo.post_follower_num }}</span>
+          <img class="post-icon" :src="'/imgs/icons/sf-star.svg'" alt="" />
+          <span>{{ postInfo.follow_num }}</span>
         </div>
         <div class="post-data">
           <img class="post-icon" src="/imgs/icons/sf-comment.svg" alt="" />
-          <span>{{ postInfo.post_comment_num }}</span>
+          <span>{{ postInfo.comment_num }}</span>
         </div>
       </div>
       <div class="post-content post-row">
@@ -40,33 +29,22 @@
     <div class="dim transit" @click="hideDetail"></div>
     <div class="post-expand transit" v-if="postInfo">
       <div class="post-header post-row">
-        <div class="post-id">#{{ postInfo.uni_post_id }}</div>
+        <div class="post-id">#{{ getPostID(postInfo) }}</div>
         <img
           class="post-avatar"
           :src="
-            'https://i.boatonland.com/avatar/' + postInfo.user_avatar + '.svg'
+            'https://i.boatonland.com/avatar/' + ( postInfo.user_avatar || 'ufo') + '.svg'
           "
           alt=""
         />
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
-          <img
-            class="post-icon"
-            :src="'/imgs/icons/sf-star-fill.svg'"
-            alt=""
-            v-if="postInfo.is_following"
-          />
-          <img
-            class="post-icon"
-            :src="'/imgs/icons/sf-star-fill.svg'"
-            alt=""
-            v-else
-          />
-          <span>{{ postInfo.post_follower_num }}</span>
+          <img class="post-icon" :src="'/imgs/icons/sf-star.svg'" alt="" />
+          <span>{{ postInfo.follow_num }}</span>
         </div>
         <div class="post-data">
           <img class="post-icon" src="/imgs/icons/sf-comment.svg" alt="" />
-          <span>{{ postInfo.post_comment_num }}</span>
+          <span>{{ postInfo.comment_num }}</span>
         </div>
       </div>
       <div class="post-content post-row">
@@ -79,6 +57,7 @@
 </template>
 
 <script setup>
+const { getPostID } = useSummary();
 defineProps(["postInfo"]);
 
 function showDetail(e) {
@@ -138,6 +117,8 @@ function hideDetail(e) {
   opacity: 1 !important;
 }
 
+
+
 .post-expand {
   color: #101010;
   position: fixed;
@@ -163,6 +144,10 @@ function hideDetail(e) {
   opacity: 0;
   -webkit-backdrop-filter: blur(0.5rem);
   backdrop-filter: blur(0.5rem);
+}
+
+.post-header {
+  text-wrap: nowrap;
 }
 
 .post-expand .post-header {

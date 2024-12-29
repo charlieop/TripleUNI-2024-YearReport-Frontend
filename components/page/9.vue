@@ -35,30 +35,30 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 .keyword"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 .keyword"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     const hand = document.querySelector(".page9 .hand");
     hand.style.animationPlayState = "running";
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 500));
+  }, (time += 300));
 }
 
 onMounted(() => {

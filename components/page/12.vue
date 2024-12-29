@@ -1,8 +1,14 @@
 <template>
-  <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-    <img src="/imgs/12/eye1.svg" alt="" class="eye1 decor" />
-    <img src="/imgs/12/eye2.svg" alt="" class="eye2 decor" />
-
+  <div
+    class="page"
+    :class="`page${PAGE_NUMBER}`"
+    :id="`page${PAGE_NUMBER}`"
+    v-show="
+      summary?.user_top_view_post ||
+      summary?.user_top_comment_post ||
+      summary?.user_top_follow_post
+    "
+  >
     <div class="content-block pt1">
       <p>那些被你掌握</p>
       <div class="figure title hide">
@@ -12,29 +18,41 @@
       <p class="hide">的树洞们</p>
       <p class="hide">——</p>
     </div>
-    <div class="content-block pt2">
+    <div class="content-block pt2" v-show="summary?.user_top_view_post">
       <p class="hide figure">阅读量</p>
       <p class="hide">
-        <span class="accent">最高</span> 达到了<span class="figure">XXXX</span
+        <span class="accent">最高</span> 达到了<span class="figure">{{
+          summary?.user_top_view_post?.post_view
+        }}</span
         >次
       </p>
-      <p class="hide post-id">#XXXXXX</p>
+      <p class="hide post-id">#{{ getPostID(summary?.user_top_view_post) }}</p>
     </div>
-    <div class="content-block pt3">
+    <div class="content-block pt3" v-show="summary?.user_top_comment_post">
       <p class="hide figure">评论数</p>
       <p class="hide">
-        <span class="accent">最高</span> 达到了<span class="figure">XXXX</span
+        <span class="accent">最高</span> 达到了<span class="figure">{{
+          summary?.user_top_comment_post?.comment_num
+        }}</span
         >条
       </p>
-      <p class="hide post-id">#XXXXXX</p>
+      <p class="hide post-id">
+        #{{ getPostID(summary?.user_top_comment_post) }}
+      </p>
     </div>
-    <div class="content-block pt4">
+    <div class="content-block pt4" v-show="summary?.user_top_follow_post">
       <p class="hide figure">围观数</p>
       <p class="hide">
-        <span class="accent">最高</span> 达到了<span class="figure">XXXX</span
+        <span class="accent">最高</span> 达到了<span class="figure">{{
+          summary?.user_top_follow_post?.follow_num
+        }}</span
         >次
       </p>
-      <p class="hide post-id">#XXXXXX</p>
+      <p class="hide post-id">
+        #{{ getPostID(summary?.user_top_follow_post) }}
+      </p>
+      <img src="/imgs/12/eye1.svg" alt="" class="eye1 decor" />
+      <img src="/imgs/12/eye2.svg" alt="" class="eye2 decor" />
     </div>
 
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
@@ -44,7 +62,7 @@
 
 <script setup>
 const PAGE_NUMBER = 12;
-const { summary, appName } = useSummary();
+const { summary, appName, getPostID } = useSummary();
 
 const shwoScrollUpHint = ref(false);
 
@@ -59,51 +77,51 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 .title"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(4)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt4 p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt4 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt4 p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 500));
+  }, (time += 300));
 }
 
 onMounted(() => {
@@ -153,12 +171,15 @@ onMounted(() => {
 @keyframes eye1 {
   0% {
     transform: translateY(0);
+    opacity: 0.4;
   }
   50% {
     transform: translateY(0.75rem);
+    opacity: 1;
   }
   100% {
     transform: translateY(0);
+    opacity: 0.4;
   }
 }
 

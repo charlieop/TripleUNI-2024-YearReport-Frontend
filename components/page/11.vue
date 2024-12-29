@@ -11,7 +11,7 @@
       </p>
       <p class="hide">
         打败了<span class="figure"
-          >{{ summary?.user_post_count_rank_percentage }}%</span
+          >{{ Math.ceil(summary?.user_post_count_rank_percentage * 100) }}%</span
         >的用户
       </p>
     </div>
@@ -81,30 +81,30 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 .title", ".bg-img"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(2)", ".white-planet"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(3)", ".sm-planet"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".lg-planet", ".satellite"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 .title", ".stars"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 500));
+  }, (time += 300));
 }
 
 onMounted(() => {

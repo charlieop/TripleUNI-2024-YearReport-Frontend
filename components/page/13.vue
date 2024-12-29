@@ -2,7 +2,7 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <img src="/imgs/13/blast.svg" alt="" class="blast hide" />
     <div class="content-block pt1">
-      <template v-if="summary?.user_frequent_view_keyword != ''">
+      <template v-if="summary?.user_frequent_post_keyword != ''">
         <p class="hide">你所发布的树洞中</p>
         <p class="hide"><span class="figure">最高频</span>出现的词是</p>
       </template>
@@ -14,14 +14,14 @@
     <div class="word-wrapper">
       <p class="word hide">
         “{{
-          summary?.user_frequent_view_keyword != ""
-            ? summary?.user_frequent_view_keyword
+          summary?.user_frequent_post_keyword != ""
+            ? summary?.user_frequent_post_keyword
             : "空!"
         }}”
       </p>
     </div>
     <div class="content-block pt2">
-      <p class="hide" v-if="summary?.user_frequent_view_keyword != ''">
+      <p class="hide" v-if="summary?.user_frequent_post_keyword != ''">
         它是否是你许多纷飞思绪的源头呢?
       </p>
       <p class="hide" v-else>你是否有很多不愿分享的心绪呢？</p>
@@ -48,22 +48,22 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".word", ".blast"]);
-  }, (time += 1000));
+  }, (time += 700));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 500));
+  }, (time += 300));
 }
 
 onMounted(() => {
@@ -116,6 +116,7 @@ onMounted(() => {
   text-align: center;
   min-width: unset;
   transition: all 0.7s cubic-bezier(0.66, 0.22, 0.69, 2.02);
+  text-wrap: nowrap;
 }
 .pt2 {
   padding-top: calc(0.35 * var(--height));

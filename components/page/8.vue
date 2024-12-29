@@ -5,7 +5,7 @@
         <span class="font_2 textAni hide"> 2024年 </span>
         <p class="textAni hide">
           你一共浏览了
-          <span>{{ summary?.user_view_post_count }}</span>
+          <span class="figure">{{ summary?.user_view_post_count }}</span>
           条树洞
         </p>
         <p class="textAni hide">
@@ -101,7 +101,7 @@ function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
   let time = 0;
-  const delays = [1000, 500, 500, 500, 500, 1000, 500, 500, 500];
+  const delays = [700, 300, 300, 300, 300, 700, 300, 300, 300];
 
   const textList = Array.from(
     document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)

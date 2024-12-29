@@ -69,7 +69,7 @@ function onShow() {
     const minute = document.querySelector(".page2 .clock-hand.minute-hand");
     hour.style.animationPlayState = "running";
     minute.style.animationPlayState = "running";
-  }, (time += 300));
+  }, (time += 500));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [
       "li.pt1.hide",
@@ -80,10 +80,10 @@ function onShow() {
   setTimeout(() => {
     const pt1 = document.querySelector(".page2 li.pt1");
     pt1.classList.add("hide");
-  }, (time += 3000));
+  }, (time += 2000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, ["li.pt2.hide", "img.grass.hide"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     const hour = document.querySelector(".page2 .clock-hand.hour-hand");
     const minute = document.querySelector(".page2 .clock-hand.minute-hand");
@@ -93,17 +93,17 @@ function onShow() {
     minute.classList.add("hide");
     const pt2 = document.querySelector(".page2 li.pt2");
     pt2.classList.add("hide");
-  }, (time += 3000));
+  }, (time += 1683));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, ["li.pt3.hide", "img.ground.hide"]);
-  }, (time += 1500));
+  }, (time += 1000));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".final", "img.rabbit.hide"]);
   }, (time += 1000));
   setTimeout(() => {
     showHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 1000));
+  }, (time += 500));
 }
 
 onMounted(() => {
@@ -213,7 +213,7 @@ onMounted(() => {
   transform: translate(-50%, -50%)
     translateX(calc(-1 * var(--_threshold) * var(--_length)));
   filter: brightness(0.8);
-  animation: clock-rotate 36s infinite steps(12);
+  animation: clock-rotate 24s infinite steps(12);
   animation-play-state: paused;
 }
 .minute-hand {
@@ -223,7 +223,7 @@ onMounted(() => {
   height: 0.75rem;
   transform: translate(-50%, -50%)
     translateX(calc(-1 * var(--_threshold) * var(--_length)));
-  animation: clock-rotate 3s infinite linear;
+  animation: clock-rotate 2s infinite linear;
   animation-play-state: paused;
 }
 @keyframes clock-rotate {

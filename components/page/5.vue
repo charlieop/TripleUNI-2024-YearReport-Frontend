@@ -211,7 +211,7 @@ function onShow() {
   }, 200);
 
   let time = 0;
-  const delays = [1000, 500, 0, 1000, 500, 500, 500, 500]; // 与原本style中delay对应
+  const delays = [700, 300, 0, 700, 300, 300, 300, 300]; // 与原本style中delay对应
 
   const textList = Array.from(
     document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`)

@@ -12,7 +12,7 @@
           <p class="hide">
             某大量收藏帖子
             <span class="accent">
-              #{{ summary?.user_followed_top_follow.uni_post_id }}
+              #{{ getPostID(summary?.user_followed_top_follow) }}
             </span>
           </p>
           <p class="hide">
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="content-block pt2">
-      <template v-if="summary?.user_followed_only_follow_post_list.length > 0">
+      <template v-if="summary?.user_followed_only_follow_post_list?.length > 0">
         <p class="right hide">大家都没有围观的帖子</p>
         <div class="post-wrapper hide">
           <Post :post-info="summary?.user_followed_only_follow_post_list[0]" />
@@ -79,7 +79,7 @@
 
 <script setup>
 const PAGE_NUMBER = 10;
-const { summary, appName } = useSummary();
+const { summary, appName, getPostID } = useSummary();
 
 const shwoScrollUpHint = ref(false);
 
@@ -104,44 +104,44 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(1) p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(1) p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 p.right"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".post-wrapper"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 .right p:nth-child(1)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 .right p:nth-child(2)"]);
-  }, (time += 1000));
+  }, (time += 700));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 div:nth-child(1) p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 div:nth-child(1) p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 div:nth-child(1) p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 .accent", ".lines"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 .accent", ".fill"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt3 .accent", ".nuts"]);
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 1000));
+  }, (time += 700));
 }
 
 onMounted(() => {

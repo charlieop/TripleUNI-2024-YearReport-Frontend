@@ -73,7 +73,7 @@ const showHint = ref(false);
 
 const appAge = computed(() => {
   let date;
-  switch (summary.value?.user_school_label) {
+  switch (summary.value?.user_school_label.toUpperCase()) {
     case "HKU":
       date = new Date("2020-10-31");
       break;
@@ -122,46 +122,46 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 > p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 > p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".bottle"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(3) p:nth-child(1)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(3) p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(4) p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 div:nth-child(4) p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".bird"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt1 p:nth-child(5)"]);
-  }, (time += 1500));
+  }, (time += 1200));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(2)"]);
-  }, (time += 500));
+  }, (time += 300));
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2 > p:nth-child(3)"]);
-  }, (time += 500));
+  }, (time += 300));
 
   setTimeout(() => {
     showHint.value = true;
@@ -249,7 +249,7 @@ p {
 }
 .bird {
   top: 10%;
-  animation: bird 10s infinite;
+  animation: bird 7s infinite;
 }
 @keyframes bird {
   0% {

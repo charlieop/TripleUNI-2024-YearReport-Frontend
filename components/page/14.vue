@@ -26,7 +26,7 @@
       <div
         class="emoji hide"
         :class="`emoji${i}`"
-        v-for="(emoji, i) in summary?.user_frequent_emoji.length > 0
+        v-for="(emoji, i) in summary?.user_frequent_emoji?.length > 0
           ? summary?.user_frequent_emoji
           : ['🌟', '🦌', '🎁', '❄️', '🔔']"
         :key="emoji"
@@ -56,20 +56,20 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".content-block p:nth-child(1)"]);
-  }, (time += 1000));
+  }, (time += 700));
   const allEmojis = document.querySelectorAll(".emoji");
   allEmojis.forEach((emoji, i) => {
     setTimeout(() => {
       emoji.classList.remove("hide");
-    }, (time += 1800));
+    }, (time += 1300));
   });
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".content-block p:nth-child(2)"]);
-  }, (time += 2000));
+  }, (time += 1000));
   setTimeout(() => {
     shwoScrollUpHint.value = true;
     appendNextPage(PAGE_NUMBER);
-  }, (time += 500));
+  }, (time += 300));
 }
 
 onMounted(() => {
@@ -133,7 +133,7 @@ onMounted(() => {
   font-size: 45px;
   translate: -50% -50%;
 
-  transition: all 1.5s ease-in, opacity 0.5s ease-in;
+  transition: all 1s ease-in, opacity 0.5s ease-in;
 }
 .emoji.hide {
   opacity: 0;
