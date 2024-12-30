@@ -194,8 +194,8 @@ onMounted(() => {
   margin-left: -1.5rem;
 }
 .page {
-  display:flex;
-  overflow-y:hidden;
+  display: flex;
+  overflow-y: hidden;
   padding: 3.98rem 0 0 0;
   background-color: #7cb6b2;
   height: 100%;
@@ -272,7 +272,7 @@ onMounted(() => {
 }
 .image_3 {
   position: absolute;
-  right:0;
+  right: 0;
   transform-origin: center 20%;
   bottom: 0%;
   transform: translateY(100%);
@@ -287,9 +287,6 @@ onMounted(() => {
     transform: translateY(0);
   }
 }
-
-
-
 
 .pos {
   position: absolute;

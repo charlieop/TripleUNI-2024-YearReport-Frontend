@@ -68,6 +68,15 @@ const shwoScrollUpHint = ref(false);
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
+
+  if (
+    summary.value?.user_top_view_post ||
+    summary.value?.user_top_comment_post ||
+    summary.value?.user_top_follow_post
+  )
+    return;
+  console.log(`Page ${PAGE_NUMBER} data not found, fetching...`);
+  appendNextPage(PAGE_NUMBER);
 }
 
 function onShow() {

@@ -26,8 +26,8 @@
       <div
         class="emoji hide"
         :class="`emoji${i}`"
-        v-for="(emoji, i) in summary?.user_frequent_emoji?.length > 0
-          ? summary?.user_frequent_emoji
+        v-for="(emoji, i) in emojis.length > 0
+          ? emojis
           : ['🌟', '🦌', '🎁', '❄️', '🔔']"
         :key="emoji"
       >
@@ -44,6 +44,12 @@ const PAGE_NUMBER = 14;
 const { summary, appName } = useSummary();
 
 const shwoScrollUpHint = ref(false);
+const emojis = computed(() => {
+  if (summary.value?.user_frequent_emoji === "[]") {
+    return [];
+  }
+  return summary.value?.user_frequent_emoji.replace(/[\[\]']/g, "").split(",");
+});
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
