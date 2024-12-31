@@ -13,7 +13,9 @@
       >
         <p class="desc">{{ achievement.description }}</p>
         <div class="row">
-          <p class="title">{{ achievement.title }}</p>
+          <p class="title">
+            {{ achievement.title }}
+          </p>
           <img
             :src="
               $config.app.baseURL +
@@ -51,7 +53,9 @@
             alt=""
             class="icon"
           />
-          <p class="title">{{ achievement.title }}</p>
+          <p class="title">
+            {{ achievement.title }}
+          </p>
         </div>
       </div>
     </div>
@@ -187,6 +191,7 @@ onMounted(() => {
   flex-shrink: 0;
   scroll-snap-align: center;
 
+  white-space: nowrap;
   text-wrap: nowrap;
 
   display: flex;
@@ -194,7 +199,6 @@ onMounted(() => {
   align-items: center;
   flex-direction: column;
   gap: 0.25rem;
-  overflow-y: scroll;
 }
 .achievement-card::before {
   content: "";
@@ -223,11 +227,12 @@ onMounted(() => {
 
 .title {
   font-size: var(--fs-large);
+  overflow: clip;
+  overflow-x: visible;
 }
 .desc {
-  font-size: var(--fs-accent);
   text-align: center;
-  padding: 0 1rem;
+  line-height: 0.75;
 }
 
 .center {
