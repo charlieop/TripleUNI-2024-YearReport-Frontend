@@ -15,7 +15,12 @@
         <div class="row">
           <p class="title">{{ achievement.title }}</p>
           <img
-            :src="'/imgs/17/' + achievement.importance + '.webp'"
+            :src="
+              $config.app.baseURL +
+              'imgs/17/' +
+              achievement.importance +
+              '.webp'
+            "
             alt=""
             class="icon"
           />
@@ -37,7 +42,12 @@
         <p class="desc">{{ achievement.description }}</p>
         <div class="row">
           <img
-            :src="'/imgs/17/' + achievement.importance + '.webp'"
+            :src="
+              $config.app.baseURL +
+              'imgs/17/' +
+              achievement.importance +
+              '.webp'
+            "
             alt=""
             class="icon"
           />
@@ -90,7 +100,6 @@ async function onShow() {
         left: card.offsetWidth * (achievementCardsPt2.length - i),
         behavior: "smooth",
       });
-      console.log(i, card.offsetWidth);
     }, (time += 100));
   });
 
@@ -115,7 +124,6 @@ async function onShow() {
   achievementCardsPt4.forEach((card, i) => {
     setTimeout(() => {
       pt4.scrollTo({ left: i * card.offsetWidth, behavior: "smooth" });
-      console.log(i, card.offsetWidth);
     }, (time += 100));
   });
 
