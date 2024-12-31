@@ -3,8 +3,12 @@
     <NuxtRouteAnnouncer />
     <div class="app">
       <audio src="/audio/bgm.mp3" id="bgm" loop></audio>
-      <div class="overlay" v-if="!isScreenSizeOk">
-        很抱歉,你的屏幕尺寸过小，无法正常显示本页面，请更换设备再尝试打开。
+      <div class="overlay" v-if="!isScreenSizeOk && showWarning">
+        很抱歉<br />
+        你的屏幕尺寸过小<br />
+        可能无法正常显示内容<br />
+        推荐更换设备再尝试打开。
+        <button @click="showWarning = false">我已知晓, 继续查看</button>
       </div>
 
       <Pages />
@@ -35,14 +39,18 @@
   color: white;
   font-size: 2rem;
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
+  text-align: center;
   z-index: 1000;
 }
 </style>
 
 <script setup>
 const isScreenSizeOk = ref(true);
+const showWarning = ref(true);
 const { fetchSummary } = useSummary();
 
 onMounted(() => {

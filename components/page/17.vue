@@ -11,8 +11,15 @@
         class="achievement-card"
         v-for="(achievement, i) in summary?.user_achievements_new"
       >
-        <p class="title">{{ achievement.title }}</p>
         <p class="desc">{{ achievement.description }}</p>
+        <div class="row">
+          <p class="title">{{ achievement.title }}</p>
+          <img
+            :src="'/imgs/17/' + achievement.importance + '.webp'"
+            alt=""
+            class="icon"
+          />
+        </div>
       </div>
     </div>
     <img src="/imgs/17/stroke.webp" alt="" class="stroke hide" />
@@ -27,8 +34,15 @@
         class="achievement-card"
         v-for="(achievement, i) in summary?.user_achievements_old"
       >
-        <p class="title">{{ achievement.title }}</p>
         <p class="desc">{{ achievement.description }}</p>
+        <div class="row">
+          <img
+            :src="'/imgs/17/' + achievement.importance + '.webp'"
+            alt=""
+            class="icon"
+          />
+          <p class="title">{{ achievement.title }}</p>
+        </div>
       </div>
     </div>
     <div class="content-block pt5 center">
@@ -49,8 +63,14 @@ function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
 }
 
-function onShow() {
+async function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+
+  while (!summary.value) {
+    console.log("waiting for summary");
+    await new Promise((r) => setTimeout(r, 1000));
+  }
+  console.log("summary loaded");
 
   let time = 0;
 
@@ -63,7 +83,19 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2"]);
-  }, (time += 700));
+  }, (time += 300));
+  const pt2 = document.querySelector(".pt2");
+  let achievementCardsPt2 = document.querySelectorAll(".pt2 .achievement-card");
+  achievementCardsPt2 = Array.from(achievementCardsPt2).reverse();
+  pt2.scrollLeft = pt2.scrollWidth;
+  achievementCardsPt2.forEach((card, i) => {
+    setTimeout(() => {
+      pt2.scrollLeft = card.offsetWidth * (achievementCardsPt2.length - i);
+    }, (time += 100));
+  });
+  setTimeout(() => {
+    pt2.scrollTo({ left: 0, behavior: "smooth" });
+  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".stroke"]);
@@ -78,7 +110,16 @@ function onShow() {
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt4"]);
-  }, (time += 700));
+  }, (time += 300));
+  const pt4 = document.querySelector(".pt4");
+  const achievementCardsPt4 = document.querySelectorAll(
+    ".pt4 .achievement-card"
+  );
+  achievementCardsPt4.forEach((card, i) => {
+    setTimeout(() => {
+      pt4.scrollTo({ left: i * card.offsetWidth, behavior: "smooth" });
+    }, (time += 150));
+  });
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt5 p"]);
@@ -111,7 +152,11 @@ onMounted(() => {
 .pt1 {
   color: var(--clr-brown);
 }
-
+.pt5 {
+  margin-top: 2rem;
+  font-size: var(--fs-accent);
+  color: var(--clr-oragne);
+}
 .achievement {
   height: calc(0.2 * var(--height));
   margin-block: 0.75rem;
@@ -123,27 +168,56 @@ onMounted(() => {
   padding-inline: calc(0.1 * var(--width));
 }
 
+.pt2 {
+  color: var(--clr-brown);
+}
+
 .achievement-card {
+  position: relative;
+  z-index: 1;
   width: calc(0.8 * var(--width));
   height: 100%;
-  background: var(--clr-offwhite);
   border-radius: 1rem;
   flex-shrink: 0;
   scroll-snap-align: center;
+
+  text-wrap: nowrap;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 0.25rem;
-  color: var(--clr-brown);
+}
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  top: 2%;
+  left: 0%;
+  height: 96%;
+  border-radius: 999rem;
+  aspect-ratio: 1 / 1;
+  background: var(--clr-offwhite);
+  z-index: -1;
+}
+.row {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  height: 3.5rem;
+}
+.pt4 .achievement-card::before {
+  left: unset;
+  right: 0%;
+  background: #eeb77a;
 }
 
 .title {
-  font-size: var(--fs-figure);
+  font-size: var(--fs-large);
 }
 .desc {
-  font-size: 0.875em;
+  font-size: var(--fs-accent);
   text-align: center;
   padding: 0 1rem;
 }
