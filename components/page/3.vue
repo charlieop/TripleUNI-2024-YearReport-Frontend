@@ -107,9 +107,7 @@ const userRegisterDate = computed(() => {
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
-  // 先隐藏所有文本
-  const texts = document.querySelectorAll(`.page${PAGE_NUMBER} .textAni`);
-  texts.forEach((el) => el.classList.add("hide"));
+
 }
 
 function onShow() {

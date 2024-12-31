@@ -5,26 +5,14 @@ export const useSummary = () => {
   const fetchSummary = async () => {
     if (summary.value) return;
 
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const userSchoolLabel =
-    //   urlParams.get("school") ||
-    //   prompt("Please enter your school label (cuhk | hku | ust):");
-    // const userItsc =
-    //   urlParams.get("itsc") ||
-    //   prompt(`Please enter your ${userSchoolLabel} ITSC:`);
-    // const body = new URLSearchParams({
-    //   user_itsc: userItsc,
-    //   user_school_label: userSchoolLabel,
-    // });
-
     const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token") 
+    const token = urlParams.get("token");
     const body = new URLSearchParams({
       token: token,
     });
 
     const response = await $fetch(
-      "https://api.uuunnniii.com/v4/report2024/lst/get.php",
+      "https://api.uuunnniii.com/v4/report2024/get.php",
       {
         method: "POST",
         headers: {
@@ -51,6 +39,53 @@ export const useSummary = () => {
     console.log(data);
 
     setAppName(data.user_school_label);
+  };
+
+  const fetchAIContent = async () => {
+    if (!summary.value) return;
+    if (
+      summary.value.ai_description &&
+      summary.value.ai_image &&
+      summary.value.ai_title
+    )
+      return;
+
+    console.log("fetching AI content...");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+    const body = new URLSearchParams({
+      token: token,
+    });
+
+    const response = await $fetch(
+      "https://api.uuunnniii.com/v4/report2024/ai.php",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: body,
+      }
+    );
+    let data = undefined;
+    try {
+      data = JSON.parse(response);
+    } catch (e) {
+      console.error("Failed to fetch AI content");
+      console.log(response);
+      return;
+    }
+    if (!data) {
+      console.error("Failed to fetch AI content");
+      return;
+    }
+
+    summary.value.ai_description = data.ai_description;
+    summary.value.ai_image = data.ai_image;
+    summary.value.ai_title = data.ai_title;
+
+    console.log(data);
   };
 
   function setAppName(schoolLabel) {
@@ -86,6 +121,7 @@ export const useSummary = () => {
   return {
     summary,
     fetchSummary,
+    fetchAIContent,
     appName,
     getPostID,
   };
