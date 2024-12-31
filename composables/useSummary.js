@@ -5,7 +5,6 @@ export const useSummary = () => {
   const fetchSummary = async () => {
     if (summary.value) return;
 
-    
     const urlParams = new URLSearchParams(window.location.search);
     const userSchoolLabel =
       urlParams.get("school") ||
@@ -28,7 +27,14 @@ export const useSummary = () => {
         body: body,
       }
     );
-    const data = JSON.parse(response).data;
+    let data = undefined;
+    try {
+      data = JSON.parse(response).data;
+    } catch (e) {
+      console.error("Failed to fetch summary");
+      console.log(response);
+      return;
+    }
     if (!data) {
       console.error("Failed to fetch summary");
       return;
