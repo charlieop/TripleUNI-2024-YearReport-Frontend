@@ -5,20 +5,26 @@ export const useSummary = () => {
   const fetchSummary = async () => {
     if (summary.value) return;
 
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const userSchoolLabel =
+    //   urlParams.get("school") ||
+    //   prompt("Please enter your school label (cuhk | hku | ust):");
+    // const userItsc =
+    //   urlParams.get("itsc") ||
+    //   prompt(`Please enter your ${userSchoolLabel} ITSC:`);
+    // const body = new URLSearchParams({
+    //   user_itsc: userItsc,
+    //   user_school_label: userSchoolLabel,
+    // });
+
     const urlParams = new URLSearchParams(window.location.search);
-    const userSchoolLabel =
-      urlParams.get("school") ||
-      prompt("Please enter your school label (cuhk | hku | ust):");
-    const userItsc =
-      urlParams.get("itsc") ||
-      prompt(`Please enter your ${userSchoolLabel} ITSC:`);
+    const token = urlParams.get("token") 
     const body = new URLSearchParams({
-      user_itsc: userItsc,
-      user_school_label: userSchoolLabel,
+      token: token,
     });
 
     const response = await $fetch(
-      "https://api.uuunnniii.com/v4/report2024/get.php",
+      "https://api.uuunnniii.com/v4/report2024/lst/get.php",
       {
         method: "POST",
         headers: {

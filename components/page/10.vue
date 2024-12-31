@@ -8,31 +8,31 @@
     </div>
     <div class="content-block pt1">
       <div>
-        <template v-if="summary?.user_followed_top_follow_rank > 0">
+        <template v-if="summary?.max_follow_post">
           <p class="hide">
-            某大量收藏帖子
+            万众瞩目的树洞
             <span class="accent">
-              #{{ getPostID(summary?.user_followed_top_follow) }}
+              #{{ summary?.max_follow_post.post_id }}
             </span>
           </p>
           <p class="hide">
             你是第<span class="figure">{{
-              summary?.user_followed_top_follow_rank
+              summary?.max_follow_post.rank
             }}</span
             >个收藏的
           </p>
         </template>
         <template v-else>
-          <p class="hide"><br />哦豁！今年你没有收藏过最热门的帖子</p>
+          <p class="hide"><br />哦豁！今年你没有收藏过最热门的树洞</p>
           <p class="hide">你的眼光是有点子特别的🤔</p>
         </template>
       </div>
     </div>
     <div class="content-block pt2">
-      <template v-if="summary?.user_followed_only_follow_post_list?.length > 0">
-        <p class="right hide">大家都没有围观的帖子</p>
+      <template v-if="summary?.min_follow_post">
+        <p class="right hide">大家都没有围观的树洞</p>
         <div class="post-wrapper hide">
-          <Post :post-info="summary?.user_followed_only_follow_post_list[0]" />
+          <Post :post-info="summary?.min_follow_post.data" />
         </div>
         <div class="right">
           <p class="hide">你是唯一一个收藏的</p>
@@ -83,15 +83,6 @@ const { summary, appName, getPostID } = useSummary();
 
 const shwoScrollUpHint = ref(false);
 
-const dummyPostInfo = {
-  post_id: 13552,
-  user_avatar: "UST",
-  post_topic: "情感",
-  is_following: true,
-  post_follower_num: 100,
-  post_comment_num: 50,
-  post_msg: "This is a post message. lorem ipsum dolor sit amet. lorem",
-};
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);

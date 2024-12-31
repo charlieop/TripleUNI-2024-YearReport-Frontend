@@ -4,9 +4,9 @@
     :class="`page${PAGE_NUMBER}`"
     :id="`page${PAGE_NUMBER}`"
     v-show="
-      summary?.user_top_view_post ||
-      summary?.user_top_comment_post ||
-      summary?.user_top_follow_post
+      summary?.most_view_post ||
+      summary?.most_comment_post ||
+      summary?.most_follow_post
     "
   >
     <div class="content-block pt1">
@@ -18,38 +18,38 @@
       <p class="hide">的树洞们</p>
       <p class="hide">——</p>
     </div>
-    <div class="content-block pt2" v-show="summary?.user_top_view_post">
+    <div class="content-block pt2" v-if"summary?.most_view_post">
       <p class="hide figure">阅读量</p>
       <p class="hide">
         <span class="accent">最高</span> 达到了<span class="figure">{{
-          summary?.user_top_view_post?.post_view
+          summary?.most_view_post.view_count
         }}</span
         >次
       </p>
-      <p class="hide post-id">#{{ getPostID(summary?.user_top_view_post) }}</p>
+      <p class="hide post-id">#{{ summary?.most_view_post.post_id }}</p>
     </div>
-    <div class="content-block pt3" v-show="summary?.user_top_comment_post">
+    <div class="content-block pt3" v-if="summary?.most_comment_post">
       <p class="hide figure">评论数</p>
       <p class="hide">
         <span class="accent">最高</span> 达到了<span class="figure">{{
-          summary?.user_top_comment_post?.comment_num
+          summary?.most_comment_post?.comment_count
         }}</span
         >条
       </p>
       <p class="hide post-id">
-        #{{ getPostID(summary?.user_top_comment_post) }}
+        #{{ summary?.most_comment_post.post_id }}
       </p>
     </div>
-    <div class="content-block pt4" v-show="summary?.user_top_follow_post">
+    <div class="content-block pt4" v-if="summary?.most_follow_post">
       <p class="hide figure">围观数</p>
       <p class="hide">
         <span class="accent">最高</span> 达到了<span class="figure">{{
-          summary?.user_top_follow_post?.follow_num
+          summary?.most_follow_post?.follow_count
         }}</span
         >次
       </p>
       <p class="hide post-id">
-        #{{ getPostID(summary?.user_top_follow_post) }}
+        #{{ summary?.most_follow_post.post_id }}
       </p>
       <img src="/imgs/12/eye1.svg" alt="" class="eye1 decor" />
       <img src="/imgs/12/eye2.svg" alt="" class="eye2 decor" />
@@ -70,9 +70,9 @@ function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
 
   if (
-    summary.value?.user_top_view_post ||
-    summary.value?.user_top_comment_post ||
-    summary.value?.user_top_follow_post
+    summary.value?.most_view_post ||
+    summary.value?.most_comment_post ||
+    summary.value?.most_follow_post
   )
     return;
   console.log(`Page ${PAGE_NUMBER} data not found, fetching...`);

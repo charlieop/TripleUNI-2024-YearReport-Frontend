@@ -10,30 +10,30 @@
         </p>
         <p class="textAni hide">
           击败了
-          <span class="font_2">{{ summary?.user_view_rank }}%</span>
+          <span class="font_2">{{ summary?.user_view_post_count_percentage }}%</span>
           的用户
         </p>
         <p class="textAni hide">2024年你刷到的第一条{{ appName }}是</p>
       </div>
 
       <div class="post-container textAni hide">
-        <Post :post-info="summary?.user_first_view_post" />
+        <Post :post-info="summary?.user_first_see_post" />
       </div>
       <div class="mt-40 flex-col group_3">
         <img class="image self-center image-draw" src="/imgs/8/Vector.webp" />
 
-        <div v-if="control == 0" class="text-center">
+        <div v-if="summary?.user_followed_top10" class="text-center">
           <p class="textAni hide">
             你收藏了
-            <span class="text_2"> 【年度收藏前🔟热帖】 </span>
+            <span class="text_2"> 【年度前🔟热帖】 </span>
           </p>
           <p class="textAni hide">爱看热闹的小姐姐/小哥哥一枚吖</p>
           <img class="image_2 handshake-ani" src="/imgs/8/8.webp" />
         </div>
-        <div v-else-if="control == 1" class="text-center">
+        <div v-else-if="summary?.user_commented_top10" class="text-center">
           <p class="textAni hide">
             你在
-            <span class="text_2"> 【年度收藏前🔟热帖】 </span>
+            <span class="text_2"> 【年度前🔟热帖】 </span>
             评价了
           </p>
           <div class="special textAni hide">
@@ -65,29 +65,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-const dummyPostInfo = {
-  post_id: 13552,
-  user_avatar: "UST",
-  post_topic: "情感",
-  is_following: true,
-  post_follower_num: 100,
-  post_comment_num: 50,
-  post_msg: "This is a post message. lorem ipsum dolor sit amet. lorem",
-};
-
 const PAGE_NUMBER = 8;
 const { summary, appName } = useSummary();
 
 const showHint = ref(false);
-const control = computed(() => {
-  if (summary?.user_followed_top10) {
-    return 0;
-  } else if (summary?.user_commented_top10) {
-    return 1;
-  } else {
-    return 2;
-  }
-});
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);

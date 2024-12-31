@@ -3,7 +3,7 @@
     <div class="content">
       <div class="content-block">
         <p class="greeting" :class="{ hide: hide }">
-          <span>{{ summary?.user_itsc }}</span>
+          <span>{{ summary?.user_serial }}</span>
           <span>, <span class="figure">新年好</span>!</span>
         </p>
         <ul class="text-list">

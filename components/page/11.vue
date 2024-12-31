@@ -12,7 +12,7 @@
       <p class="hide">
         打败了<span class="figure"
           >{{
-            Math.ceil(summary?.user_post_count_rank_percentage * 100)
+            summary?.user_post_count_percentage
           }}%</span
         >的用户
       </p>

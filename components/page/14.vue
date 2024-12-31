@@ -1,6 +1,6 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-    <div class="content-block" v-if="summary?.user_frequent_emoji?.length > 0">
+    <div class="content-block" v-if="summary?.user_frequent_emoji && summary?.user_frequent_emoji?.length > 0">
       <p class="figure hide">不知为何</p>
       <p class="hide">
         你对这些
@@ -45,10 +45,7 @@ const { summary, appName } = useSummary();
 
 const shwoScrollUpHint = ref(false);
 const emojis = computed(() => {
-  if (summary.value?.user_frequent_emoji === "[]") {
-    return [];
-  }
-  return summary.value?.user_frequent_emoji.replace(/[\[\]']/g, "").split(",");
+  return summary.value?.user_frequent_emoji || [];
 });
 
 function init() {
