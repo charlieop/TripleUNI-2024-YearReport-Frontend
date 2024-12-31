@@ -9,7 +9,7 @@
     <div class="achievement pt2 hide">
       <div
         class="achievement-card"
-        v-for="(achievement, i) in summary?.user_achievements_new"
+        v-for="(achievement, i) in summary?.user_achievements"
       >
         <p class="desc">{{ achievement.description }}</p>
         <div class="row">
@@ -32,7 +32,7 @@
     <div class="achievement pt4 hide">
       <div
         class="achievement-card"
-        v-for="(achievement, i) in summary?.user_achievements_old"
+        v-for="(achievement, i) in summary?.user_old_achievements"
       >
         <p class="desc">{{ achievement.description }}</p>
         <div class="row">
@@ -66,12 +66,6 @@ function init() {
 async function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
 
-  while (!summary.value) {
-    console.log("waiting for summary");
-    await new Promise((r) => setTimeout(r, 1000));
-  }
-  console.log("summary loaded");
-
   let time = 0;
 
   setTimeout(() => {
@@ -84,18 +78,21 @@ async function onShow() {
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt2"]);
   }, (time += 300));
-  const pt2 = document.querySelector(".pt2");
-  let achievementCardsPt2 = document.querySelectorAll(".pt2 .achievement-card");
+  const pt2 = document.querySelector(".page17 .pt2");
+  let achievementCardsPt2 = document.querySelectorAll(
+    ".page17 .pt2 .achievement-card"
+  );
   achievementCardsPt2 = Array.from(achievementCardsPt2).reverse();
   pt2.scrollLeft = pt2.scrollWidth;
   achievementCardsPt2.forEach((card, i) => {
     setTimeout(() => {
-      pt2.scrollLeft = card.offsetWidth * (achievementCardsPt2.length - i);
+      pt2.scrollTo({
+        left: card.offsetWidth * (achievementCardsPt2.length - i),
+        behavior: "smooth",
+      });
+      console.log(i, card.offsetWidth);
     }, (time += 100));
   });
-  setTimeout(() => {
-    pt2.scrollTo({ left: 0, behavior: "smooth" });
-  }, (time += 300));
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".stroke"]);
@@ -111,14 +108,15 @@ async function onShow() {
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".pt4"]);
   }, (time += 300));
-  const pt4 = document.querySelector(".pt4");
+  const pt4 = document.querySelector(".page17 .pt4");
   const achievementCardsPt4 = document.querySelectorAll(
-    ".pt4 .achievement-card"
+    ".page17 .pt4 .achievement-card"
   );
   achievementCardsPt4.forEach((card, i) => {
     setTimeout(() => {
       pt4.scrollTo({ left: i * card.offsetWidth, behavior: "smooth" });
-    }, (time += 150));
+      console.log(i, card.offsetWidth);
+    }, (time += 100));
   });
 
   setTimeout(() => {
@@ -188,6 +186,7 @@ onMounted(() => {
   align-items: center;
   flex-direction: column;
   gap: 0.25rem;
+  overflow-y: scroll;
 }
 .achievement-card::before {
   content: "";
@@ -206,6 +205,7 @@ onMounted(() => {
 }
 .icon {
   height: 3.5rem;
+  flex-shrink: 0;
 }
 .pt4 .achievement-card::before {
   left: unset;

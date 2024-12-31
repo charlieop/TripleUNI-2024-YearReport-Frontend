@@ -4,7 +4,9 @@
       <p class="title figure hide">2024年</p>
       <div class="group">
         <p class="hide">
-          {{ appName }}一共产生了<span class="figure">{{ summary?.total_post_count }}</span
+          {{ appName }}一共产生了<span class="figure">{{
+            summary?.total_post_count
+          }}</span
           >条树洞
         </p>
         <p class="highlight hide">车水马龙、 人潮依旧</p>

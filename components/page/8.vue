@@ -10,7 +10,9 @@
         </p>
         <p class="textAni hide">
           击败了
-          <span class="font_2">{{ summary?.user_view_post_count_percentage }}%</span>
+          <span class="font_2"
+            >{{ summary?.user_view_post_count_percentage }}%</span
+          >
           的用户
         </p>
         <p class="textAni hide">2024年你刷到的第一条{{ appName }}是</p>
@@ -37,9 +39,7 @@
             评价了
           </p>
           <div class="special textAni hide">
-            <span class="font_2"
-              >【{{ summary?.user_comment_for_top10 }}】</span
-            >
+            <span class="font_2">【{{ commented }}】</span>
           </div>
           <p class="textAni hide">万丈高楼平地起</p>
           <p class="textAni hide">你也是其中的一层呢</p>
@@ -69,6 +69,13 @@ const PAGE_NUMBER = 8;
 const { summary, appName } = useSummary();
 
 const showHint = ref(false);
+
+const commented = computed(() => {
+  if (summary.value?.user_comment_for_top10.length <= 10) {
+    return summary.value?.user_comment_for_top10;
+  }
+  return summary.value?.user_comment_for_top10.slice(0, 10) + "...";
+});
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);

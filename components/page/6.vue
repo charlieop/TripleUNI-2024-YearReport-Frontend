@@ -22,7 +22,7 @@
           </p>
           <p class="hide time">
             你在<span class="figure">{{ earliestDate.hour }}</span
-            >点<template v-if="earliestDate.minute === 0">整</template>
+            >点<template v-if="earliestDate.minute == 0">整</template>
             <template v-else>
               <span class="figure">{{ earliestDate.minute }}</span
               >分</template
@@ -56,7 +56,7 @@
           </p>
           <p class="hide time">
             你在<span class="figure">{{ latestDate.hour }}</span
-            >点<template v-if="latestDate.minute === 0">整</template>
+            >点<template v-if="latestDate.minute == 0">整</template>
             <template v-else>
               <span class="figure">{{ latestDate.minute }}</span
               >分</template
@@ -89,8 +89,8 @@ const earliestDate = computed(() => {
   return {
     month: date.getMonth() + 1,
     day: date.getDate(),
-    hour: summary.value?.earliest_post.time.split(':')[0],
-    minute: summary.value?.earliest_post.time.split(':')[1],
+    hour: parseInt(summary.value?.earliest_post.time.split(":")[0], 10),
+    minute: parseInt(summary.value?.earliest_post.time.split(":")[1], 10),
   };
 });
 
@@ -99,8 +99,8 @@ const latestDate = computed(() => {
   return {
     month: date.getMonth() + 1,
     day: date.getDate(),
-    hour: summary.value?.latest_post.time.split(':')[0],
-    minute: summary.value?.latest_post.time.split(':')[1],
+    hour: parseInt(summary.value?.latest_post.time.split(":")[0], 10),
+    minute: parseInt(summary.value?.latest_post.time.split(":")[1], 10),
   };
 });
 

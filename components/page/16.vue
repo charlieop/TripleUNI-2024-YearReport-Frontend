@@ -60,7 +60,7 @@ const { summary, appName } = useSummary();
 const TIME_TO_TYPE = 250;
 const shwoScrollUpHint = ref(false);
 
-const searchedWord = summary.value?.user_frequent_search_keyword;
+const searchedWord = summary.value?.user_frequent_search_keyword || "";
 const searchContent = ref("");
 
 function showSearched() {

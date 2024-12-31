@@ -106,7 +106,7 @@ onMounted(() => {
   left: 50%;
   translate: -50% -50%;
   color: var(--clr-green);
-  font-size: 6rem;
+  font-size: 5.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,6 +115,7 @@ onMounted(() => {
   position: relative;
   text-align: center;
   min-width: unset;
+  width: 999rem;
   transition: all 0.7s cubic-bezier(0.66, 0.22, 0.69, 2.02);
   text-wrap: nowrap;
 }

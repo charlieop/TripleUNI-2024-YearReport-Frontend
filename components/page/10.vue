@@ -16,9 +16,7 @@
             </span>
           </p>
           <p class="hide">
-            你是第<span class="figure">{{
-              summary?.max_follow_post.rank
-            }}</span
+            你是第<span class="figure">{{ summary?.max_follow_post.rank }}</span
             >个收藏的
           </p>
         </template>
@@ -82,7 +80,6 @@ const PAGE_NUMBER = 10;
 const { summary, appName, getPostID } = useSummary();
 
 const shwoScrollUpHint = ref(false);
-
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
@@ -156,6 +153,9 @@ onMounted(() => {
 .pt1,
 .pt2 {
   color: var(--clr-brown);
+}
+.pt3 {
+  position: relative;
 }
 .accent {
   position: relative;

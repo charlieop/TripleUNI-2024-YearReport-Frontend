@@ -32,7 +32,7 @@
   --fs-extra-large: 8.125rem;
 }
 
-@media (min-height: 790px) {
+@media (min-height: 790px) and (min-width: 390px) {
   :root {
     --fs-primary: 24px;
     --fs-accent: 28px;

@@ -25,7 +25,7 @@
 }
 
 .app {
-  background-color: yellow;
+  background-color: var(--clr-brown);
   width: var(--width);
   height: var(--height);
 }

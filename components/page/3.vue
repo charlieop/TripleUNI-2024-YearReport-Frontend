@@ -18,9 +18,7 @@
         <p class="hide">是你和{{ appName }}第一次见面的日子</p>
       </div>
       <div v-else>
-        <p class="hide">
-          <br />我们已经认识了<span class="accent">很久了</span>
-        </p>
+        <p class="hide">我们已经认识了<span class="accent">很久了</span></p>
         <p class="hide">久到{{ appName }}都已经忘记和你第一次见面的日子</p>
       </div>
       <div v-if="summary?.user_age">
@@ -33,7 +31,7 @@
         <p class="hide">还是如此一往情深 !</p>
       </div>
       <div v-else>
-        <p class="hide"><br />我们一路走来</p>
+        <p class="hide">我们一路走来</p>
         <p class="hide">还是如此一往情深 !</p>
       </div>
       <p class="hide" v-if="summary?.user_create_date_rank">
@@ -41,7 +39,7 @@
         >个注册{{ appName }}的用户
       </p>
       <p class="hide" style="text-wrap: unset" v-else>
-        <br />这些相伴的日子里，{{ appName }}永远是你安心的兔子洞
+        这些相伴的日子里，{{ appName }}永远是你安心的兔子洞
       </p>
 
       <div class="img-wrapper">
@@ -200,7 +198,7 @@ p {
 }
 @media (min-height: 790px) {
   .content-block {
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 }
 @media (min-height: 850px) {
