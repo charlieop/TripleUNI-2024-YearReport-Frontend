@@ -46,11 +46,11 @@
         <div class="group_4">
           <div class="section_2"></div>
           <div class="pos_2">
-            <div class="textAni hide">
+            <div class="textAni hide text-center">
               <span class="font_3">相当于看了</span>
               <span class="font_2 text">{{ effectiveEpisodeCount }}</span>
               <span class="font_3">集 </span>
-              <div class="text-center">
+              <div class="">
                 <span class="font_3">《再见爱人》</span>
               </div>
             </div>
@@ -239,7 +239,7 @@ onMounted(() => {
 .section {
   display: flex;
   flex-direction: column;
-  padding: 1.41rem 3.44rem 0;
+  
   position: relative; /* 添加相对定位 */
   height: 8.75rem;
   width: 100%;
@@ -266,19 +266,20 @@ onMounted(() => {
   flex-direction: column;
 
   position: relative;
-  margin-right: 0.5rem;
+ 
   padding-top: 1.88rem;
   width: 100%;
 }
 
 .section_2 {
   width: 100%;
-  margin-left: -0.3rem;
+  margin-left: 0rem;
+  margin-top: 1rem;
   opacity: 0.9;
   background-image: radial-gradient(
     50% 50% at 50% 50%,
-    #facb98 0%,
-    #e8e8e8 92%
+    #facb98 8%,
+    transparent 92%
   );
   filter: blur(0.13rem);
   border-radius: 50%;
@@ -297,7 +298,7 @@ onMounted(() => {
   position: absolute;
   left: 0.62rem;
   right: 0;
-  top: 0;
+  top: 1rem;
 }
 
 .font_3 {
@@ -312,21 +313,26 @@ onMounted(() => {
 }
 
 .group_6 {
-  position: relative;
+  position: absolute;
   margin-top: -1.88rem;
-  padding: 2.375vh 0;
+  display:flex;
+  flex-direction:row;
+  justify-content: start;
+  align-items:start;
+  top:1rem;
+  left:3vw;
 }
 
 .image_5 {
   width: 4.06rem;
   height: 5vh;
-  margin-bottom: -0.8rem;
+  margin-bottom: -1.3rem;
 }
 
 .image_4 {
-  width: 3.88rem;
-  height: 3.44rem;
-  margin-bottom: -0.8rem;
+  width: 3.88em;
+  height: 7vh;
+  margin-bottom: -2.2rem;
 }
 
 .pos_3 {
@@ -337,10 +343,11 @@ onMounted(() => {
 }
 
 .image_3 {
+  /* 21.88rem ≈ 350px -> 350 / 393 * 100% ≈ 89.1vw */
   width: 21.88rem;
-  /* 21.88rem */
+  /* 17.25rem ≈ 276px -> 276 / 852 * 100% ≈ 32.4vh */
   height: 17.25rem;
-  /* 17.25rem */
+
 }
 
 .text_2 {
