@@ -4,7 +4,7 @@
       <p class="title figure hide">2024年</p>
       <div class="group">
         <p class="hide">
-          {{ appName }}一共产生了<span class="figure">{{ postNum }}</span
+          {{ appName }}一共产生了<span class="figure">{{ summary?.total_post_count }}</span
           >条树洞
         </p>
         <p class="highlight hide">车水马龙、 人潮依旧</p>
@@ -28,19 +28,6 @@ const PAGE_NUMBER = 7;
 const { summary, appName } = useSummary();
 
 const shwoScrollUpHint = ref(false);
-
-const postNum = computed(() => {
-  switch (summary.value?.user_school_label.toUpperCase()) {
-    case "HKU":
-      return 86683;
-    case "UST":
-      return 13902;
-    case "CUHK":
-      return 24395;
-    default:
-      return 124980;
-  }
-});
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);

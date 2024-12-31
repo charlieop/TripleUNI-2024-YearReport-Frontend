@@ -31,7 +31,7 @@
         </div>
 
         <div class="post-container hide">
-          <Post :post-info="summary?.user_earliest_view_post" />
+          <Post :post-info="summary?.earliest_post.data" />
         </div>
         <div class="cities" :style="{ '--_opacity-day': opacity }">
           <img src="/imgs/6/city1.svg" alt="" class="city city1" />
@@ -65,7 +65,7 @@
         </div>
 
         <div class="post-container hide">
-          <Post :post-info="summary?.user_latest_view_post" />
+          <Post :post-info="summary?.latest_post.data" />
         </div>
         <div class="content-block">
           <p class="accent hide">一定很辛苦吧👉🏻👈🏻</p>
@@ -85,22 +85,22 @@ const opacity = ref(1);
 const shwoScrollUpHint = ref(false);
 
 const earliestDate = computed(() => {
-  const date = new Date(summary.value?.user_earliest_view_time);
+  const date = new Date(summary.value?.earliest_post.date);
   return {
     month: date.getMonth() + 1,
     day: date.getDate(),
-    hour: date.getHours(),
-    minute: date.getMinutes(),
+    hour: summary.value?.earliest_post.time.split(':')[0],
+    minute: summary.value?.earliest_post.time.split(':')[1],
   };
 });
 
 const latestDate = computed(() => {
-  const date = new Date(summary.value?.user_latest_view_time);
+  const date = new Date(summary.value?.latest_post.date);
   return {
     month: date.getMonth() + 1,
     day: date.getDate(),
-    hour: date.getHours(),
-    minute: date.getMinutes(),
+    hour: summary.value?.latest_post.time.split(':')[0],
+    minute: summary.value?.latest_post.time.split(':')[1],
   };
 });
 
@@ -161,16 +161,6 @@ function onShowPage2() {
     appendNextPage(PAGE_NUMBER);
   }, (time += 300));
 }
-
-const dummyPostInfo = {
-  post_id: 13552,
-  user_avatar: "UST",
-  post_topic: "情感",
-  is_following: true,
-  post_follower_num: 100,
-  post_comment_num: 50,
-  post_msg: "This is a post message. lorem ipsum dolor sit amet. lorem",
-};
 
 const handelToggle = () => {
   const scrollingContext = document.querySelector(".scrolling-context");

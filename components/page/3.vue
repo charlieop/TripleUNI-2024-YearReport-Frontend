@@ -8,7 +8,7 @@
         >月<span class="figure">{{ appAge.day }}</span
         >日啦!
       </p>
-      <div v-if="summary?.user_register_date != undefined">
+      <div v-if="summary?.user_create_date != undefined">
         <p class="hide">
           <span class="figure">{{ userRegisterDate.year }}</span
           >年 <span class="figure">{{ userRegisterDate.month }}</span
@@ -26,7 +26,7 @@
       <div v-if="summary?.user_age">
         <p class="hide">
           {{ appName }}与你相伴已经<span class="figure">{{
-            summary?.user_age
+            summary?.user_create_date_till_now
           }}</span
           >天了
         </p>
@@ -36,8 +36,8 @@
         <p class="hide"><br />我们一路走来</p>
         <p class="hide">还是如此一往情深 !</p>
       </div>
-      <p class="hide" v-if="summary?.user_register_rank">
-        你是第<span class="figure">{{ summary?.user_register_rank }}</span
+      <p class="hide" v-if="summary?.user_create_date_rank">
+        你是第<span class="figure">{{ summary?.user_create_date_rank }}</span
         >个注册{{ appName }}的用户
       </p>
       <p class="hide" style="text-wrap: unset" v-else>
@@ -99,7 +99,7 @@ const appAge = computed(() => {
 });
 
 const userRegisterDate = computed(() => {
-  const date = new Date(summary.value?.user_register_date);
+  const date = new Date(summary.value?.user_create_date);
   return {
     year: date.getFullYear(),
     month: date.getMonth() + 1,

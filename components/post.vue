@@ -2,7 +2,7 @@
   <div class="post-wrapper">
     <div class="post" v-if="postInfo" @click="showDetail">
       <div class="post-header post-row">
-        <div class="post-id">#{{ getPostID(postInfo) }}</div>
+        <div class="post-id">#{{ postInfo.post_id }}</div>
         <img
           class="post-avatar"
           :src="
@@ -13,11 +13,11 @@
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
           <img class="post-icon" :src="'/imgs/icons/sf-star.svg'" alt="" />
-          <span>{{ postInfo.follow_num }}</span>
+          <span>{{ postInfo.post_follower_num }}</span>
         </div>
         <div class="post-data">
           <img class="post-icon" src="/imgs/icons/sf-comment.svg" alt="" />
-          <span>{{ postInfo.comment_num }}</span>
+          <span>{{ postInfo.post_comment_num }}</span>
         </div>
       </div>
       <div class="post-content post-row">
@@ -29,7 +29,7 @@
     <div class="dim transit" @click="hideDetail"></div>
     <div class="post-expand transit" v-if="postInfo">
       <div class="post-header post-row">
-        <div class="post-id">#{{ getPostID(postInfo) }}</div>
+        <div class="post-id">#{{ postInfo.post_id }}</div>
         <img
           class="post-avatar"
           :src="
@@ -40,11 +40,11 @@
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
           <img class="post-icon" :src="'/imgs/icons/sf-star.svg'" alt="" />
-          <span>{{ postInfo.follow_num }}</span>
+          <span>{{ postInfo.post_follower_num }}</span>
         </div>
         <div class="post-data">
           <img class="post-icon" src="/imgs/icons/sf-comment.svg" alt="" />
-          <span>{{ postInfo.comment_num }}</span>
+          <span>{{ postInfo.post_comment_num }}</span>
         </div>
       </div>
       <div class="post-content post-row">
@@ -57,7 +57,6 @@
 </template>
 
 <script setup>
-const { getPostID } = useSummary();
 defineProps(["postInfo"]);
 
 function showDetail(e) {
