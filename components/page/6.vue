@@ -2,8 +2,16 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="button-container">
       <div class="night-decor decor" :style="{ '--_opacity-day': opacity }">
-        <img src="/imgs/6/plant.svg" alt="" class="plant" />
-        <img src="/imgs/6/cat.svg" alt="" class="cat" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/6/plant.svg"
+          alt=""
+          class="plant"
+        />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/6/cat.svg"
+          alt=""
+          class="cat"
+        />
       </div>
       <DayNightToggle
         :style="{ '--_opacity-day': opacity }"
@@ -34,8 +42,16 @@
           <Post :post-info="summary?.earliest_post.data" />
         </div>
         <div class="cities" :style="{ '--_opacity-day': opacity }">
-          <img src="/imgs/6/city1.svg" alt="" class="city city1" />
-          <img src="/imgs/6/city2.svg" alt="" class="city city2" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/6/city1.svg"
+            alt=""
+            class="city city1"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/6/city2.svg"
+            alt=""
+            class="city city2"
+          />
         </div>
         <div class="scroll-hint hide">
           <ScrollUpHint />
@@ -43,7 +59,7 @@
       </div>
       <div class="subpage subpage2">
         <img
-          src="/imgs/6/stars.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/6/stars.webp"
           alt=""
           class="stars"
           :style="{ '--_opacity-day': opacity }"

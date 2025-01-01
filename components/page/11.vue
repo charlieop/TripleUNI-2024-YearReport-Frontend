@@ -2,7 +2,11 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="content-block pt1">
       <div class="figure title hide">
-        <img src="/imgs/11/bg1.svg" alt="" class="bg" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/11/bg1.svg"
+          alt=""
+          class="bg"
+        />
         <span>今年</span>
       </div>
       <p class="hide">
@@ -16,21 +20,49 @@
       </p>
     </div>
     <div class="decor-img">
-      <img src="/imgs/11/bg.webp" alt="" class="decor bg-img hide" />
-      <img src="/imgs/11/stars.webp" alt="" class="decor stars hide" />
-      <img src="/imgs/11/satellite.webp" alt="" class="decor satellite hide" />
-      <img src="/imgs/11/sm-planet.webp" alt="" class="decor sm-planet hide" />
-      <img src="/imgs/11/lg-planet.webp" alt="" class="decor lg-planet hide" />
       <img
-        src="/imgs/11/white-planet.webp"
+        src="https://i.boatonland.com/report2024/assets/imgs/11/bg.webp"
+        alt=""
+        class="decor bg-img hide"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/11/stars.webp"
+        alt=""
+        class="decor stars hide"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/11/satellite.webp"
+        alt=""
+        class="decor satellite hide"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/11/sm-planet.webp"
+        alt=""
+        class="decor sm-planet hide"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/11/lg-planet.webp"
+        alt=""
+        class="decor lg-planet hide"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/11/white-planet.webp"
         alt=""
         class="decor white-planet hide"
       />
-      <img src="/imgs/11/lines.webp" alt="" class="lines" />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/11/lines.webp"
+        alt=""
+        class="lines"
+      />
     </div>
     <div class="content-block pt2">
       <div class="figure title hide">
-        <img src="/imgs/11/bg2.svg" alt="" class="bg" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/11/bg2.svg"
+          alt=""
+          class="bg"
+        />
         <span> 与去年相比 </span>
       </div>
       <p class="hide">

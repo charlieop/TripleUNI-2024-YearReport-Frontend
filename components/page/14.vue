@@ -10,7 +10,11 @@
       <p class="hide">
         你对这些
         <span class="highlight">
-          <img src="/imgs/14/highlight.svg" alt="" class="highlight-bg" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/14/highlight.svg"
+            alt=""
+            class="highlight-bg"
+          />
           <span class="highlight-text">emoji</span>
         </span>
         情有独钟
@@ -20,7 +24,11 @@
       <p class="hide">
         你没有常用的
         <span class="highlight">
-          <img src="/imgs/14/highlight.svg" alt="" class="highlight-bg" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/14/highlight.svg"
+            alt=""
+            class="highlight-bg"
+          />
           <span class="highlight-text">emoji</span>
         </span>
       </p>

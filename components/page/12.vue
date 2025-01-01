@@ -12,7 +12,7 @@
     <div class="content-block pt1">
       <p>那些被你掌握</p>
       <div class="figure title hide">
-        <img src="/imgs/12/bg.svg" alt="" class="bg" />
+        <img src="https://i.boatonland.com/report2024/assets/imgs/12/bg.svg" alt="" class="bg" />
         <span>流量密码</span>
       </div>
       <p class="hide">的树洞们</p>
@@ -51,8 +51,8 @@
       <p class="hide post-id">
         #{{ summary?.most_follow_post.post_id }}
       </p>
-      <img src="/imgs/12/eye1.svg" alt="" class="eye1 decor" />
-      <img src="/imgs/12/eye2.svg" alt="" class="eye2 decor" />
+      <img src="https://i.boatonland.com/report2024/assets/imgs/12/eye1.svg" alt="" class="eye1 decor" />
+      <img src="https://i.boatonland.com/report2024/assets/imgs/12/eye2.svg" alt="" class="eye2 decor" />
     </div>
 
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />

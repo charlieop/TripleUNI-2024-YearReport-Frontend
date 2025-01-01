@@ -1,6 +1,9 @@
 <template>
   <div class="hint-wrapper">
-    <img src="/imgs/arrow.svg" alt="" />
+    <img
+      src="https://i.boatonland.com/report2024/assets/imgs/arrow.svg"
+      alt=""
+    />
   </div>
 </template>
 

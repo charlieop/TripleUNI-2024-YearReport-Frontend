@@ -22,7 +22,10 @@
         <Post :post-info="summary?.user_first_see_post" />
       </div>
       <div class="mt-40 flex-col group_3">
-        <img class="image self-center image-draw" src="/imgs/8/Vector.webp" />
+        <img
+          class="image self-center image-draw"
+          src="https://i.boatonland.com/report2024/assets/imgs/8/Vector.webp"
+        />
 
         <div v-if="summary?.user_followed_top10" class="text-center">
           <p class="textAni hide">
@@ -30,7 +33,10 @@
             <span class="text_2"> 【年度前🔟热帖】 </span>
           </p>
           <p class="textAni hide">爱看热闹的小姐姐/小哥哥一枚吖</p>
-          <img class="image_2 handshake-ani" src="/imgs/8/8.webp" />
+          <img
+            class="image_2 handshake-ani"
+            src="https://i.boatonland.com/report2024/assets/imgs/8/8.webp"
+          />
         </div>
         <div v-else-if="summary?.user_commented_top10" class="text-center">
           <p class="textAni hide">
@@ -52,7 +58,10 @@
             <p class="textAni hide">{{ appName }}最热的树洞</p>
             <p class="textAni hide">真是个遗世独立的高人啊</p>
           </div>
-          <img src="/imgs/8/lengthwise.webp" class="image_3" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/8/lengthwise.webp"
+            class="image_3"
+          />
         </div>
       </div>
     </div>

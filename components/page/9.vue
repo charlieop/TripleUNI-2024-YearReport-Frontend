@@ -7,7 +7,11 @@
       </div>
       <p class="keyword hide">{{ summary?.user_frequent_view_keyword }}</p>
     </div>
-    <img src="/imgs/9/hand.webp" alt="" class="hand" />
+    <img
+      src="https://i.boatonland.com/report2024/assets/imgs/9/hand.webp"
+      alt=""
+      class="hand"
+    />
     <div class="content-block pt2">
       <p class="hide">你最常浏览的话题是...</p>
       <p class="keyword hide">{{ summary?.user_frequent_view_topic }}</p>

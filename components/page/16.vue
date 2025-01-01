@@ -13,8 +13,16 @@
       <p class="hide">搜索高频词是</p>
       <div class="searchbar">
         <span class="search-content">{{ searchContent }}&nbsp;</span>
-        <img src="/imgs/16/hamburger.webp" alt="" class="decor hamburger" />
-        <img src="/imgs/16/magnifier.webp" alt="" class="decor magnifier" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/16/hamburger.webp"
+          alt=""
+          class="decor hamburger"
+        />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/16/magnifier.webp"
+          alt=""
+          class="decor magnifier"
+        />
       </div>
       <p class="hide">「你得到你想要的答案了吗?」</p>
     </div>
@@ -45,8 +53,16 @@
       </p>
     </div>
     <div class="decor-img">
-      <img src="/imgs/16/bg.svg" alt="" class="bg" />
-      <img src="/imgs/16/star.svg" alt="" class="star" />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/16/bg.svg"
+        alt=""
+        class="bg"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/16/star.svg"
+        alt=""
+        class="star"
+      />
     </div>
     <ScrollUpHint v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-offwhite)" />

@@ -29,7 +29,11 @@
         </div>
       </div>
     </div>
-    <img src="/imgs/17/stroke.webp" alt="" class="stroke hide" />
+    <img
+      src="https://i.boatonland.com/report2024/assets/imgs/17/stroke.webp"
+      alt=""
+      class="stroke hide"
+    />
     <div class="content-block pt3 center">
       <div>
         <p class="hide">{{ appName }}帮你记得</p>

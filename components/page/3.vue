@@ -43,10 +43,26 @@
       </p>
 
       <div class="img-wrapper">
-        <img src="/imgs/3/bg.svg" alt="" class="bg" />
-        <img src="/imgs/3/bottle.svg" alt="" class="decor bottle hide" />
-        <img src="/imgs/3/wave.svg" alt="" class="decor wave" />
-        <img src="/imgs/3/bird.svg" alt="" class="decor bird hide" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/3/bg.svg"
+          alt=""
+          class="bg"
+        />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/3/bottle.svg"
+          alt=""
+          class="decor bottle hide"
+        />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/3/wave.svg"
+          alt=""
+          class="decor wave"
+        />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/3/bird.svg"
+          alt=""
+          class="decor bird hide"
+        />
       </div>
     </div>
 
@@ -107,7 +123,6 @@ const userRegisterDate = computed(() => {
 
 function init() {
   console.log(`Page ${PAGE_NUMBER} initialized`);
-
 }
 
 function onShow() {

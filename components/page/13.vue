@@ -1,6 +1,10 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
-    <img src="/imgs/13/blast.svg" alt="" class="blast hide" />
+    <img
+      src="https://i.boatonland.com/report2024/assets/imgs/13/blast.svg"
+      alt=""
+      class="blast hide"
+    />
     <div class="content-block pt1">
       <template v-if="summary?.user_frequent_post_keyword != ''">
         <p class="hide">你所发布的树洞中</p>
