@@ -12,7 +12,7 @@
     <div class="content-block pt1">
       <p>那些被你掌握</p>
       <div class="figure title hide">
-        <img src="https://i.boatonland.com/report2024/assets/imgs/12/bg.svg" alt="" class="bg" />
+        <img src="/imgs/12/bg.svg" alt="" class="bg" />
         <span>流量密码</span>
       </div>
       <p class="hide">的树洞们</p>
@@ -22,11 +22,11 @@
       <p class="hide figure">阅读量</p>
       <p class="hide">
         <span class="accent">最高</span> 达到了<span class="figure">{{
-          summary?.most_view_post.view_count
+          summary?.most_view_post?.view_count
         }}</span
         >次
       </p>
-      <p class="hide post-id">#{{ summary?.most_view_post.post_id }}</p>
+      <p class="hide post-id">#{{ summary?.most_view_post?.post_id }}</p>
     </div>
     <div class="content-block pt3" v-if="summary?.most_comment_post">
       <p class="hide figure">评论数</p>
@@ -37,7 +37,7 @@
         >条
       </p>
       <p class="hide post-id">
-        #{{ summary?.most_comment_post.post_id }}
+        #{{ summary?.most_comment_post?.post_id }}
       </p>
     </div>
     <div class="content-block pt4" v-if="summary?.most_follow_post">
@@ -49,10 +49,10 @@
         >次
       </p>
       <p class="hide post-id">
-        #{{ summary?.most_follow_post.post_id }}
+        #{{ summary?.most_follow_post?.post_id }}
       </p>
-      <img src="https://i.boatonland.com/report2024/assets/imgs/12/eye1.svg" alt="" class="eye1 decor" />
-      <img src="https://i.boatonland.com/report2024/assets/imgs/12/eye2.svg" alt="" class="eye2 decor" />
+      <img src="/imgs/12/eye1.svg" alt="" class="eye1 decor" />
+      <img src="/imgs/12/eye2.svg" alt="" class="eye2 decor" />
     </div>
 
     <ScrollUpHint style="filter: brightness(0.4)" v-show="shwoScrollUpHint" />
