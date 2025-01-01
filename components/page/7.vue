@@ -37,6 +37,7 @@ function init() {
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+  sendViewPageTracking(PAGE_NUMBER);
 
   let time = 0;
 

@@ -92,6 +92,9 @@ function init() {
 }
 
 function onShow() {
+  console.log(`Page ${PAGE_NUMBER} shown`);
+  sendViewPageTracking(PAGE_NUMBER);
+
   hide.value = false;
   let time = 0;
   // 这里的延时数组可根据需要调整
@@ -111,8 +114,6 @@ function onShow() {
     showHint.value = true;
     appendNextPage?.(PAGE_NUMBER); // 确保 appendNextPage 传递 true 参数
   }, time + 200);
-
-  console.log(`Page ${PAGE_NUMBER} shown`);
 }
 onMounted(() => {
   init();

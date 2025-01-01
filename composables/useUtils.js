@@ -13,3 +13,23 @@ export function unhideAll(page_num, queries) {
     }
   });
 }
+
+export function sendViewPageTracking(page_num) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get("token");
+  const body = new URLSearchParams({
+    token: token,
+    page: page_num,
+  });
+
+  const response = $fetch(
+    "https://api.uuunnniii.com/v4/report2024/record.php",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: body,
+    }
+  );
+}

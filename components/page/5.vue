@@ -191,6 +191,8 @@ function init() {
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+  sendViewPageTracking(PAGE_NUMBER);
+
   setTimeout(() => {
     drawChart();
     loading.value = false;

@@ -21,19 +21,34 @@ export const useSummary = () => {
         body: body,
       }
     );
+
     let data = undefined;
+    let code = undefined;
     try {
-      data = JSON.parse(response).data;
+      const pharse = JSON.parse(response);
+      data = pharse.data;
+      code = pharse.code;
     } catch (e) {
       console.error("Failed to fetch summary");
       console.log(response);
       return;
     }
-    if (!data) {
+    if (code !== 200) {
       console.error("Failed to fetch summary");
+      console.log(response);
+      if (code === 400) {
+        alert("无法找到你的年度总结数据, 明年再来吧!");
+      } else {
+        alert("我们遇到了一个错误, 请稍后重试. Code:" + code);
+      }
       return;
     }
 
+    if (!data) {
+      console.error("Failed to fetch summary");
+      console.log(response);
+      return;
+    }
     summary.value = data;
 
     console.log(data);

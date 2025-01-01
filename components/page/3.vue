@@ -112,6 +112,8 @@ function init() {
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+  sendViewPageTracking(PAGE_NUMBER);
+
   hide.value = false;
 
   let time = 0;

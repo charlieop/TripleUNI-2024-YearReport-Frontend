@@ -87,6 +87,7 @@ function init() {
 
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
+  sendViewPageTracking(PAGE_NUMBER);
 
   let time = 0;
   const delays = [700, 300, 300, 300, 300, 700, 300, 300, 300];
