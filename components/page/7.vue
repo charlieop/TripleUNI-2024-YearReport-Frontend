@@ -18,7 +18,11 @@
       <p class="hide comment">旷妈！人是野生的！</p>
       <p class="hide comment">让我们一起做一场海角天涯的梦</p>
 
-      <img src="/imgs/7/hand.webp" alt="" class="hand hide" />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/7/hand.webp"
+        alt=""
+        class="hand hide"
+      />
     </div>
     <ScrollUpHint v-show="shwoScrollUpHint" />
     <Footer style="--_clr-text: var(--clr-oragne)" />

@@ -23,48 +23,56 @@
       </p>
     </div>
     <div class="decor-img">
-      <img src="/imgs/15/bg.svg" alt="" class="bg" />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/15/bg.svg"
+        alt=""
+        class="bg"
+      />
       <div class="ul">
         <img
-          src="/imgs/15/ul-puzzle.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/15/ul-puzzle.webp"
           alt=""
           class="ul-puzzle decor hide"
         />
-        <img src="/imgs/15/cat.webp" alt="" class="cat decor hide" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/15/cat.webp"
+          alt=""
+          class="cat decor hide"
+        />
       </div>
 
       <div class="ll">
         <img
-          src="/imgs/15/ll-puzzle.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/15/ll-puzzle.webp"
           alt=""
           class="ll-puzzle decor hide"
         />
         <img
-          src="/imgs/15/ll-person.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/15/ll-person.webp"
           alt=""
           class="ll-person decor hide"
         />
       </div>
       <div class="ur">
         <img
-          src="/imgs/15/ur-puzzle.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/15/ur-puzzle.webp"
           alt=""
           class="ur-puzzle decor hide"
         />
         <img
-          src="/imgs/15/ur-person.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/15/ur-person.webp"
           alt=""
           class="ur-person decor hide"
         />
       </div>
       <div class="lr">
         <img
-          src="/imgs/15/lr-puzzle.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/15/lr-puzzle.webp"
           alt=""
           class="lr-puzzle decor hide"
         />
         <img
-          src="/imgs/15/lr-person.webp"
+          src="https://i.boatonland.com/report2024/assets/imgs/15/lr-person.webp"
           alt=""
           class="lr-person decor hide"
         />

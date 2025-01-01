@@ -14,11 +14,19 @@
         />
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
-          <img class="post-icon" src="/imgs/icons/sf-star.svg" alt="" />
+          <img
+            class="post-icon"
+            src="https://i.boatonland.com/report2024/assets/imgs/icons/sf-star.svg"
+            alt=""
+          />
           <span>{{ postInfo.post_follower_num }}</span>
         </div>
         <div class="post-data">
-          <img class="post-icon" src="/imgs/icons/sf-comment.svg" alt="" />
+          <img
+            class="post-icon"
+            src="https://i.boatonland.com/report2024/assets/imgs/icons/sf-comment.svg"
+            alt=""
+          />
           <span>{{ postInfo.post_comment_num }}</span>
         </div>
       </div>
@@ -43,11 +51,19 @@
         />
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
-          <img class="post-icon" src="/imgs/icons/sf-star.svg" alt="" />
+          <img
+            class="post-icon"
+            src="https://i.boatonland.com/report2024/assets/imgs/icons/sf-star.svg"
+            alt=""
+          />
           <span>{{ postInfo.post_follower_num }}</span>
         </div>
         <div class="post-data">
-          <img class="post-icon" src="/imgs/icons/sf-comment.svg" alt="" />
+          <img
+            class="post-icon"
+            src="https://i.boatonland.com/report2024/assets/imgs/icons/sf-comment.svg"
+            alt=""
+          />
           <span>{{ postInfo.post_comment_num }}</span>
         </div>
       </div>

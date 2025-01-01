@@ -2,13 +2,13 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="music-icon" v-if="!start">
       <img
-        src="/imgs/icons/music.webp"
+        src="https://i.boatonland.com/report2024/assets/imgs/icons/music.webp"
         alt=""
         v-if="playMusic"
         @click="playMusic = false"
       />
       <img
-        src="/imgs/icons/music-off.webp"
+        src="https://i.boatonland.com/report2024/assets/imgs/icons/music-off.webp"
         alt=""
         v-else
         @click="playMusic = true"
@@ -22,16 +22,48 @@
     <div class="content">
       <div>
         <div class="dome" :class="{ 'hide-decor': start }">
-          <img src="/imgs/1/dome.webp" alt="" class="frame" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/dome.webp"
+            alt=""
+            class="frame"
+          />
 
-          <img src="/imgs/1/UST.webp" alt="" class="decor ust" />
-          <img src="/imgs/1/HKU.webp" alt="" class="decor hku" />
-          <img src="/imgs/1/CU.webp" alt="" class="decor cu" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/UST.webp"
+            alt=""
+            class="decor ust"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/HKU.webp"
+            alt=""
+            class="decor hku"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/CU.webp"
+            alt=""
+            class="decor cu"
+          />
 
-          <img src="/imgs/1/comet.webp" alt="" class="decor comet" />
-          <img src="/imgs/1/stars-1.svg" alt="" class="decor stars stars-1" />
-          <img src="/imgs/1/stars-2.svg" alt="" class="decor stars stars-2" />
-          <img src="/imgs/1/light.svg" alt="" class="decor light" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/comet.webp"
+            alt=""
+            class="decor comet"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/stars-1.svg"
+            alt=""
+            class="decor stars stars-1"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/stars-2.svg"
+            alt=""
+            class="decor stars stars-2"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/1/light.svg"
+            alt=""
+            class="decor light"
+          />
         </div>
       </div>
       <div>
@@ -95,7 +127,6 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
   sendViewPageTracking(PAGE_NUMBER);
-
 }
 
 onMounted(() => {

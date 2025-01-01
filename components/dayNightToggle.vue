@@ -1,23 +1,39 @@
 <template>
   <div class="day-night-toggle">
     <div class="day">
-      <img src="/imgs/dayNightToggle/cloud2.svg" alt="" class="decor cloud2" />
-      <img src="/imgs/dayNightToggle/cloud1.svg" alt="" class="decor cloud1" />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/dayNightToggle/cloud2.svg"
+        alt=""
+        class="decor cloud2"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/dayNightToggle/cloud1.svg"
+        alt=""
+        class="decor cloud1"
+      />
     </div>
     <div class="night">
-      <img src="/imgs/dayNightToggle/stars.webp" alt="" class="decor stars" />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/dayNightToggle/stars.webp"
+        alt=""
+        class="decor stars"
+      />
     </div>
     <div class="toggle">
       <div class="inner">
-        <!-- <img src="/imgs/dayNightToggle/sun.svg" alt="" class="sun" /> -->
+        <!-- <img src="https://i.boatonland.com/report2024/assets/imgs/dayNightToggle/sun.svg" alt="" class="sun" /> -->
         <div class="sun"></div>
       </div>
       <div class="inner">
-        <img src="/imgs/dayNightToggle/moon.webp" alt="" class="moon" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/dayNightToggle/moon.webp"
+          alt=""
+          class="moon"
+        />
       </div>
       <!-- <div class="inner">
         <img
-          src="/imgs/dayNightToggle/shape.png"
+          src="https://i.boatonland.com/report2024/assets/imgs/dayNightToggle/shape.png"
           alt=""
           class="moon moon__full"
         />

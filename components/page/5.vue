@@ -6,16 +6,25 @@
         <span class="accent">{{ summary?.user_most_common_time_period }}</span>
       </p>
     </div>
-    <img class="image pos star-twinkle" src="/imgs/5/star out.webp" />
+    <img
+      class="image pos star-twinkle"
+      src="https://i.boatonland.com/report2024/assets/imgs/5/star out.webp"
+    />
     <div class="chart-wrapper imgAni hide" ref="chartRef"></div>
 
     <div class="equal-division">
       <div class="equal-division-item">
-        <img class="shrink-0 image_3 imgAni hide" src="/imgs/5/you.webp" />
+        <img
+          class="shrink-0 image_3 imgAni hide"
+          src="https://i.boatonland.com/report2024/assets/imgs/5/you.webp"
+        />
         <p class="ml-9 font_4 textAni hide">你</p>
       </div>
       <div class="equal-division-item">
-        <img class="shrink-0 image_3 imgAni hide" src="/imgs/5/all.webp" />
+        <img
+          class="shrink-0 image_3 imgAni hide"
+          src="https://i.boatonland.com/report2024/assets/imgs/5/all.webp"
+        />
         <span class="font_4 ml-9 textAni hide">大家</span>
       </div>
     </div>

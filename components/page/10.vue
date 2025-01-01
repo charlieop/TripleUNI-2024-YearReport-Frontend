@@ -1,10 +1,26 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="decor-img">
-      <img src="/imgs/10/bg.svg" alt="" class="bg" />
-      <img src="/imgs/10/fill.webp" alt="" class="decor fill hide" />
-      <img src="/imgs/10/lines.webp" alt="" class="decor lines hide" />
-      <img src="/imgs/10/nuts.webp" alt="" class="decor nuts hide" />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/10/bg.svg"
+        alt=""
+        class="bg"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/10/fill.webp"
+        alt=""
+        class="decor fill hide"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/10/lines.webp"
+        alt=""
+        class="decor lines hide"
+      />
+      <img
+        src="https://i.boatonland.com/report2024/assets/imgs/10/nuts.webp"
+        alt=""
+        class="decor nuts hide"
+      />
     </div>
     <div class="content-block pt1">
       <div>
@@ -63,7 +79,7 @@
       </div>
       <div class="accent hide">
         <img
-          src="/imgs/10/text-background.svg"
+          src="https://i.boatonland.com/report2024/assets/imgs/10/text-background.svg"
           alt=""
           class="text-background"
         />

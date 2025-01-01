@@ -1,12 +1,12 @@
 @font-face {
   font-family: "AaTangYuanTi";
-  src: url("/fonts/AaTangYuanTi-2.woff2") format("woff2");
+  src: url("https://i.boatonland.com/report2024/assets/fonts/AaTangYuanTi-2.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "IrishGrover";
-  src: url("/fonts/IrishGrover-Regular.woff2") format("woff2");
+  src: url("https://i.boatonland.com/report2024/assets/fonts/IrishGrover-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }

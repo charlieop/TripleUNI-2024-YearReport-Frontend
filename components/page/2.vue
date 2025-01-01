@@ -29,17 +29,33 @@
       <div class="image">
         <div class="images-wrapper">
           <img
-            src="/imgs/2/background.webp"
+            src="https://i.boatonland.com/report2024/assets/imgs/2/background.webp"
             alt=""
             class="base"
             :class="{ hide: hide }"
           />
           <div class="hour-hand clock-hand hide"></div>
           <div class="minute-hand clock-hand hide"></div>
-          <img src="/imgs/2/grass.webp" alt="" class="decor grass hide" />
-          <img src="/imgs/2/clock.webp" alt="" class="decor clock hide" />
-          <img src="/imgs/2/ground.svg" alt="" class="decor ground hide" />
-          <img src="/imgs/2/rabbit.svg" alt="" class="decor rabbit hide" />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/2/grass.webp"
+            alt=""
+            class="decor grass hide"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/2/clock.webp"
+            alt=""
+            class="decor clock hide"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/2/ground.svg"
+            alt=""
+            class="decor ground hide"
+          />
+          <img
+            src="https://i.boatonland.com/report2024/assets/imgs/2/rabbit.svg"
+            alt=""
+            class="decor rabbit hide"
+          />
         </div>
       </div>
     </div>

@@ -2,8 +2,14 @@
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="group content-block">
       <div class="group_2">
-        <img class="image run-ltr" src="/imgs/4/person.webp" />
-        <img class="image_2 run-ltr" src="/imgs/4/2.webp" />
+        <img
+          class="image run-ltr"
+          src="https://i.boatonland.com/report2024/assets/imgs/4/person.webp"
+        />
+        <img
+          class="image_2 run-ltr"
+          src="https://i.boatonland.com/report2024/assets/imgs/4/2.webp"
+        />
       </div>
       <div class="mt-12">
         <div class="textAni" style="animation-delay: 0.2s">
@@ -41,7 +47,11 @@
     </div>
     <div class="group_3">
       <div class="section">
-        <img src="/imgs/4/background.webp" alt="" class="background-img" />
+        <img
+          src="https://i.boatonland.com/report2024/assets/imgs/4/background.webp"
+          alt=""
+          class="background-img"
+        />
         <slot></slot>
         <div class="group_4">
           <div class="section_2"></div>
@@ -57,11 +67,20 @@
           </div>
         </div>
         <div class="group_6">
-          <img class="image_5" src="/imgs/4/smiles.webp" />
-          <img class="image_4 pos_3" src="/imgs/4/broken heart.webp" />
+          <img
+            class="image_5"
+            src="https://i.boatonland.com/report2024/assets/imgs/4/smiles.webp"
+          />
+          <img
+            class="image_4 pos_3"
+            src="https://i.boatonland.com/report2024/assets/imgs/4/broken heart.webp"
+          />
         </div>
       </div>
-      <img class="image_3 pos star-in" src="/imgs/4/star in.webp" />
+      <img
+        class="image_3 pos star-in"
+        src="https://i.boatonland.com/report2024/assets/imgs/4/star in.webp"
+      />
     </div>
 
     <ScrollUpHint v-if="showHint" />
@@ -240,7 +259,7 @@ onMounted(() => {
 .section {
   display: flex;
   flex-direction: column;
-  
+
   position: relative; /* 添加相对定位 */
   height: 8.75rem;
   width: 100%;
@@ -267,7 +286,7 @@ onMounted(() => {
   flex-direction: column;
 
   position: relative;
- 
+
   padding-top: 1.88rem;
   width: 100%;
 }
@@ -316,12 +335,12 @@ onMounted(() => {
 .group_6 {
   position: absolute;
   margin-top: -1.88rem;
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   justify-content: start;
-  align-items:start;
-  top:1rem;
-  left:3vw;
+  align-items: start;
+  top: 1rem;
+  left: 3vw;
 }
 
 .image_5 {
@@ -348,7 +367,6 @@ onMounted(() => {
   width: 21.88rem;
   /* 17.25rem ≈ 276px -> 276 / 852 * 100% ≈ 32.4vh */
   height: 17.25rem;
-
 }
 
 .text_2 {
