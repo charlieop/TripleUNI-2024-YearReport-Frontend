@@ -13,9 +13,16 @@
       >
         <p class="desc">{{ achievement.description }}</p>
         <div class="row">
-          <p class="title">{{ achievement.title }}</p>
+          <p class="title">
+            {{ achievement.title }}
+          </p>
           <img
-            :src="'/imgs/17/' + achievement.importance + '.webp'"
+            :src="
+              $config.app.baseURL +
+              'imgs/17/' +
+              achievement.importance +
+              '.webp'
+            "
             alt=""
             class="icon"
           />
@@ -37,11 +44,18 @@
         <p class="desc">{{ achievement.description }}</p>
         <div class="row">
           <img
-            :src="'/imgs/17/' + achievement.importance + '.webp'"
+            :src="
+              $config.app.baseURL +
+              'imgs/17/' +
+              achievement.importance +
+              '.webp'
+            "
             alt=""
             class="icon"
           />
-          <p class="title">{{ achievement.title }}</p>
+          <p class="title">
+            {{ achievement.title }}
+          </p>
         </div>
       </div>
     </div>
@@ -90,7 +104,6 @@ async function onShow() {
         left: card.offsetWidth * (achievementCardsPt2.length - i),
         behavior: "smooth",
       });
-      console.log(i, card.offsetWidth);
     }, (time += 100));
   });
 
@@ -115,7 +128,6 @@ async function onShow() {
   achievementCardsPt4.forEach((card, i) => {
     setTimeout(() => {
       pt4.scrollTo({ left: i * card.offsetWidth, behavior: "smooth" });
-      console.log(i, card.offsetWidth);
     }, (time += 100));
   });
 
@@ -179,6 +191,7 @@ onMounted(() => {
   flex-shrink: 0;
   scroll-snap-align: center;
 
+  white-space: nowrap;
   text-wrap: nowrap;
 
   display: flex;
@@ -186,7 +199,6 @@ onMounted(() => {
   align-items: center;
   flex-direction: column;
   gap: 0.25rem;
-  overflow-y: scroll;
 }
 .achievement-card::before {
   content: "";
@@ -215,11 +227,12 @@ onMounted(() => {
 
 .title {
   font-size: var(--fs-large);
+  overflow: clip;
+  overflow-x: visible;
 }
 .desc {
-  font-size: var(--fs-accent);
   text-align: center;
-  padding: 0 1rem;
+  line-height: 0.75;
 }
 
 .center {

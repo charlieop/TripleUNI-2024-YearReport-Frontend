@@ -38,7 +38,7 @@
         </div>
       </template>
       <template v-else>
-        <p class="right hide"><br />你没有收藏过任何小众的帖子</p>
+        <p class="right hide"><br />你没有收藏过任何小众的树洞</p>
         <div class="right">
           <p class="hide">是还没有找到你的共鸣</p>
           <p class="hide">还是天生不爱收藏呢</p>
@@ -52,13 +52,13 @@
           有<span class="figure">{{
             summary?.user_followed_no_review_post_count
           }}</span
-          >条帖子
+          >条树洞
         </p>
         <p class="hide">你围观后再也没看过</p>
       </div>
       <div v-else>
         <p class="figure hide">不过</p>
-        <p class="hide"><span>每一个</span>收藏的帖子你都会回看</p>
+        <p class="hide"><span>每一个</span>收藏的树洞你都会回看</p>
         <p class="hide">再看的时候，心绪会不会不同呢</p>
       </div>
       <div class="accent hide">

@@ -2,7 +2,7 @@
   <div class="app-wrapper">
     <NuxtRouteAnnouncer />
     <div class="app">
-      <audio src="/audio/bgm.mp3" id="bgm" loop></audio>
+      <audio :src="$config.app.baseURL + 'audio/bgm.mp3'" id="bgm" loop></audio>
       <div class="overlay" v-if="!isScreenSizeOk && showWarning">
         很抱歉<br />
         你的屏幕尺寸过小<br />

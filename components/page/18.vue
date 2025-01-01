@@ -1,8 +1,9 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <div class="content-block">
-      <p class="large">这是2024年度总结的最后一页</p>
-      <p class="large">在这里放GPT生成的文案 & 图片(如果有的话)</p>
+      <p class="large">你的AI总结: {{ summary?.ai_title }}</p>
+      <img :src="summary?.ai_image" alt="" />
+      <p class="">{{ summary?.ai_description }}</p>
     </div>
   </div>
 </template>
@@ -42,5 +43,10 @@ onMounted(() => {
     #ddc5f7 93%
   );
   padding-top: calc(0.08 * var(--height));
+
+  min-height: var(--height);
+  height: fit-content;
+
+  padding-block: 3rem 10rem;
 }
 </style>

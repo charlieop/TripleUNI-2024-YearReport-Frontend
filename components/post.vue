@@ -6,13 +6,15 @@
         <img
           class="post-avatar"
           :src="
-            'https://i.boatonland.com/avatar/' + ( postInfo.user_avatar || 'ufo') + '.svg'
+            'https://i.boatonland.com/avatar/' +
+            (postInfo.user_avatar || 'ufo') +
+            '.svg'
           "
           alt=""
         />
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
-          <img class="post-icon" :src="'/imgs/icons/sf-star.svg'" alt="" />
+          <img class="post-icon" src="/imgs/icons/sf-star.svg" alt="" />
           <span>{{ postInfo.post_follower_num }}</span>
         </div>
         <div class="post-data">
@@ -33,13 +35,15 @@
         <img
           class="post-avatar"
           :src="
-            'https://i.boatonland.com/avatar/' + ( postInfo.user_avatar || 'ufo') + '.svg'
+            'https://i.boatonland.com/avatar/' +
+            (postInfo.user_avatar || 'ufo') +
+            '.svg'
           "
           alt=""
         />
         <div class="post-type">{{ postInfo.post_topic }}</div>
         <div class="post-data">
-          <img class="post-icon" :src="'/imgs/icons/sf-star.svg'" alt="" />
+          <img class="post-icon" src="/imgs/icons/sf-star.svg" alt="" />
           <span>{{ postInfo.post_follower_num }}</span>
         </div>
         <div class="post-data">
@@ -115,8 +119,6 @@ function hideDetail(e) {
 .active {
   opacity: 1 !important;
 }
-
-
 
 .post-expand {
   color: #101010;

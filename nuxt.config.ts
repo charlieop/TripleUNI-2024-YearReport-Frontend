@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     "@/assets/css/style.css",
   ],
   ssr: false,
-  // app: {
-  //   baseURL: "/2025YearSummary-Preview/",
-  // },
+  app: {
+    baseURL: "/2025YearSummary-Preview/",
+  },
 });

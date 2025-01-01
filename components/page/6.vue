@@ -79,7 +79,7 @@
 
 <script setup>
 const PAGE_NUMBER = 6;
-const { summary, appName } = useSummary();
+const { summary, appName, fetchAIContent } = useSummary();
 
 const opacity = ref(1);
 const shwoScrollUpHint = ref(false);
@@ -119,7 +119,10 @@ function init() {
     opacity.value = 1 - limitedScrollX / page_width;
 
     if (firstShowPage2) return;
-    if (opacity.value <= 0.1) onShowPage2();
+    if (opacity.value <= 0.1) {
+      onShowPage2();
+      firstShowPage2 = true;
+    }
   });
 }
 
@@ -145,6 +148,8 @@ function onShow() {
 
 function onShowPage2() {
   let time = 0;
+
+  fetchAIContent();
 
   setTimeout(() => {
     unhideAll(PAGE_NUMBER, [".subpage2 .prompt"]);

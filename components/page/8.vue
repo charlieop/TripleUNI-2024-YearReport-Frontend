@@ -49,7 +49,7 @@
             <p class="textAni hide">
               你<span class="text_2">完全没有</span>涉足过
             </p>
-            <p class="textAni hide">{{ appName }}最热的帖子</p>
+            <p class="textAni hide">{{ appName }}最热的树洞</p>
             <p class="textAni hide">真是个遗世独立的高人啊</p>
           </div>
           <img src="/imgs/8/lengthwise.webp" class="image_3" />
@@ -238,8 +238,8 @@ onMounted(() => {
 .special {
   display: grid;
   place-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .group_5 {
