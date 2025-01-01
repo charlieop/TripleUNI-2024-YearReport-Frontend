@@ -1,7 +1,10 @@
 <template>
   <div class="page" :class="`page${PAGE_NUMBER}`" :id="`page${PAGE_NUMBER}`">
     <p class="figure">感谢你观看</p>
-    <p class="large">2024{{ appName }}年度总结</p>
+    <div>
+      <p class="large">2024</p>
+      <p class="large">{{ appName }}年度总结</p>
+    </div>
     <p class="accent">祝你新的一年万事如意, 身体健康</p>
     <p class="accent">让我们明年再见!</p>
     <Footer />
@@ -19,7 +22,6 @@ function init() {
 function onShow() {
   console.log(`Page ${PAGE_NUMBER} shown`);
   sendViewPageTracking(PAGE_NUMBER);
-
 }
 
 onMounted(() => {
@@ -31,7 +33,7 @@ onMounted(() => {
 
 <style scoped>
 .page19 {
-  background: var(--clr-brown);
+  background: var(--clr-green);
 
   display: flex;
   flex-direction: column;

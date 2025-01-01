@@ -19,7 +19,7 @@
     </div>
     <div class="pt2">
       <div class="img-wrapper hide">
-        <img :src="summary?.ai_image" alt="" />
+        <img :src="$config.app.baseURL + summary?.ai_image" alt="" />
       </div>
       <p class="title hide">--{{ summary?.ai_title }}</p>
 
@@ -170,7 +170,7 @@ onMounted(() => {
 
 .bottom {
   position: absolute;
-  bottom: calc( - var(--height) - var(--width) / 5 * 4);
+  bottom: calc(- var(--height) - var(--width) / 5 * 4);
   width: 100%;
 }
 
@@ -211,13 +211,15 @@ onMounted(() => {
   object-position: center;
 }
 .text-wrapper p {
+  font-size: 0.875em;
+  white-space: pre-wrap;
   position: absolute;
   top: 5%;
   left: 0;
   width: 100%;
   height: 90%;
   overflow-y: scroll;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem 4.5rem 1.5rem;
   scrollbar-width: thin; /* For Firefox */
 }
 

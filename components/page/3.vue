@@ -21,7 +21,7 @@
         <p class="hide">我们已经认识了<span class="accent">很久了</span></p>
         <p class="hide">久到{{ appName }}都已经忘记和你第一次见面的日子</p>
       </div>
-      <div v-if="summary?.user_age">
+      <div v-if="summary?.user_create_date_till_now">
         <p class="hide">
           {{ appName }}与你相伴已经<span class="figure">{{
             summary?.user_create_date_till_now

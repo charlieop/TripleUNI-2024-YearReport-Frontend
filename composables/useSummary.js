@@ -4,58 +4,9 @@ export const useSummary = () => {
 
   const fetchSummary = async () => {
     if (summary.value) return;
+    summary.value = DUMMY_DATA;
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token");
-    const body = new URLSearchParams({
-      token: token,
-    });
-
-    const response = await $fetch(
-      "https://api.uuunnniii.com/v4/report2024/get.php",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: body,
-      }
-    );
-
-    let data = undefined;
-    let code = undefined;
-    let msg = undefined;
-    try {
-      const pharse = JSON.parse(response);
-      data = pharse.data;
-      code = pharse.code;
-      msg = pharse.msg;
-    } catch (e) {
-      console.error("Failed to fetch summary");
-      console.log(response);
-      return;
-    }
-    if (code !== 200) {
-      console.error("Failed to fetch summary");
-      console.log(response);
-      if (code === 400) {
-        alert("无法找到你的年度总结数据, 明年再来吧!");
-      } else {
-        alert("我们遇到了一个错误, 请稍后重试." + "\nMsg:" + msg + "\nCode:" + code);
-      }
-      return;
-    }
-
-    if (!data) {
-      console.error("Failed to fetch summary");
-      console.log(response);
-      return;
-    }
-    summary.value = data;
-
-    console.log(data);
-
-    setAppName(data.user_school_label);
+    setAppName(DUMMY_DATA.user_school_label);
   };
 
   const fetchAIContent = async () => {
@@ -67,42 +18,9 @@ export const useSummary = () => {
     )
       return;
 
-    console.log("fetching AI content...");
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token");
-    const body = new URLSearchParams({
-      token: token,
-    });
-
-    const response = await $fetch(
-      "https://api.uuunnniii.com/v4/report2024/ai.php",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: body,
-      }
-    );
-    let data = undefined;
-    try {
-      data = JSON.parse(response);
-    } catch (e) {
-      console.error("Failed to fetch AI content");
-      console.log(response);
-      return;
-    }
-    if (!data) {
-      console.error("Failed to fetch AI content");
-      return;
-    }
-
-    summary.value.ai_description = data.ai_description;
-    summary.value.ai_image = data.ai_image;
-    summary.value.ai_title = data.ai_title;
-
-    console.log(data);
+    summary.value.ai_description = DUMMY_DATA.ai_description;
+    summary.value.ai_image = DUMMY_DATA.ai_image;
+    summary.value.ai_title = DUMMY_DATA.ai_title;
   };
 
   function setAppName(schoolLabel) {
@@ -148,7 +66,7 @@ const DUMMY_DATA = {
   ai_description:
     "故事发生在繁忙而充满活力的香港大学校园，主角Vector是一个热爱探索与学习的学生。他在林荫道中漫步，思考着自己的未来，与此同时，他的耳边不断传来各式各样的声音——同学们在讨论金融市场和各种名企的实习机会以及街头巷尾那些有趣的话题。\n\nVector是一个好奇心旺盛的人，他从不轻易停止对新领域的探索。虽然自今年初以来他的发帖量减少了，但他在校园活动中依旧活跃。每到下午，他倾向于在学校图书馆或者咖啡厅里坐上几个小时，手里捧着笔记本，记录自己偶然想到的灵感或是某个研究课题的点滴想法。\n\n在他的网络生活中，他频繁使用着特定的表情符号，不时地在讨论某些商业相关话题的树洞中留下可爱的痕迹。他的搜索记录显示，他对某个神秘关键词“gxr”极感兴趣，这或许是一种联结，将其与拓展视野和人际关系的渴望联系在一起。\n\n在一个阳光明媚的下午，他再次驻足在论坛上，他看到了一则关于职场经验分享的帖子，忍不住留下了自己的评论和思考。为了更好地为自己规划一条充满潜力的职业道路，他开始围观别人丰富的职场经历，观察他们的成功与失误。\n\nVector的生活看似简单，却充满了惊喜。他热爱生活中的小冒险，无论是参与学校的街访活动，还是在图书馆中孜孜不倦地汲取知识。Vector的故事尚未结束，这位勤勉的年轻人在校园内外都留下了积极的足迹，并始终期待着探索更多未知的可能性。",
   ai_image:
-    "https://i.boatonland.com/report2024/MAWazn754ZphYNxmr74MHB2bKPF8P3aT.png",
+    "/imgs/MAWazn754ZphYNxmr74MHB2bKPF8P3aT.png",
   ai_title: "充满探求的校园多面手",
   earliest_post: {
     date: "2024-02-13",
@@ -165,9 +83,9 @@ const DUMMY_DATA = {
       ],
       post_is_uni: true,
       post_media: null,
-      post_msg: "fwb协议自取",
+      post_msg: "好想出去玩啊啊啊啊",
       post_msg_markdown: null,
-      post_msg_short: "fwb协议自取",
+      post_msg_short: "好想出去玩啊啊啊啊",
       post_msg_short_is_complete: true,
       post_public: 0,
       post_topic: "情感",
@@ -365,9 +283,9 @@ const DUMMY_DATA = {
   user_comment_for_top10:
     "你能自己申请退学吗？不能至少先把奖学金捐出来做慈善了，这样洞友可能就心善不举报你了",
   user_commented_top10: true,
-  user_create_date: null,
-  user_create_date_rank: null,
-  user_create_date_till_now: null,
+  user_create_date: "2023-04-01",
+  user_create_date_rank: 43,
+  user_create_date_till_now: 1000,
   user_date_count: 334,
   user_first_see_post: {
     is_author: false,
@@ -401,7 +319,7 @@ const DUMMY_DATA = {
   user_followed_top10: false,
   user_frequent_emoji: ["😭", "😅", "📚", "😡", "🔍"],
   user_frequent_post_keyword: "啊啊啊",
-  user_frequent_search_keyword: "gxr",
+  user_frequent_search_keyword: "写前端好难",
   user_frequent_search_keyword_user_count: 230,
   user_frequent_view_keyword: "生活",
   user_frequent_view_topic: "投票",
@@ -487,7 +405,7 @@ const DUMMY_DATA = {
   user_post_count_rank_percentage: 98.99,
   user_school_label: "HKU",
   user_search_count: 1592,
-  user_serial: "vector",
+  user_serial: "测试用户",
   user_stayup_percentage: 51.5,
   user_view_post_count: 7950,
   user_view_post_count_percentage: 98.28,
