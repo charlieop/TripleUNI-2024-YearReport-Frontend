@@ -18,7 +18,7 @@
           </p>
           <img
             :src="
-              $config.app.baseURL +
+              'https://i.boatonland.com/report2024/assets/' +
               'imgs/17/' +
               achievement.importance +
               '.webp'
@@ -49,7 +49,7 @@
         <div class="row">
           <img
             :src="
-              $config.app.baseURL +
+              'https://i.boatonland.com/report2024/assets/' +
               'imgs/17/' +
               achievement.importance +
               '.webp'
