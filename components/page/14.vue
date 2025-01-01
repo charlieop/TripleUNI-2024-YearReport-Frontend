@@ -89,7 +89,7 @@ onMounted(() => {
 
 <style scoped>
 .page14 {
-  background-color: var(--clr-purplr);
+  background-color: var(--clr-purple);
   padding-top: calc(0.04 * var(--height));
 }
 .content-block {

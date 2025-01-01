@@ -16,6 +16,8 @@ import Page15 from "~/components/page/15.vue";
 import Page16 from "~/components/page/16.vue";
 import Page17 from "~/components/page/17.vue";
 import Page18 from "~/components/page/18.vue";
+import Page19 from "~/components/page/19.vue";
+
 
 export const PAGES = {
   Page1: Page1,
@@ -36,6 +38,7 @@ export const PAGES = {
   Page16: Page16,
   Page17: Page17,
   Page18: Page18,
+  Page19: Page19,
 };
 
 export const showUpTo = ref(1);

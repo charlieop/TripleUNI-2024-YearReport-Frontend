@@ -115,7 +115,7 @@ onMounted(() => {
   padding: 0.375rem;
   overflow: hidden;
   border: 2px solid var(--clr-brown);
-  background-color: var(--clr-purplr);
+  background-color: var(--clr-purple);
   animation: music-icon-spin 10s linear infinite;
 }
 @keyframes music-icon-spin {
@@ -334,12 +334,12 @@ onMounted(() => {
   aspect-ratio: 3.3 / 1;
   color: var(--clr-offwhite);
   /* -webkit-text-stroke: 1.3px var(--clr-black); */
-  text-shadow: 2px 2px 0 color-mix(in lab, var(--clr-purplr), var(--clr-brown));
+  text-shadow: 2px 2px 0 color-mix(in lab, var(--clr-purple), var(--clr-brown));
   transition: all 0.1s ease-in-out;
 }
 .start-button:active {
   scale: 0.95;
-  text-shadow: 1px 1px 0 var(--clr-purplr);
+  text-shadow: 1px 1px 0 var(--clr-purple);
 }
 .start-button::before {
   content: "";
@@ -371,6 +371,6 @@ onMounted(() => {
   text-shadow: none;
   text-align: center;
   font-size: 0.5rem;
-  color: var(--clr-purplr);
+  color: var(--clr-purple);
 }
 </style>
