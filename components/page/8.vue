@@ -238,8 +238,8 @@ onMounted(() => {
 .special {
   display: grid;
   place-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .group_5 {
